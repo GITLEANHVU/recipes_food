@@ -1,0 +1,126 @@
+#recipe{
+ margin-top: 80px;
+}
+.title{
+    text-align: center;
+    color: orange;
+}
+.form-search{
+    display: flex;
+}
+.icon-search{
+    width: 20px;
+}
+input#input--search {
+    width: 80%;
+    border-radius: 3px;
+    border: 1px solid #999;
+    padding: 3px;
+}
+.btn-search{
+    padding-top: 2px;
+    padding-bottom: 3px;
+    margin-left: 4px;
+}
+/* RECIPE LIST */
+.recipe-list{
+   margin-top: 50px;
+}
+.recipe-title{
+    text-align: center;
+}
+.box-sort-by {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    float: right;
+    font-family: 'Lora',serif;
+}
+.sort-by {
+    margin: 0;
+    color: #666;
+    text-transform: none;
+    font-weight: 400;
+    font-size: 14px;
+}
+.sort-list{
+    list-style: none;
+    display: flex;
+    margin-bottom: 0;
+}
+.products-sort-order {
+    color: #999;
+    text-decoration: none;
+    float: right;
+    margin-left: 10px;
+    border: 1px solid #ebebeb;
+    min-width: 187px;
+    text-align: left;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 8px;
+}
+
+
+
+
+/*  */
+.all-product{
+    margin: 40px 0;
+    font-family: "Lora", Sans-serif;
+    text-decoration: none;
+    font-size: 2.1rem;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 1px;
+    color: #141d23;
+    padding: 60px 3px 0 3px;
+    height: 100%;
+}
+.all-product img{
+    width:100%;
+    height: 140px;
+}
+.content{
+    margin-bottom: 30px;
+}
+.card-title {
+    color: orange;
+    margin-bottom: 25px;
+}
+.card-text {
+    color: #999999;
+    font-size: 12px;
+    margin-bottom: 25px;
+}
+.card{
+    height: 520px;
+}
+.btn-show{
+    font-size: 12px !important;
+    border-radius: 4px !important;
+    padding: 0 5px;
+}
+.btn-show{
+    margin-right: 5px;
+    font-size: 10px !important;
+    font-weight: 500;
+    line-height: 34px;
+}
+.btn-handle{
+    display: flex;
+}
+.icon-update{
+    margin-right: 6px;
+}
+/* pagination */
+.pagination{
+    display: flex;
+    justify-content: center;
+}
+.pagination-list{
+    display: flex;
+    list-style: none;
+}
