@@ -22,7 +22,7 @@ const Header = () => {
             </li><li className="nav-item">
               <a className="nav-link" href="#">Logout</a>
             </li>
-            <span className="nav-indicator"></span>
+            {/* <span className="nav-indicator"></span> */}
           </ul>
         </div>
       </div>
