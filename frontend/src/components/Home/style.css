@@ -89,7 +89,6 @@
     margin-right: 10px;
 }
 
-/* Start button download & demo */
 .downloads a, .downloads span {
     margin-left:10px;
     text-decoration: none;
@@ -129,17 +128,6 @@
     transition: all 0.3s;
     border: 2px solid red;
 }
-.downloadbutton::before, .downloadbutton::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    bottom: 0;
-    left: 0;
-    z-index: 1;
-    transition: all 0.3s;
-    border: 2px solid blue;
-}
 .button:hover::after {
     animation-name: rotatecw;
     animation-duration: 2s;
@@ -163,7 +151,6 @@
     from {transform: rotate(0deg);}
     to {transform: rotate(-360deg);}
 }
-/* End button download & demo */
 
 
 
