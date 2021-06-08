@@ -1,15 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Odibee+Sans&display=swap');
-@media only screen and (max-width: 600px) {
-    .navbar-light .navbar-toggler {
-        color: rgba(0,0,0,.55);
-        border-color: rgba(0,0,0,.1);
-        background: white;
-    }
-    .nav-link{
-       width: 100px !important;
-       text-align: center !important;
-    }
-}
+/* @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Odibee+Sans&display=swap');
 .navbar-brand{
     font-family: 'Lobster', cursive;
     color: red !important;
@@ -59,3 +48,19 @@
     z-index: 1;
     border-radius: 8px 8px 0 0;
 }
+
+
+
+@media only screen and (max-width: 600px) {
+    .nav-link{
+       width: 100px !important;
+       text-align: center !important;
+    }
+}
+@media only screen and (max-width: 991px) {
+    .navbar-light .navbar-toggler {
+        color: rgba(0,0,0,.55);
+        border-color: rgba(0,0,0,.1);
+        background: white;
+    }
+} */

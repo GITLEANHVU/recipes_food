@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './login.css'
 import CreateAccount from './CreateAccount';
 import Login from './Login';
+import { AuthContext } from '../../Contexts/AuthContext';
+
 const Index = () => {
+  const [auth, setAuth] = useContext(AuthContext);
   return (
     <div className="body-form">
+
       <Login />
       {/* <CreateAccount /> */}
     </div>
