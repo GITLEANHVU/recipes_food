@@ -29,6 +29,11 @@ export default function Home() {
         { id: "2", img: "https://parkofideas.com/foodz/demo1/wp-content/uploads/2019/03/demo1-1215178083-1-238x238.jpg", name: "Pizza Bianca", description: "Garlic Flatbread with Mozzarella  Parmesan · Garlic · Rosemary" },
         { id: "3", img: "https://parkofideas.com/foodz/demo1/wp-content/uploads/2019/03/demo1-1048717514-1-238x238.jpg", name: "Pizza Bianca", description: "Garlic Flatbread with Mozzarella  Parmesan · Garlic · Rosemary" },
         { id: "4", img: "https://parkofideas.com/foodz/demo1/wp-content/uploads/2019/03/demo1-1207476969-1-238x238.jpg", name: "Pizza Bianca", description: "Garlic Flatbread with Mozzarella  Parmesan · Garlic · Rosemary" },
+        { id: "5", img: "https://parkofideas.com/foodz/demo1/wp-content/uploads/2019/03/demo1-1207476969-1-238x238.jpg", name: "Pizza Bianca", description: "Garlic Flatbread with Mozzarella  Parmesan · Garlic · Rosemary" },
+        { id: "6", img: "https://parkofideas.com/foodz/demo1/wp-content/uploads/2019/03/demo1-1207476969-1-238x238.jpg", name: "Pizza Bianca", description: "Garlic Flatbread with Mozzarella  Parmesan · Garlic · Rosemary" },
+        { id: "7", img: "https://parkofideas.com/foodz/demo1/wp-content/uploads/2019/03/demo1-1207476969-1-238x238.jpg", name: "Pizza Bianca", description: "Garlic Flatbread with Mozzarella  Parmesan · Garlic · Rosemary" },
+        { id: "8", img: "https://parkofideas.com/foodz/demo1/wp-content/uploads/2019/03/demo1-1207476969-1-238x238.jpg", name: "Pizza Bianca", description: "Garlic Flatbread with Mozzarella  Parmesan · Garlic · Rosemary" },
+        { id: "9", img: "https://parkofideas.com/foodz/demo1/wp-content/uploads/2019/03/demo1-1207476969-1-238x238.jpg", name: "Pizza Bianca", description: "Garlic Flatbread with Mozzarella  Parmesan · Garlic · Rosemary" },
     ])
     const [radioName, setRadioName] = useState(true);
     const [radioCate, setRadioCate] = useState(false);

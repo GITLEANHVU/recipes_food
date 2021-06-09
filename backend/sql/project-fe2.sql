@@ -36,7 +36,7 @@ CREATE TABLE recipe (
   steps TEXT comment 'buoc thuc hien | lưu lại mảng các json => "[{"stepID": 0, "stepDes": "nuong thit"}]"',
   ingredients TEXT comment 'thanh phan | Lưu lại mảng các json [{"ingrID":0, "ingrName: "ot", "ingrQuatity: 2", "ingrWeight: 1kg"}]',
   
-  created_at DATETIME DEFAULT current_timestamp(),
+  created_at DATETIME DEFAULT current_timestamp(), -- 23-2-2021-2-1.split()
 	updated_at DATETIME DEFAULT now(),
 
   category_id INT NOT NULL,

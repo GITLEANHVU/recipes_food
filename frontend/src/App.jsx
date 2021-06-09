@@ -1,43 +1,57 @@
-import Header from "./components/Header/Header";
-import Home from "./components/Home/Home";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
-import Search from "./components/MyRecipes/Search";
-import RecipeList from "./components/MyRecipes/RecipeList";
-import Pagination from "./components/MyRecipes/Pagination";
-import DetailRecipe from "./components/Detail/DetailRecipe";
+import React, { Fragment, useContext, useEffect } from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+// pages
+// import Search from "./Components/MyRecipes/Search";
+// import RecipeList from "./Components/MyRecipes/RecipeList";
+// import Pagination from "./Components/MyRecipes/Pagination";
+// import Header from "./Components/Header/Header";
+
+import DetailRecipe from "./Components/Detail/DetailRecipe";
+import Home from "./Components/Home/Home";
+import Login from "./Components/Login";
+import AddRecipe from "./Components/AddRecipe/AddRecipe";
+import MyRecipes from "./Components/MyRecipes/RecipeList";
+
+
+// contexts
+import { AuthContext } from './Contexts/AuthContext';
+// custom hook
+import useFetch from './hooks/useFetch'
+import Nav from "./Components/Header/Nav";
+import CreateAccount from "./Components/Login/CreateAccount";
 function App() {
+  const [auth, setAuth] = useContext(AuthContext);
+  const [{ response, error, isLoading }, doFetch] = useFetch("https://jsonplaceholder.typicode.com/todos/");
+  useEffect(() => { doFetch(); }, [doFetch]);
+  console.log("App: ", response, error, isLoading)
+
   return (
     <Router>
-      <div className="app-recipes_food">
 
-        <Header />
-        <Switch>
-          <Route exact path="/home">
-            <Home />
-          </Route>
+      <Nav />
+      <Switch>
+        <Route exact path="/"> <Home /> </Route>
 
-          <Route path="/my-recipe">
-            <Search />
-            <RecipeList />
-            <Pagination />
-          </Route>
+        <Route path="/my-recipes"><MyRecipes /></Route>
 
-          <Route exact path="/detail-recipe">
-            <DetailRecipe></DetailRecipe>
-          </Route>
-        </Switch>
+        <Route path="/add-recipe"><AddRecipe /></Route>
 
-        <footer>
-          Footer
-       </footer>
-      </div>
+        <Route path="/detail-recipe"><DetailRecipe /></Route>
+
+        <Route path="/login"><Login /></Route>
+
+        <Route path="/register"><CreateAccount /></Route>
+      </Switch>
     </Router>
   );
 }
 
 export default App;
+
+
+// const Main = () => {
+//   return auth.isAuth ?
+//     "Da dang nhap"
+//     :
+//     "Chua dang nhap";
+// }
