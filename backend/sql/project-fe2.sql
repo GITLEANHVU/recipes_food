@@ -4,7 +4,7 @@
 
 -- set up: Create database name is `project-fe2`
 
-CREATE TABLE accounts (
+CREATE TABLE account (
   id INT PRIMARY KEY AUTO_INCREMENT,
 	name VARCHAR(100) not null,
 	email VARCHAR(100) not null UNIQUE,
@@ -17,17 +17,18 @@ CREATE TABLE accounts (
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
-CREATE TABLE categories (
+CREATE TABLE category (
   id INT PRIMARY KEY AUTO_INCREMENT,
   name VARCHAR(255) NOT NULL UNIQUE,
   description text,
   account_id INT NOT NULL,
+  FOREIGN KEY (account_id) REFERENCES account(id),
   created_at DATETIME DEFAULT current_timestamp(),
 	updated_at DATETIME DEFAULT now()
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
-CREATE TABLE recipes (
+CREATE TABLE recipe (
   id INT PRIMARY KEY AUTO_INCREMENT,
   name  varchar(255),
   image varchar(255) default '#',
@@ -45,7 +46,7 @@ CREATE TABLE recipes (
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
-CREATE TABLE comments (
+CREATE TABLE comment(
   id INT PRIMARY KEY AUTO_INCREMENT,
   content text,
   created_at DATETIME DEFAULT current_timestamp(),
