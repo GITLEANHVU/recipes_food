@@ -1,7 +1,7 @@
-const read_single_url = `http://localhost/project-fe2/backend/api/Comment/read_single.php`;
-const create_url = `http://localhost/project-fe2/backend/api/Comment/create.php`;
-const update_url = `http://localhost/project-fe2/backend/api/Comment/update.php`;
-const delete_url = `http://localhost/project-fe2/backend/api/Comment/delete.php`;
+const read_single_url = `http://localhost/recipes_food/backend/api/Comment/read_single.php`;
+const create_url = `http://localhost/recipes_food/backend/api/Comment/create.php`;
+const update_url = `http://localhost/recipes_food/backend/api/Comment/update.php`;
+const delete_url = `http://localhost/recipes_food/backend/api/Comment/delete.php`;
 
 const comment_data = {
  id:'1',

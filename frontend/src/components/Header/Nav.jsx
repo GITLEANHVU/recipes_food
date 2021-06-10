@@ -19,7 +19,7 @@ const navStyle = {
     e.target.style.textShadow = ''
   }
 }
-console.log(window.location.href)
+// console.log(window.location.href)
 function Nav() {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark sticky-top" style={navStyle.navNavbar}>

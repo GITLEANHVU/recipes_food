@@ -1,7 +1,4 @@
 <?php
-//header
-header('Access-Control-Allow-Origin: *');
-header('Content-Type: application/json');
 
 // Include model
 include_once('./../../config/Database.php');

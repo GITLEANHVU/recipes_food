@@ -4,7 +4,7 @@
 
 ## Quick Start
 
-> Import the project-fe2.sql file, change the params in the config/Database.php file to your own
+> Import the recipes_food.sql file, change the params in the config/Database.php file to your own
 
 ## App Info
 
