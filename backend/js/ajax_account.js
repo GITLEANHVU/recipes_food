@@ -1,7 +1,7 @@
-const read_single_url = `http://localhost/project-fe2/backend/api/Account/read_single.php`;
-const create_url = `http://localhost/project-fe2/backend/api/Account/create.php`;
-const update_url = `http://localhost/project-fe2/backend/api/Account/update.php`;
-const delete_url = `http://localhost/project-fe2/backend/api/Account/delete.php`;
+const read_single_url = `http://localhost/recipes_food/backend/api/Account/read_single.php`;
+const create_url = `http://localhost/recipes_food/backend/api/Account/create.php`;
+const update_url = `http://localhost/recipes_food/backend/api/Account/update.php`;
+const delete_url = `http://localhost/recipes_food/backend/api/Account/delete.php`;
 
 const account_data = {
   name: 'test update thanh cong version 2',

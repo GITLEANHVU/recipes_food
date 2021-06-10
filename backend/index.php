@@ -70,14 +70,14 @@ $comment_model = new CommentModel();
   <h1>Fetch</h1>
 
   <!-- do not comment this line script -->
-  <script src="./js/ajax_functions.js"></script>
+  <!-- <script src="./js/ajax_functions.js"></script> -->
   <!-- test functions from ajax_functions.js -->
-  <script>console.log(fetchFunction)</script>
+  <!-- <script>console.log(fetchFunction)</script> -->
 
 
   <!-- <script src="./js/ajax_account.js"></script> -->
   <!-- <script src="./js/ajax_category.js"></script> -->
-  <script src="./js/ajax_comment.js"></script>
+  <!-- <script src="./js/ajax_comment.js"></script> -->
 
 
 
