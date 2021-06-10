@@ -26,7 +26,8 @@ function App() {
     
     <Router>
       <Nav />
-      <Switch>
+      <UploadFiles />
+      {/* <Switch> */}
         {/* <Route exact path="/"> <Home /> </Route> */}
 
         {/* <Route path="/my-recipes"><MyRecipes /></Route> */}
@@ -35,10 +36,10 @@ function App() {
 
         {/* <Route path="/detail-recipe"><DetailRecipe /></Route> */}
 
-        <Route path="/login"><Login /></Route>
+        {/* <Route path="/login"><Login /></Route> */}
 
         {/* <Route path="/register"><CreateAccount /></Route> */}
-      </Switch>
+      {/* </Switch> */}
     </Router>
   );
 }
@@ -54,3 +55,24 @@ export default App;
 // }
 
 
+function UploadFiles() {
+  const handleUploadFile = e => {
+    const files = e.target.files;
+    const formData = new FormData();
+    formData.append('sendimage', files[0]);
+    // console.log(formData)
+    fetch(`http://localhost/recipes_food/backend/api/upload.php`, {
+      mode: "no-cors",
+      method: "POST",
+      body: formData
+    })
+      .then(res => res)
+      .then(result => console.log(result));
+  }
+  return (
+    <form>
+      <h1>Upload file</h1>
+      <input onChange={e => handleUploadFile(e)} type="file" name="sendimage" />
+    </form>
+  );
+}
