@@ -7,11 +7,11 @@ import { AuthContext } from '../../Contexts/AuthContext';
 const Index = () => {
   const [auth, setAuth] = useContext(AuthContext);
   return (
-    <div className="body-form">
-
-      <Login />
-      {/* <CreateAccount /> */}
-    </div>
+    <React.Fragment>
+      {/* <Login />
+    <CreateAccount /> */}
+   
+      </React.Fragment>
   );
 }
 
