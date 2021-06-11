@@ -2,9 +2,9 @@ import React, { useContext, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 // pages
 
-// import Home from "./Components/Home/Home";
+import Home from "./Components/Home/Home";
 import Login from "./Components/Login";
-// import AddRecipe from "./Components/AddRecipe/AddRecipe";
+import AddRecipe from "./Components/AddRecipe/AddRecipe";
 // import MyRecipes from "./Components/MyRecipes/RecipeList";
 // import DetailRecipe from "./Components/Detail/DetailRecipe";
 
@@ -27,19 +27,19 @@ function App() {
     <Router>
       <Nav />
       <UploadFiles />
-      {/* <Switch> */}
-        {/* <Route exact path="/"> <Home /> </Route> */}
+      <Switch>
+        <Route exact path="/"> <Home /> </Route>
 
         {/* <Route path="/my-recipes"><MyRecipes /></Route> */}
 
-        {/* <Route path="/add-recipe"><AddRecipe /></Route> */}
+        <Route path="/add-recipe"><AddRecipe /></Route>
 
         {/* <Route path="/detail-recipe"><DetailRecipe /></Route> */}
 
         {/* <Route path="/login"><Login /></Route> */}
 
         {/* <Route path="/register"><CreateAccount /></Route> */}
-      {/* </Switch> */}
+      </Switch>
     </Router>
   );
 }
@@ -61,7 +61,7 @@ function UploadFiles() {
     const formData = new FormData();
     formData.append('sendimage', files[0]);
     // console.log(formData)
-    fetch(`http://localhost/recipes_food/backend/api/upload.php`, {
+    fetch(`http://localhost:83/recipes_food/backend/api/upload.php`, {
       mode: "no-cors",
       method: "POST",
       body: formData
