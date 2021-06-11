@@ -86,7 +86,7 @@ export default function Home() {
 
             <div className="row">
                 {data.map((item, index) => (
-                    <div className="col-sm-3 pizza-4" key={index} >
+                    <div className="col-12 col-md-3 col-sm-6 pizza-4" key={index} >
                         <div className="from-btn"  >
                             <button className="delete" type="submit" onClick={() => (handleDelete(item.id))} >
                                 <svg viewBox="0 0 384 384" width="14" height="16" >

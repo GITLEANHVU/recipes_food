@@ -10,8 +10,8 @@ class Database
   private $DB_HOST = 'localhost';
   private $DB_USER = 'root';
   private $DB_PASS = '';
-  private $DB_NAME = 'project-fe2';
-  private $DB_PORT  = '3306';
+  private $DB_NAME = 'recipes_food';
+  private $DB_PORT  = '3308';
 
     /**
    * @ Property connection

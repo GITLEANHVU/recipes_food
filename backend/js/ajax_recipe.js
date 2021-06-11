@@ -1,8 +1,8 @@
-const read_single_url = `http://localhost/project-fe2/backend/api/Recipe/read_single.php`;
-const create_url = `http://localhost/project-fe2/backend/api/Recipe/create.php`;
-const update_url = `http://localhost/project-fe2/backend/api/Recipe/update.php`;
-const read_url = `http://localhost/project-fe2/backend/api/Recipe/read.php`;
-const delete_url = `http://localhost/project-fe2/backend/api/Recipe/delete.php`;
+const read_single_url = `http://localhost/recipes_food/backend/api/Recipe/read_single.php`;
+const create_url = `http://localhost/recipes_food/backend/api/Recipe/create.php`;
+const update_url = `http://localhost/recipes_food/backend/api/Recipe/update.php`;
+const read_url = `http://localhost/recipes_food/backend/api/Recipe/read.php`;
+const delete_url = `http://localhost/recipes_food/backend/api/Recipe/delete.php`;
 
 const recipe_data = {
     name: 'Update',

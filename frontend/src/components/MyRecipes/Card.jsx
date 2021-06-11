@@ -33,9 +33,7 @@ function Card(props) {
                                 </div>
                             )
                                 : ""
-
                         }
-
                     </div>
 
                 </div>

@@ -3,12 +3,12 @@ nav.navbar {
   text-transform: uppercase;
   font-weight: 600;
   letter-spacing: 1.1px;
-  background-color: blueviolet;
+  /* background-color: blueviolet; */
+  background:linear-gradient(to top, #F27121, #E94057, #8A2387);
   border-radius: 7px;
 }
 
-.navbar-collapse .collapse .show,
-#navbarSupportedContent {
+.navbar-collapse .collapse .show, #navbarSupportedContent {
   transition: .4s;
 }
 
@@ -26,7 +26,7 @@ nav.navbar {
 }
 
 .navbar-dark .navbar-nav .nav-link {
-  color: rgba(255,255,255, .8)
+  color: rgba(255, 255, 255, .8)
 }
 
 .navbar-dark .navbar-nav .nav-link:hover {
