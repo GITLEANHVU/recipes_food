@@ -2,10 +2,10 @@ import React, { Fragment, useContext, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 // pages
 
-// import Home from "./Components/Home/Home";
+import Home from "./Components/Home/Home";
 import Login from "./Components/Login";
 import AddRecipe from "./Components/AddRecipe/AddRecipe";
-// import MyRecipes from "./Components/MyRecipes/RecipeList";
+import MyRecipe from "./Components/MyRecipes/MyRecipe";
 // import DetailRecipe from "./Components/Detail/DetailRecipe";
 
 
@@ -15,7 +15,7 @@ import { AuthContext } from './Contexts/AuthContext';
 
 import useFetch from './hooks/useFetch'
 import Nav from "./Components/Header/Nav";
-// import CreateAccount from "./Components/Login/CreateAccount";
+import CreateAccount from "./Components/Login/CreateAccount";
 
 function App() {
   const [auth, setAuth] = useContext(AuthContext);
@@ -30,7 +30,7 @@ function App() {
       <Switch>
         {/* <Route exact path="/"> <Home /> </Route> */}
 
-        {/* <Route path="/my-recipes"><MyRecipes /></Route> */}
+        <Route path="/my-recipes"><MyRecipe /></Route>
 
         <Route path="/add-recipe"><AddRecipe /></Route>
 
