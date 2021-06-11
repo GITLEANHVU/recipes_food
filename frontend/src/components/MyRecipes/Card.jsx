@@ -5,9 +5,9 @@ function Card(props) {
     const [auth, setAuth] = useContext(AuthContext);
     const value = props.recipe
     return (
-        <div className="col-md-4">
+        <div className="col-md-3">
             <div className="card"  >
-                <img style={{width: "415px", height: "415px"}} src={value.imageLink} className="card-img-top img-fluid" alt="..." />
+                <img  src={value.imageLink} className="card-img-top img-fluid" alt="..." />
                 <div className="card-body">
                     <div className="content">
                         <h5 className="card-title">{value.title}</h5>

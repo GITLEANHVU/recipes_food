@@ -58,6 +58,9 @@
     z-index: 10;
     opacity: 0.9;
 }
+.cart-img{
+    width: 100%;
+}
 .cate-item{
     display: block;
     border-bottom: 1px solid #2f2f2f;
