@@ -1,10 +1,16 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 // pages
 
+<<<<<<< HEAD
 import Home from "./Components/Home/Home";
 import Login from "./Components/Login";
 import AddRecipe from "./Components/AddRecipe/AddRecipe";
+=======
+// import Home from "./Components/Home/Home";
+import Login from "./Components/Login/Login";
+// import AddRecipe from "./Components/AddRecipe/AddRecipe";
+>>>>>>> c4c768fee1079cac7c3134109f65bd619bf800ab
 // import MyRecipes from "./Components/MyRecipes/RecipeList";
 // import DetailRecipe from "./Components/Detail/DetailRecipe";
 
@@ -14,6 +20,7 @@ import { AuthContext } from './Contexts/AuthContext';
 
 import useFetch from './hooks/useFetch'
 import Nav from "./Components/Header/Nav";
+import CreateAccount from "./Components/Login/CreateAccount";
 // import CreateAccount from "./Components/Login/CreateAccount";
 
 function App() {
@@ -21,26 +28,47 @@ function App() {
   // const [{ response, error, isLoading }, doFetch] = useFetch("https://jsonplaceholder.typicode.com/todos/");
   // useEffect(() => { doFetch(); }, [doFetch]);
   // console.log("App: ", response, error, isLoading)
-  
+
   return (
+<<<<<<< HEAD
     
     <Router>
       <Nav />
       <UploadFiles />
       <Switch>
         <Route exact path="/"> <Home /> </Route>
+=======
+  
+     
+      <Router>
+        <Nav />
+        {/* <UploadFiles /> */}
+        <Switch>
+          {/* <Route exact path="/"> <Home /> </Route> */}
+>>>>>>> c4c768fee1079cac7c3134109f65bd619bf800ab
 
-        {/* <Route path="/my-recipes"><MyRecipes /></Route> */}
+          {/* <Route path="/my-recipes"><MyRecipes /></Route> */}
 
+<<<<<<< HEAD
         <Route path="/add-recipe"><AddRecipe /></Route>
+=======
+          {/* <Route path="/add-recipe"><AddRecipe /></Route> */}
+>>>>>>> c4c768fee1079cac7c3134109f65bd619bf800ab
 
-        {/* <Route path="/detail-recipe"><DetailRecipe /></Route> */}
+          {/* <Route path="/detail-recipe"><DetailRecipe /></Route> */}
 
-        {/* <Route path="/login"><Login /></Route> */}
+          <Route path="/login"><Login /></Route>
 
+<<<<<<< HEAD
         {/* <Route path="/register"><CreateAccount /></Route> */}
       </Switch>
     </Router>
+=======
+          <Route path="/register"> <CreateAccount /> </Route>
+        </Switch>
+      </Router>
+      
+>>>>>>> c4c768fee1079cac7c3134109f65bd619bf800ab
   );
 }
 
