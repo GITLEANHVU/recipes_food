@@ -22,6 +22,7 @@ function App() {
   // useEffect(() => { doFetch(); }, [doFetch]);
   // console.log("App: ", response, error, isLoading)
   return (
+<<<<<<< HEAD
     <React.Fragment>
       <Router>
         <Nav />
@@ -48,6 +49,26 @@ function App() {
         </Switch>
       </Router>
     </React.Fragment>
+=======
+
+    <Router>
+      <Nav />
+      <UploadFiles />
+      <Switch>
+        <Route exact path="/"> <Home /> </Route>
+
+        {/* <Route path="/my-recipes"><MyRecipes /></Route> */}
+
+        <Route path="/add-recipe"><AddRecipe /></Route>
+
+        {/* <Route path="/detail-recipe"><DetailRecipe /></Route> */}
+
+        <Route path="/login"><Login /></Route>
+
+        {/* <Route path="/register"><CreateAccount /></Route> */}
+      </Switch>
+    </Router>
+>>>>>>> 4cf662b74cd0c929746ea853ea987e0a31f002a8
   );
 }
 

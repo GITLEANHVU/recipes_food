@@ -12,11 +12,13 @@
     list-style: none;
     margin-left: 500px;
     padding-top: 20px;
+
 }
 .selectoption_from{
-    width: 18%;
+    width: 16%;
     margin-left: 524px;
     margin-top: 7px;
+    border-radius: 5px;
 }
 .submit_buttom{
     width: 166px;
@@ -227,7 +229,7 @@
         padding-left: 0px;
     }
     .selectoption_from{
-        width: 25%;
+        width: 16%;
         margin: 0;
         margin-left: 110px;
     }
@@ -263,7 +265,7 @@
         padding-left: 0px;
     }
     .selectoption_from{
-        width: 25%;
+        width: 16%;
         margin: 0;
         margin-left: 200px;
     }
@@ -282,7 +284,7 @@
         padding-left: 0px;
     }
     .selectoption_from{
-        width: 25%;
+        width: 16%;
         margin: 0;
         margin-left: 400px;
     }
@@ -301,7 +303,7 @@
         padding-left: 0px;
     }
     .selectoption_from{
-        width: 25%;
+        width: 16%;
         margin: 0;
         margin-left: 500px;
     }
