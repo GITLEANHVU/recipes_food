@@ -23,6 +23,7 @@ export default function DetailRecipe() {
     }
     //dang loi
     function dateComment() {
+        // Cái quan trọng là ngày tháng thì không lấy
         var today = new Date();
         var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
         return time;
