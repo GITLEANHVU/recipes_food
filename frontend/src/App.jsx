@@ -3,10 +3,10 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 // pages
 
 import Home from "./Components/Home/Home";
-import Login from "./Components/Login/Login";
+import Login from "./Components/Login";
 import AddRecipe from "./Components/AddRecipe/AddRecipe";
-import MyRecipes from "./Components/MyRecipes/RecipeList";
-import DetailRecipe from "./Components/Detail/DetailRecipe";
+// import MyRecipes from "./Components/MyRecipes/RecipeList";
+// import DetailRecipe from "./Components/Detail/DetailRecipe";
 
 // contexts
 import { AuthContext } from './Contexts/AuthContext';
@@ -24,26 +24,24 @@ function App() {
   // console.log("App: ", response, error, isLoading)
 
   return (
-  
-     
-      <Router>
-        <Nav />
-        <UploadFiles />
-        <Switch>
-          <Route exact path="/"> <Home /> </Route>
 
-          <Route path="/my-recipes"><MyRecipes /></Route>
+    <Router>
+      <Nav />
+      <UploadFiles />
+      <Switch>
+        <Route exact path="/"> <Home /> </Route>
 
-          <Route path="/add-recipe"><AddRecipe /></Route>
+        {/* <Route path="/my-recipes"><MyRecipes /></Route> */}
 
-          <Route path="/detail-recipe"><DetailRecipe /></Route>
+        <Route path="/add-recipe"><AddRecipe /></Route>
 
-          <Route path="/login"><Login /></Route>
+        {/* <Route path="/detail-recipe"><DetailRecipe /></Route> */}
 
-          <Route path="/register"> <CreateAccount /> </Route>
-        </Switch>
-      </Router>
-      
+        <Route path="/login"><Login /></Route>
+
+        {/* <Route path="/register"><CreateAccount /></Route> */}
+      </Switch>
+    </Router>
   );
 }
 
