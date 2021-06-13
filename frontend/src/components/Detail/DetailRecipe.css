@@ -98,6 +98,7 @@
 }
 .form-comment{
     display: flex;
+    margin-top: 10px;
 }
 .btn-dang{
     float: right;
@@ -165,7 +166,9 @@
     padding-left: 10px;
     
 }
-
+/* .fa-heart:active{
+    color: red !important;
+} */
 .list-group-item-ingredient{
     display: block;
     padding: .5rem 1rem;
@@ -175,4 +178,15 @@
     border: 1px solid rgba(0,0,0,.125);
     width: auto;
     height: 100%;
+}
+.nameDate{
+    display: flex;
+}
+.dateRight{
+    position: relative;
+}
+.dateComment{
+    position: absolute;
+    right: 0;
+    font-size: 13px;
 }
