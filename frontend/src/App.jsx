@@ -83,6 +83,11 @@ export default App;
 
 
 // ************************************************ //
-// 234 hop; toi thu 2: xong sql, du lieu mau; toi thu 4: xong chuc nang;
+// 234 hop;
+
+// toi thu 2: xong sql,
+// toi thu 3: chay du lieu that, du lieu mau;
+// toi thu 4: xong chuc nang;
+
 // toi thu 5: fix loi NHỎ.
 // ************************************************ //

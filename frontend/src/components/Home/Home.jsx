@@ -2,7 +2,6 @@ import React, { useState, useContext } from 'react'
 import './style.css';
 import { AuthContext } from '../../Contexts/AuthContext';
 import { Link } from 'react-router-dom';
-const apiURL = `${process.env.REACT_APP_API_URL}`;
 
 const label_category = {
     paddingRight: "50px",
