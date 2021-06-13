@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import './create-recipe.css';
-
-
-
 export default function AddRecipe() {
   const [newRecipe, setNewRecipe] = useState({
     name: "",
@@ -22,7 +19,6 @@ export default function AddRecipe() {
     // update categories
     setCategoriesFromDB([...categoriesFromDB, newCategory]);
   }
-
   const [newIngredient, setNewIngredient] = useState('');
   const [tempIngredients, setTempIngredients] = useState([]);
   const handleAddNewIngredient = () => {
@@ -33,11 +29,13 @@ export default function AddRecipe() {
   const handleAddNewStep = () => {
     setTempSteps([...tempSteps, newStep]);
   }
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setNewRecipe({ ...newRecipe, ingredients: [...tempIngredients], steps: [...tempSteps] });
     console.log(newRecipe);
   }
+  
   return (
     <div className="body-add-recipe">
       <div className="container">
