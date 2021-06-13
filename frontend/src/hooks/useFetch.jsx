@@ -1,5 +1,5 @@
+// custom hook, make useFetch()
 import { useState, useEffect, useCallback } from "react";
-
 const useFetch = (url) => {
   console.log("useFetch started");
   const [response, setResponse] = useState(null);

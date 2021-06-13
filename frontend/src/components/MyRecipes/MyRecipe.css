@@ -21,7 +21,8 @@ body{
     width: 28px;
 }
 ::selection {
-    background: #212129;
+    background: #093d3b;
+    color: #fff;
  }
  .search-wrapper {
     position: absolute;

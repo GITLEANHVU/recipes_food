@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
+import React, { useState, useEffect } from 'react';
 import './DetailRecipe.css';
 
 export default function DetailRecipe() {
@@ -7,6 +6,14 @@ export default function DetailRecipe() {
     const [comment, setComment] = useState('');
     const [colorHeart, setColorHeart] = useState('black');
     
+    const [recipe, setRecipe] = useState({});
+    useEffect(() => {
+        // lay du lieu tu db
+
+        // set du lieu cho state
+
+    }, []);
+
     // mỗi thằng chứa 2 time riêng
     const [comments, setComments] = useState([
         { content: "", craeted_at: "", updated_at: "" }
@@ -47,9 +54,9 @@ export default function DetailRecipe() {
                             <img className="img-detail" src="https://image.cooky.vn/posproduct/g0/5075/s400x400/93644f58-2233-456c-b6f2-f670491e9f65.jpeg" alt="" />
                         </div>
                         <div className="status">
-                            <a href="#/" className="btn heart"><i className="fas fa-heart" style={{color:colorHeart}} onClick={()=>{setColorHeart("red")}}></i></a>
-                            <a href="#/" className="btn editRecipe"><i className="far fa-edit"></i></a>
-                            <a href="#/" className="btn deleteRecipe"><i className="fas fa-trash"></i></a>
+                            <button onClick={()=>{setColorHeart("red")}} className="btn heart"><i className="fas fa-heart" style={{color:colorHeart}}></i></button>
+                            <button className="btn editRecipe"><i className="far fa-edit"></i></button>
+                            <button className="btn deleteRecipe"><i className="fas fa-trash"></i></button>
                         </div>
                     </div>
                     <div className="col-8 sm-9">

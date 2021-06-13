@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './create-recipe.css';
 export default function AddRecipe() {
   const [newRecipe, setNewRecipe] = useState({
