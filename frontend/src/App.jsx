@@ -2,16 +2,10 @@ import React, { useContext, useEffect, useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 // pages
 
-<<<<<<< HEAD
 import Home from "./Components/Home/Home";
 import Login from "./Components/Login";
 import AddRecipe from "./Components/AddRecipe/AddRecipe";
-=======
-// import Home from "./Components/Home/Home";
-import Login from "./Components/Login/Login";
-// import AddRecipe from "./Components/AddRecipe/AddRecipe";
->>>>>>> c4c768fee1079cac7c3134109f65bd619bf800ab
-// import MyRecipes from "./Components/MyRecipes/RecipeList";
+import MyRecipe from "./Components/MyRecipes/MyRecipe";
 // import DetailRecipe from "./Components/Detail/DetailRecipe";
 
 // contexts
@@ -30,45 +24,23 @@ function App() {
   // console.log("App: ", response, error, isLoading)
 
   return (
-<<<<<<< HEAD
     
     <Router>
       <Nav />
-      <UploadFiles />
       <Switch>
         <Route exact path="/"> <Home /> </Route>
-=======
-  
-     
-      <Router>
-        <Nav />
-        {/* <UploadFiles /> */}
-        <Switch>
-          {/* <Route exact path="/"> <Home /> </Route> */}
->>>>>>> c4c768fee1079cac7c3134109f65bd619bf800ab
 
-          {/* <Route path="/my-recipes"><MyRecipes /></Route> */}
+          <Route path="/my-recipes"><MyRecipe /></Route>
 
-<<<<<<< HEAD
         <Route path="/add-recipe"><AddRecipe /></Route>
-=======
-          {/* <Route path="/add-recipe"><AddRecipe /></Route> */}
->>>>>>> c4c768fee1079cac7c3134109f65bd619bf800ab
 
           {/* <Route path="/detail-recipe"><DetailRecipe /></Route> */}
 
           <Route path="/login"><Login /></Route>
 
-<<<<<<< HEAD
         {/* <Route path="/register"><CreateAccount /></Route> */}
       </Switch>
     </Router>
-=======
-          <Route path="/register"> <CreateAccount /> </Route>
-        </Switch>
-      </Router>
-      
->>>>>>> c4c768fee1079cac7c3134109f65bd619bf800ab
   );
 }
 
