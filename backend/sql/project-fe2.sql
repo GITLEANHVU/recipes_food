@@ -1,5 +1,5 @@
 -- Created by LAV
--- Date Created 19/05/20	21
+-- Date Created 19/05/2021
 -- DB recipes food
 
 -- set up: Create database name is `recipes_food`
@@ -35,7 +35,7 @@ CREATE TABLE recipe (
   description text,
   steps TEXT comment 'buoc thuc hien | lưu lại mảng các json => "[{"stepID": 0, "stepDes": "nuong thit"}]"',
   ingredients TEXT comment 'thanh phan | Lưu lại mảng các json [{"ingrID":0, "ingrName: "ot", "ingrQuatity: 2", "ingrWeight: 1kg"}]',
-  
+
   created_at DATETIME DEFAULT current_timestamp(), 
 	updated_at DATETIME DEFAULT now(),
 
