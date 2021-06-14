@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function DetailRecipe() {
+export default function CommentRecipe() {
 
     const [comment, setComment] = useState('');
     const [comments, setComments] = useState([
