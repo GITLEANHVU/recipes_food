@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 export default function AddRecipe() {
   const { id } = useParams();
   const urlUpdate = process.env.REACT_APP_API_LAV_RECIPE_BY_ID;
-
+  const urlUploads = process.env.REACT_APP_UPLOADS;
   useEffect(() => {
     const getRecipe = async (url, id) => {
       const response = await fetch(url, {
@@ -30,7 +30,7 @@ export default function AddRecipe() {
             console.log(value.description)
             setNewRecipe({
               name: value.name,
-              image: value.image,
+              image: `${urlUploads}/${value.image}`,
               description: value.description,
               category: value.category,
               ingredients: ings,
@@ -38,6 +38,7 @@ export default function AddRecipe() {
             })
             setTempSteps(stps)
             setTempIngredients(ings);
+
           }
         });
 
@@ -111,7 +112,7 @@ export default function AddRecipe() {
               <div className="input-group">
                 <label>
                   <input onChange={e => setNewRecipe({ ...newRecipe, image: e.target.value })} type="file" className="form-control" />
-                  <img style={{ cursor: 'pointer' }} className="img-fluid img-thumbnail" alt="" />
+                  <img src={newRecipe.image} style={{ cursor: 'pointer' }} className="img-fluid img-thumbnail" alt="" />
                 </label>
               </div>
             </div>

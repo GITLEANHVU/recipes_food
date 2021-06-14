@@ -4,8 +4,8 @@ export const AuthContext = createContext();
 
 export const AuthContextProvider = (props) => {
   const [auth, setAuth] = useState({
-    isAuth: true,
-    user: {id: 1}
+    isAuth: false,
+    user: {id: null}
   });
   return (
     <AuthContext.Provider value={[auth, setAuth]}>
