@@ -2,13 +2,13 @@ import React, { useContext, useEffect, useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 // Components
-import DetailRecipe from "./Components/Detail/DetailRecipe";
-import Nav from "./Components/Header/Nav";
-import Home from "./Components/Home/Home";
-import MyRecipes from "./Components/MyRecipes/RecipeList";
-import AddRecipe from "./Components/AddRecipe/AddRecipe";
-import Login from "./Components/Login/Login";
-import CreateAccount from "./Components/Login/CreateAccount";
+import DetailRecipe from "./components/Detail/DetailRecipe";
+import Nav from "./components/Header/Nav";
+import Home from "./components/Home/Home";
+import MyRecipes from "./components/MyRecipes/RecipeList";
+import AddRecipe from "./components/AddRecipe/AddRecipe";
+import Login from "./components/Login/Login";
+import CreateAccount from "./components/Login/CreateAccount";
 
 // contexts
 import { AuthContext } from './Contexts/AuthContext';

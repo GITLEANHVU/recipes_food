@@ -61,34 +61,39 @@ CREATE TABLE comment(
 
 
 -- INSERT VALUES
+--TABLE ACCOUNT
+INSERT INTO `account` (`id`, `name`, `email`, `password`, `address`, `role`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'LAV', 'lav@gmail.com', '111', NULL, 'user', 1, '2021-06-13 22:42:33', '2021-06-13 22:42:33'),
+(2, 'TTMT', 'ttmt@gmail.com', '111', NULL, 'user', 1, '2021-06-13 22:42:55', '2021-06-13 22:42:55'),
+(3, 'TTHT', 'ttht@gmail.com', '111', NULL, 'user', 1, '2021-06-13 22:43:27', '2021-06-13 22:43:27');
 
--- TABLE CATEGORY
+-- TABLE CATEGORY - TRANG
 INSERT INTO `category` (`id`, `name`, `description`, `account_id`, `created_at`, `updated_at`) VALUES
-(1, 'Món kho', 'Món kho thường được làm bằng cách kho lên.', 5, '2021-05-22 22:45:54', '2021-05-22 22:45:54'),
-(2, 'Món luột', 'Món luột thường được làm bằng cách luột lên.', 5, '2021-05-22 22:46:32', '2021-05-22 22:46:32'),
-(3, 'Món nướng', 'Món nướng thường được làm bằng cách nướng lên.', 5, '2021-05-22 22:46:49', '2021-05-22 22:46:49'),
-(4, 'Món Chiên', 'Chiên giòn tất cả mọi thứ', 5, '2021-06-12 20:34:24', '2021-06-12 20:34:24'),
-(5, 'Món Canh', 'Moi thứ trên đời đều được nấu thành canh', 5, '2021-06-12 20:48:22', '2021-06-12 20:48:22'),
-(6, 'Món chay', 'Nên thanh tịnh trong mọi trường hợp', 5, '2021-06-12 20:48:22', '2021-06-12 20:48:22'),
-(7, 'Bánh', 'Bánh rất ngon', 5, '2021-06-12 20:48:22', '2021-06-12 20:48:22'),
-(8, 'Chè', 'Chè rất ngọt', 5, '2021-06-12 20:48:22', '2021-06-12 20:48:22'),
-(9, 'Pizza', 'Rất chi là béo', 5, '2021-06-12 20:48:22', '2021-06-12 20:48:22'),
-(10, 'Wague', 'Bò wague rất ngon', 5, '2021-06-12 20:48:22', '2021-06-12 20:48:22'),
-(11, 'Trà sữa', 'Trà sửa rất ngon nhưng rất béo', 5, '2021-06-12 20:48:22', '2021-06-12 20:48:22'),
-(12, 'Thức ăn nhanh', 'Rất mắc nhưng không ngon', 5, '2021-06-12 20:48:22', '2021-06-12 20:48:22'),
-(13, 'Trà Đào', 'Những miếng đào giòn sừng sực', 5, '2021-06-12 20:48:22', '2021-06-12 20:48:22'),
-(14, 'Món Trộn', 'Cực kì heo thỳ', 5, '2021-06-12 20:58:04', '2021-06-12 20:58:04'),
-(15, 'Món hầm', 'Hầm rất mềm', 5, '2021-06-12 20:58:04', '2021-06-12 20:58:04'),
-(16, 'Tráng miệng', 'Rất đa dạng', 5, '2021-06-12 20:58:04', '2021-06-12 20:58:04'),
-(17, 'Bánh mì', 'Tuyệt vời', 5, '2021-06-12 20:58:04', '2021-06-12 20:58:04'),
-(18, 'Lẩu', 'Rất hút người ăn', 5, '2021-06-12 20:58:04', '2021-06-12 20:58:04'),
-(19, 'Trứng cá tầm muối', 'Không có tiền ăn', 5, '2021-06-12 20:58:04', '2021-06-12 20:58:04'),
-(20, 'Ốp lết', 'Món nào làm cũng ngon', 5, '2021-06-12 20:58:04', '2021-06-12 20:58:04'),
-(21, 'Tốp mỡ', 'Béo mà giòn', 5, '2021-06-12 20:58:04', '2021-06-12 20:58:04');
+(1, 'Món kho', 'Món kho thường được làm bằng cách kho lên.', 1, '2021-05-22 22:45:54', '2021-05-22 22:45:54'),
+(2, 'Món luột', 'Món luột thường được làm bằng cách luột lên.', 1, '2021-05-22 22:46:32', '2021-05-22 22:46:32'),
+(3, 'Món nướng', 'Món nướng thường được làm bằng cách nướng lên.', 1, '2021-05-22 22:46:49', '2021-05-22 22:46:49'),
+(4, 'Món Chiên', 'Chiên giòn tất cả mọi thứ', 1, '2021-06-12 20:34:24', '2021-06-12 20:34:24'),
+(5, 'Món Canh', 'Moi thứ trên đời đều được nấu thành canh', 1, '2021-06-12 20:48:22', '2021-06-12 20:48:22'),
+(6, 'Món chay', 'Nên thanh tịnh trong mọi trường hợp', 1, '2021-06-12 20:48:22', '2021-06-12 20:48:22'),
+(7, 'Bánh', 'Bánh rất ngon', 1, '2021-06-12 20:48:22', '2021-06-12 20:48:22'),
+(8, 'Chè', 'Chè rất ngọt', 1, '2021-06-12 20:48:22', '2021-06-12 20:48:22'),
+(9, 'Pizza', 'Rất chi là béo', 1, '2021-06-12 20:48:22', '2021-06-12 20:48:22'),
+(10, 'Wague', 'Bò wague rất ngon', 1, '2021-06-12 20:48:22', '2021-06-12 20:48:22'),
+(11, 'Trà sữa', 'Trà sửa rất ngon nhưng rất béo',2, '2021-06-12 20:48:22', '2021-06-12 20:48:22'),
+(12, 'Thức ăn nhanh', 'Rất mắc nhưng không ngon', 2, '2021-06-12 20:48:22', '2021-06-12 20:48:22'),
+(13, 'Trà Đào', 'Những miếng đào giòn sừng sực', 2, '2021-06-12 20:48:22', '2021-06-12 20:48:22'),
+(14, 'Món Trộn', 'Cực kì heo thỳ', 3, '2021-06-12 20:58:04', '2021-06-12 20:58:04'),
+(15, 'Món hầm', 'Hầm rất mềm', 3, '2021-06-12 20:58:04', '2021-06-12 20:58:04'),
+(16, 'Tráng miệng', 'Rất đa dạng', 3, '2021-06-12 20:58:04', '2021-06-12 20:58:04'),
+(17, 'Bánh mì', 'Tuyệt vời', 3, '2021-06-12 20:58:04', '2021-06-12 20:58:04'),
+(18, 'Lẩu', 'Rất hút người ăn', 3, '2021-06-12 20:58:04', '2021-06-12 20:58:04'),
+(19, 'Trứng cá tầm muối', 'Không có tiền ăn', 3, '2021-06-12 20:58:04', '2021-06-12 20:58:04'),
+(20, 'Ốp lết', 'Món nào làm cũng ngon', 2, '2021-06-12 20:58:04', '2021-06-12 20:58:04'),
+(21, 'Tốp mỡ', 'Béo mà giòn', 2, '2021-06-12 20:58:04', '2021-06-12 20:58:04');
 
 -- 
---
--- Dumping data for table `recipe`
+-- Tiên
+-- Dumping data for table `recipe` 
 --
 
 INSERT INTO `recipe` (`id`, `name`, `image`, `description`, `steps`, `ingredients`, `created_at`, `updated_at`, `category_id`, `account_id`) VALUES
@@ -118,7 +123,38 @@ INSERT INTO `recipe` (`id`, `name`, `image`, `description`, `steps`, `ingredient
 (24, '15 phút có ngay đĩa vải "Elsa băng giá" đang hot rần rần trên mạng, không thử món tráng miệng ngon "đỉnh của đỉnh" là tiếc lắm nhé!', 'vai-dong-da.jpg', 'Nguyên liệu đơn giản, cách làm chẳng cầu kỳ, thưởng thức lại ngon "đỉnh của đỉnh", chẳng trách món mới lại hot như vậy! "Món này thì mình thấy cách làm khá là dễ, mình làm xong thì cho vào ngăn đá để làm đông lại. Tuy nhiên khi bỏ ra ăn luôn, món này sẽ khiến nhiều bạn răng yếu cảm thấy buốt. Mọi người không quen ăn kiểu lạnh như vậy thì để 1 lúc hãy thưởng thức nhé" - Chị Linh chia sẻ.', 'Vải bóc vỏ, bỏ hột. Chị em tách khéo để quả vải còn nguyên vẹn, không bị rách phần cùi.#Khuấy đều hỗn hợp gồm sữa chua, sữa đặc, nước cốt dừa cho hòa quyện rồi rót vào trái vải.#Cho vào ngăn đá tối thiểu 4 tiếng trước khi ăn nhé!', 'Sữa chua 1 hộp# Sữa đặc 50ml# Nước cốt dừa 50ml', '2021-06-14 19:55:58', '2021-06-14 19:55:58', 16, 1),
 (25, 'Mách chị em cách làm món tráng miệng thơm ngon chỉ cần 4 nguyên liệu: Từ người lớn đến trẻ con đều mê tít!', 'pudding-sua.jpg', 'Món tráng miệng mà chúng tôi gợi ý trong bài viết này đặc biệt phù hợp với các gia đình có trẻ nhỏ. Thông thường, các mẹ thường cho con ăn sữa chua hoặc váng sữa. Và nếu các bé đã bắt đầu có dấu hiệu ngấy 2 loại đồ tráng miệng trên thì cách làm pudding sữa này chắc chắn sẽ khiến cả bé lẫn ông bà, bố mẹ đều hào hứng đấy!\r\n\r\n', 'Cho vào bát: 100gr lòng trắng trứng cùng 30gr đường kính, dùng phới lồng đánh cho hỗn hợp hòa tan, tạo bọt sủi nhẹ như xà phòng.#Cho vào nồi: 1 muỗng canh nước, 50gr đường và đun trên ngọn lửa vừa, đồng thời dùng tay đảo đều nồi cho đến khi hỗn hợp nước đường tan, sôi lên và dần chuyển sang màu nâu cánh gián (màu caramel).#Tiếp theo, bạn cho vào 70gr heavy cream và dùng phới dẹt khuấy tan. Sau đó, cho 500ml sữa vào khuấy đều và đun trong khoảng 4-5 phút rồi tắt bếp. Kế tiếp chị em hãy lọc hỗn hợp qua rây lọc để phần kem sữa caramel được mềm mịn.#Đổ hỗn hợp pudding vào ly thủy tinh hoặc hộp thủy tinh, sử dụng giấy bạc bọc kín miệng ly/hộp.#Sau đó, cho ly/hũ pudding vào ngăn mát tủ lạnh.#Cho vào nồi 1 muỗng canh nước cùng 50gr đường, đun sôi nước đường trên lửa vừa cho đến khi hỗn hợp chuyển thành màu nâu cánh gián (màu caramel) thì tắt bếp.#Cuối cùng đổ vào 40ml nước và khuấy đều.#Múc 1 muỗng cà phê caramel đã nấu ở bước 4 lên và dàn đều bề mặt pudding, đợi khoảng 10-15 phút cho caramel đông lại.\r\n\r\n', 'Lòng trắng trứng 100gr (khoảng 4 quả trứng)#Đường kính 150gr#Heavy cream 150ml', '2021-06-14 20:06:08', '2021-06-14 20:06:08', 16, 3);
 
--- 
+-- Trường 
+-- Chèn dữ liệu phần comment
 
-
+INSERT INTO `comment` (`id`, `content`, `created_at`, `updated_at`, `account_id`, `recipe_id`) VALUES
+(1, 'Công thức khá chi tiết, tôi rất thích.', '2021-06-14 21:44:42', '2021-06-14 21:44:42', 3, 1),
+(2, 'Tôi rất thích công thức này, cảm ơn đã chia sẻ nó cho tôi.', '2021-06-14 21:44:42', '2021-06-14 21:44:42', 2, 2),
+(3, 'Ừm.. khá chi tiết đấy, tôi thích.', '2021-06-14 21:44:42', '2021-06-14 21:44:42', 1, 3),
+(4, 'Nice.', '2021-06-14 21:44:42', '2021-06-14 21:44:42', 3, 4),
+(5, '10 điểm! một công thức khá là tốn cơm.', '2021-06-14 21:44:42', '2021-06-14 21:44:42', 1, 5),
+(6, 'May quá công thức tôi đang tìm đây rồi. Cảm ơn admin đã chia sẽ.', '2021-06-14 21:44:42', '2021-06-14 21:44:42', 2, 6),
+(7, 'Hay!', '2021-06-14 21:44:42', '2021-06-14 21:44:42', 3, 7),
+(8, 'Thanks, tôi đã thực hiện và đã thành công.', '2021-06-14 21:44:42', '2021-06-14 21:44:42', 2, 8),
+(9, 'Tại sao giờ tôi không thấy công thức này trước ngày ra mắt tại nhà người yêu! hic.', '2021-06-14 21:44:42', '2021-06-14 21:44:42', 1, 9),
+(10, 'hehe món này lạ ghê.', '2021-06-14 21:44:42', '2021-06-14 21:44:42', 1, 10),
+(11, 'Thật tuyệt vời công thức khá chi tiết, tôi rất thích.', '2021-06-14 21:44:42', '2021-06-14 21:44:42', 2, 11),
+(12, 'Quá tốn cơm kkk.', '2021-06-14 21:44:42', '2021-06-14 21:44:42', 3, 12),
+(13, 'công thức này tôi đang tìm nè, cảm ơn ad nhiều.', '2021-06-14 21:44:42', '2021-06-14 21:44:42', 3, 13),
+(14, 'Có vẻ ngon đây.', '2021-06-14 21:44:42', '2021-06-14 21:44:42', 2, 14),
+(15, 'Cảm ơn bạn, công thức khá chi tiết và hấp dẫn.', '2021-06-14 21:44:42', '2021-06-14 21:44:42', 1, 15),
+(16, 'Tín đồ của chè đâu, điểm danh nàooo.', '2021-06-14 21:44:42', '2021-06-14 21:44:42', 3, 16),
+(17, 'Nhìn cách thức làm là thấy ngon rồi.', '2021-06-14 21:44:42', '2021-06-14 21:44:42', 2, 17),
+(18, 'Rất dể thực hiện theo công thức, cảm ơn món khá ngon.', '2021-06-14 21:44:42', '2021-06-14 21:44:42', 3, 18),
+(19, 'Quá tối, đây là thứ tôi đang cần.', '2021-06-14 22:03:55', '2021-06-14 22:03:55', 1, 19),
+(20, 'Món này nhỏ mê lắm nè.', '2021-06-14 22:03:55', '2021-06-14 22:03:55', 3, 20),
+(21, 'Nhanh đấy, rất hợp với người có ít thời gian như tôi.', '2021-06-14 22:03:55', '2021-06-14 22:03:55', 1, 21),
+(22, 'Có vẻ ngon nhỉ, phải thử mới được.', '2021-06-14 22:03:55', '2021-06-14 22:03:55', 2, 22),
+(23, 'Chi tiết quá, cảm ơn adim rất nhiều.', '2021-06-14 22:03:55', '2021-06-14 22:03:55', 2, 23),
+(24, '=)) mong có người nào đó thấy comment này mà làm cho tôi ăn.', '2021-06-14 22:03:55', '2021-06-14 22:03:55', 3, 24),
+(25, 'Phải thử mới được cảm ơn bạn dã chia sẽ.', '2021-06-14 22:03:55', '2021-06-14 22:03:55', 1, 25),
+(26, 'Tối nay phải nấu thêm cơm mới được. Miêu tả khá chi tiết cảm ơn bạn admin nhiều.', '2021-06-14 22:03:55', '2021-06-14 22:03:55', 2, 1),
+(27, 'Thèm.', '2021-06-14 22:03:55', '2021-06-14 22:03:55', 2, 3),
+(28, 'Thật tuyệt khi có người hướng dẫn món này, tôi rất thích.', '2021-06-14 22:03:55', '2021-06-14 22:03:55', 3, 6),
+(29, 'Đã đến lúc giải cứu các em vãi thơm ngon rôi.', '2021-06-14 22:03:55', '2021-06-14 22:03:55', 3, 10),
+(30, 'Được đấy, phải thử mới được.', '2021-06-14 22:03:55', '2021-06-14 22:03:55', 2, 25);
 -- 
