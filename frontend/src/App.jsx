@@ -7,7 +7,7 @@ import Nav from "./Components/Header/Nav";
 import Home from "./Components/Home/Home";
 import MyRecipes from "./Components/MyRecipes/RecipeList";
 import AddRecipe from "./Components/AddRecipe/AddRecipe";
-import Login from "./Components/Login";
+import Login from "./Components/Login/Login";
 import CreateAccount from "./Components/Login/CreateAccount";
 
 // contexts
@@ -36,9 +36,12 @@ function App() {
             <Home />
           </Route>
           <Route path="/my-recipes">
-          <MyRecipes />
+            <MyRecipes />
           </Route>
-          <Route path="/add-recipe">
+          <Route exact path="/add-recipe">
+            <AddRecipe />
+          </Route>
+          <Route  path="/add-recipe/:id">
             <AddRecipe />
           </Route>
           <Route path="/detail-recipe/:id"><DetailRecipe />
@@ -47,8 +50,8 @@ function App() {
             <Login />
           </Route>
           <Route path="/register">
-        <CreateAccount />
-        </Route>
+            <CreateAccount />
+          </Route>
         </Switch>
       </Router>
     </React.Fragment>

@@ -1,6 +1,49 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './create-recipe.css';
+import { useParams } from 'react-router-dom';
 export default function AddRecipe() {
+  const { id } = useParams();
+  const urlUpdate = process.env.REACT_APP_API_LAV_RECIPE_BY_ID;
+
+  useEffect(() => {
+    const getRecipe = async (url, id) => {
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          'Accept': 'application/json;charset=UTF-8'
+        },
+        body: JSON.stringify({ id: id }),
+      });
+      return await response.json();
+    }
+
+    if (id === undefined) {
+      // do something
+    } else {
+      console.log("Update recipe");
+      getRecipe(urlUpdate, id)
+        .then(result => {
+          if (result.length > 0) {
+            const value = result[0];
+            const ings = JSON.parse(JSON.parse(value.ingredients))
+            const stps = JSON.parse(JSON.parse(value.steps))
+            console.log(value.description)
+            setNewRecipe({
+              name: value.name,
+              image: value.image,
+              description: value.description,
+              category: value.category,
+              ingredients: ings,
+              steps: stps,
+            })
+            setTempSteps(stps)
+            setTempIngredients(ings);
+          }
+        });
+
+    }
+  }, [])
+
   const [newRecipe, setNewRecipe] = useState({
     name: "",
     image: "https://img.taste.com.au/z09DD4Ls/taste/2018/07/zucchini-lasagne-roll-ups-139165-1.jpg",
@@ -19,11 +62,13 @@ export default function AddRecipe() {
     // update categories
     setCategoriesFromDB([...categoriesFromDB, newCategory]);
   }
+
   const [newIngredient, setNewIngredient] = useState('');
   const [tempIngredients, setTempIngredients] = useState([]);
   const handleAddNewIngredient = () => {
     setTempIngredients([...tempIngredients, newIngredient]);
   }
+
   const [newStep, setNewStep] = useState('');
   const [tempSteps, setTempSteps] = useState([]);
   const handleAddNewStep = () => {
@@ -32,14 +77,24 @@ export default function AddRecipe() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (id === undefined) {
+      // add new recipe
+    } else {
+      // update recipe
+    }
     setNewRecipe({ ...newRecipe, ingredients: [...tempIngredients], steps: [...tempSteps] });
+
     console.log(newRecipe);
   }
 
   return (
     <div className="body-add-recipe">
       <div className="container">
-        <h2 className="text-center my-4">CREATE NEW RECIPE</h2>
+        <h2 className="text-center my-4">
+          {
+            id === undefined ? "CREATE NEW RECIPE" : "UPDATE RECIPE"
+          }
+        </h2>
       </div>
 
       <div className="container">
@@ -47,7 +102,7 @@ export default function AddRecipe() {
           {/* name */}
           <div className="input-group mb-3">
             <span className="input-group-text">Recipe name</span>
-            <input onChange={e => setNewRecipe({ ...newRecipe, name: e.target.value })} autoFocus type="text" className="form-control" placeholder="Recipe name" aria-label="recipe-name" aria-describedby="lav" />
+            <input defaultValue={newRecipe.name} onChange={e => setNewRecipe({ ...newRecipe, name: e.target.value })} autoFocus type="text" className="form-control" placeholder="Recipe name" aria-label="recipe-name" aria-describedby="lav" />
           </div>
 
           {/* image | description */}
@@ -56,12 +111,12 @@ export default function AddRecipe() {
               <div className="input-group">
                 <label>
                   <input onChange={e => setNewRecipe({ ...newRecipe, image: e.target.value })} type="file" className="form-control" />
-                  <img style={{ cursor: 'pointer' }} className="img-fluid img-thumbnail" alt=""/>
+                  <img style={{ cursor: 'pointer' }} className="img-fluid img-thumbnail" alt="" />
                 </label>
               </div>
             </div>
             <div className="col-md-8 col-sm-6">
-              <textarea onChange={e => setNewRecipe({ ...newRecipe, description: e.target.value })} style={{ height: '100%' }} className="form-control" placeholder="Enter your description here" defaultValue={""} />
+              <textarea value={newRecipe.description} onChange={e => setNewRecipe({ ...newRecipe, description: e.target.value })} style={{ height: '100%' }} className="form-control" placeholder="Enter your description here" />
             </div>
           </div>
 
@@ -71,7 +126,7 @@ export default function AddRecipe() {
               <h5 className="text-center">Categories</h5>
 
               <div className="input-group">
-                <select onChange={e => setNewRecipe({ ...newRecipe, category: e.target.value })} className="form-select" style={{ maxWidth: '36%' }}>
+                <select value={newRecipe.category} onChange={e => setNewRecipe({ ...newRecipe, category: e.target.value })} className="form-select" style={{ maxWidth: '36%' }}>
                   {
                     categoriesFromDB.map((item, index) =>
                       <option key={index} value={index}>{item}</option>)
@@ -111,8 +166,9 @@ export default function AddRecipe() {
 
               {/* hiển thị steps */}
               <ol className="list-group list-group-numbered">
-                {tempSteps.map((content, index) =>
-                  <li key={index} className="list-group-item">{content}</li>)
+                {
+                  tempSteps.map((content, index) =>
+                    <li key={index} className="list-group-item">{content.stepDes}</li>)
                 }
               </ol>
 

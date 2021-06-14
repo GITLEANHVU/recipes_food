@@ -1,6 +1,13 @@
 <?php
 class RecipeModel extends Database
 {
+    // Get recipe by id
+    public function getRecipeByID($id)
+    {
+        $sql = parent::$connection->prepare("SELECT * FROM `recipe` WHERE id=?");
+        $sql->bind_param('i', $id);
+        return parent::select($sql);
+    }
     // Get all recipes to show at home screen
     public function getAllRecipes()
     {

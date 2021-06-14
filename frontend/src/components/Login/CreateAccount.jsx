@@ -10,7 +10,7 @@ const CreateAccount = () => {
   const [role, setRole] = useState('user');
   const [status, setStatus] = useState(1);
 
-  const apiURL = `${process.env.REACT_APP_API_URL}`;
+  const apiURL = `${process.env.REACT_APP_API_LAV_CREATE}`;
   const nameAPI = "Account";
   const history = useHistory();
   const handleSubmitForm = (e) => {
