@@ -4,9 +4,10 @@ export const AuthContext = createContext();
 
 export const AuthContextProvider = (props) => {
   const [auth, setAuth] = useState({
-    isAuth: false,
-    user: {id: null}
+    isAuth: localStorage.getItem('isAuth'),
+    user: JSON.parse(localStorage.getItem('user'))
   });
+  
   return (
     <AuthContext.Provider value={[auth, setAuth]}>
       {props.children}

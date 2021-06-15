@@ -11,7 +11,6 @@ const CreateAccount = () => {
   const [status, setStatus] = useState(1);
 
   const apiURL = `${process.env.REACT_APP_API_LAV_CREATE}`;
-  const nameAPI = "Account";
   const history = useHistory();
   const handleSubmitForm = (e) => {
     e.preventDefault();
@@ -25,11 +24,11 @@ const CreateAccount = () => {
     console.log("status: ", status);
     if (name.trim().length !== 0 && email.trim().length !== 0 && password.trim().length !== 0 && password2.trim().length !== 0) {
       if (password2.trim().toLowerCase() === password.trim().toLowerCase()) {
-
         // luu database
-        const url = `${apiURL}/${nameAPI}/create.php`;
         const createAccount = async (inputURL, inputData) => {
-          const data = { ...inputData }
+          const data = {
+            ...inputData
+          }
           const response = await fetch(inputURL, {
             method: "POST",
             body: JSON.stringify(data),
@@ -45,7 +44,7 @@ const CreateAccount = () => {
           role: role,
           status: status
         }
-        createAccount(url, {...data})
+        createAccount(apiURL, {...data})
           .then(result => {
             setTimeout(() => {
               history.push('/login')

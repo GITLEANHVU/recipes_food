@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthContext';
-
+import './login.css'
 export default function Login() {
 
   const apiURL = `${process.env.REACT_APP_API_LAV_READ_SINGLE}`;
@@ -10,8 +10,6 @@ export default function Login() {
   const [password, setPassword] = useState('');
   const [auth, setAuth] = useContext(AuthContext);
   const history = useHistory();
-
-
 
   const handleSubmitForm = (e) => {
     e.preventDefault();
@@ -31,8 +29,9 @@ export default function Login() {
         if (result.length > 0) {
           setAuth({ isAuth: true, user: result[0] })
           console.log(result[0])
-          // save to locostore
+          // save to localStore
           localStorage.setItem('isAuth', true);
+          localStorage.setItem('user', JSON.stringify(result[0]));
           setTimeout(() => {
             history.push('/')
           }, 1500)
@@ -41,10 +40,8 @@ export default function Login() {
   }
 
   useEffect(() => {
-    const isLogin = () => {
-      if (localStorage.getItem('isAuth')) {
-        history.push("/");
-      }
+    if (localStorage.getItem('isAuth')) {
+      history.push("/");
     }
   }, [auth])
 
