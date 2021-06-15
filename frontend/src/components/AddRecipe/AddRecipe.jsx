@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './create-recipe.css';
 export default function AddRecipe() {
   const [newRecipe, setNewRecipe] = useState({
@@ -35,7 +35,7 @@ export default function AddRecipe() {
     setNewRecipe({ ...newRecipe, ingredients: [...tempIngredients], steps: [...tempSteps] });
     console.log(newRecipe);
   }
-  
+
   return (
     <div className="body-add-recipe">
       <div className="container">
@@ -56,7 +56,7 @@ export default function AddRecipe() {
               <div className="input-group">
                 <label>
                   <input onChange={e => setNewRecipe({ ...newRecipe, image: e.target.value })} type="file" className="form-control" />
-                  <img style={{ cursor: 'pointer' }} alt="image food" className="img-fluid img-thumbnail" />
+                  <img style={{ cursor: 'pointer' }} className="img-fluid img-thumbnail" alt=""/>
                 </label>
               </div>
             </div>

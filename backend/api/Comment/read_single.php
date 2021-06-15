@@ -3,10 +3,6 @@
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 
-// Include model
-header('Access-Control-Allow-Origin: *');
-header('Content-Type: application/json');
-
 // Instantiate Account Object
 $comment_model = new CommentModel();
 
