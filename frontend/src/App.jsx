@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // Components
 import DetailRecipe from "./Components/Detail/DetailRecipe";
@@ -8,6 +8,7 @@ import MyRecipes from "./Components/MyRecipes/RecipeList";
 import AddRecipe from "./Components/AddRecipe/AddRecipe";
 import Login from "./Components/Login/Login";
 import CreateAccount from "./Components/Login/CreateAccount";
+import NotFound from "./Components/Error/NotFound";
 
 function App() {
   // const [data, setData] = useState(null);
@@ -61,6 +62,8 @@ function App() {
           <Route path="/register">
             <CreateAccount />
           </Route>
+
+          <Route path='*' exact={true} component={NotFound} />
 
         </Switch>
       </Router>

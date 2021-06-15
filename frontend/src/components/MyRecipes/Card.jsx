@@ -2,9 +2,9 @@ import { AuthContext } from '../../Contexts/AuthContext';
 import React, { useContext } from 'react'
 import {Link} from 'react-router-dom'
 function Card(props) {
-    const [auth, setAuth] = useContext(AuthContext);
+    const [auth] = useContext(AuthContext);
     const value = props.recipe
-    let idRecipe = value.id;
+    // let idRecipe = value.id;
    
 
     return (

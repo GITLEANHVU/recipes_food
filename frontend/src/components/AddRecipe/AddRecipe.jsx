@@ -1,11 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import './create-recipe.css';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
+import { AuthContext } from '../../Contexts/AuthContext';
+
 export default function AddRecipe() {
   const { id } = useParams();
+  const history = useHistory();
+  const [auth] = useContext(AuthContext);
   const urlUpdate = process.env.REACT_APP_API_LAV_RECIPE_BY_ID;
   const urlUploads = process.env.REACT_APP_UPLOADS;
+
   useEffect(() => {
+    // nếu chưa đăng nhập thì vào lại trang home
+    if (auth.isAuth === false) {
+      history.push("/");
+    }
+
     const getRecipe = async (url, id) => {
       const response = await fetch(url, {
         method: "POST",
@@ -38,12 +48,11 @@ export default function AddRecipe() {
             })
             setTempSteps(stps)
             setTempIngredients(ings);
-
           }
         });
 
     }
-  }, [])
+  })
 
   const [newRecipe, setNewRecipe] = useState({
     name: "",

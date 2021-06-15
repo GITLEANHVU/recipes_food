@@ -24,7 +24,12 @@ function Nav() {
               <Link to="/my-recipes" className="nav-link px-lg-3" href="#" style={navStyle.navLink} onMouseLeave={e => navStyle.navLinkMouseLeave(e)} onMouseOver={(e) => navStyle.navLinkMouseOver(e)}>My recipes</Link>
             </li>
             <li className="nav-item">
-              <Link to="/add-recipe" className="nav-link px-lg-3" href="#" style={navStyle.navLink} onMouseLeave={e => navStyle.navLinkMouseLeave(e)} onMouseOver={(e) => navStyle.navLinkMouseOver(e)} >Add recipe</Link>
+              {
+                auth.isAuth ?
+                  (<Link to="/add-recipe" className="nav-link px-lg-3" href="#" style={navStyle.navLink} onMouseLeave={e => navStyle.navLinkMouseLeave(e)} onMouseOver={(e) => navStyle.navLinkMouseOver(e)} >Add recipe</Link>)
+                  : ""
+              }
+
             </li>
           </ul>
           {
