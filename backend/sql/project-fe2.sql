@@ -61,11 +61,20 @@ CREATE TABLE comment(
 
 
 -- INSERT VALUES
---TABLE ACCOUNT
+
+
+-- TABLE ACCOUNT
 INSERT INTO `account` (`id`, `name`, `email`, `password`, `address`, `role`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'LAV', 'lav@gmail.com', '111', NULL, 'user', 1, '2021-06-13 22:42:33', '2021-06-13 22:42:33'),
-(2, 'TTMT', 'ttmt@gmail.com', '111', NULL, 'user', 1, '2021-06-13 22:42:55', '2021-06-13 22:42:55'),
-(3, 'TTHT', 'ttht@gmail.com', '111', NULL, 'user', 1, '2021-06-13 22:43:27', '2021-06-13 22:43:27');
+(1, 'LAV', 'lav@gmail.com', '111', 'Thành Phố HCM', 'user', 1, '2021-06-13 22:42:33', '2021-06-13 22:42:33'),
+(2, 'TTMT', 'ttmt@gmail.com', '111', 'Thành Phố HCM', 'user', 1, '2021-06-13 22:42:55', '2021-06-13 22:42:55'),
+(3, 'TTHT', 'ttht@gmail.com', '111', 'Thành Phố HCM', 'user', 1, '2021-06-13 22:43:27', '2021-06-13 22:43:27'),
+(4, 'Khang', 'khang@gmail.com', '111', 'Cần Thơ', 'user', 1, '2021-06-15 07:04:54', '2021-06-15 07:04:54'),
+(5, 'Tuấn', 'tuan@gmail.com', '111', 'Nha Trang', 'user', 1, '2021-06-15 07:07:39', '2021-06-15 07:07:39'),
+(6, 'Minh Chí', 'minhchi@gmail.com', '111', 'Hà Nội', 'user', 1, '2021-06-15 07:11:28', '2021-06-15 07:11:28'),
+(7, 'Phúc', 'phuc@gmail.com', '111', 'Phú Yên', 'user', 1, '2021-06-15 07:13:33', '2021-06-15 07:13:33'),
+(8, 'Hoàng', 'hoang@gmal.com', '111', 'Phú Yên', 'user', 1, '2021-06-15 07:19:10', '2021-06-15 07:19:10'),
+(9, 'Liêm', 'liem@gmail.com', '111', 'Phú Hòa', 'user', 1, '2021-06-15 07:21:07', '2021-06-15 07:21:07'),
+(10, 'Thư', 'thu@gmail.com', '111', 'Biên Hòa', 'user', 1, '2021-06-15 07:22:13', '2021-06-15 07:22:13');
 
 -- TABLE CATEGORY - TRANG
 INSERT INTO `category` (`id`, `name`, `description`, `account_id`, `created_at`, `updated_at`) VALUES
