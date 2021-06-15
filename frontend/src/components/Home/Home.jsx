@@ -23,7 +23,8 @@ function SelectOption() {
         </select>);
 }
 
-const select = document.querySelector('.selectoption');
+// không được dùng cái này.
+// const select = document.querySelector('.selectoption');
 
 export default function Home() {
     const [auth] = useContext(AuthContext);

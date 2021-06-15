@@ -21,7 +21,12 @@ function Nav() {
               <Link to="/" className="nav-link" href="#" style={navStyle.navLink} onMouseLeave={e => navStyle.navLinkMouseLeave(e)} onMouseOver={(e) => navStyle.navLinkMouseOver(e)}>Home</Link>
             </li>
             <li className="nav-item">
-              <Link to="/my-recipes" className="nav-link px-lg-3" href="#" style={navStyle.navLink} onMouseLeave={e => navStyle.navLinkMouseLeave(e)} onMouseOver={(e) => navStyle.navLinkMouseOver(e)}>My recipes</Link>
+            {
+                auth.isAuth ?
+                  (<Link to="/my-recipes" className="nav-link px-lg-3" href="#" style={navStyle.navLink} onMouseLeave={e => navStyle.navLinkMouseLeave(e)} onMouseOver={(e) => navStyle.navLinkMouseOver(e)}>My recipes</Link>)
+                  : ""
+              }
+              
             </li>
             <li className="nav-item">
               {

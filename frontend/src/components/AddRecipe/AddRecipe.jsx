@@ -35,9 +35,10 @@ export default function AddRecipe() {
         .then(result => {
           if (result.length > 0) {
             const value = result[0];
-            const ings = JSON.parse(JSON.parse(value.ingredients))
-            const stps = JSON.parse(JSON.parse(value.steps))
-            console.log(value.description)
+            const ings = value.ingredients.split("#")
+            const stps = value.steps.split("#")
+            
+            console.log("Step add: ", stps)
             setNewRecipe({
               name: value.name,
               image: `${urlUploads}/${value.image}`,
@@ -52,7 +53,7 @@ export default function AddRecipe() {
         });
 
     }
-  })
+  },[])
 
   const [newRecipe, setNewRecipe] = useState({
     name: "",
@@ -178,7 +179,7 @@ export default function AddRecipe() {
               <ol className="list-group list-group-numbered">
                 {
                   tempSteps.map((content, index) =>
-                    <li key={index} className="list-group-item">{content.stepDes}</li>)
+                    <li key={index} className="list-group-item">{content}</li>)
                 }
               </ol>
 

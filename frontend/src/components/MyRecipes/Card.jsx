@@ -3,6 +3,7 @@ import React, { useContext } from 'react'
 import {Link} from 'react-router-dom'
 function Card(props) {
     const [auth] = useContext(AuthContext);
+    const url_uploads = process.env.REACT_APP_UPLOADS;
     const value = props.recipe
     // let idRecipe = value.id;
    
@@ -15,20 +16,18 @@ function Card(props) {
                         <a className="detail-product--link" href="#/">
                             {/* style={{backgroundImage: `url('${value.imageLink}')`}}> </div> */}
                             <div className="detail-product--link_img">
-                                <img width={100+"%"} height={230} src={value.imageLink} alt="san pham 1" /></div>
+                                <img width={100+"%"} height={230} src={`${url_uploads}/${value.image}`} alt="san pham 1" /></div>
                         </a>
                         <div className="detail-product__text">
                             <h3 className="detail-product__title">
-                                <a href="###">{value.title}</a>
+                                <a href="###">{value.name}</a>
                             </h3>
                             <div className="detail-product__description">
                                 <p>{`${value.description}`.substr(0, 120)}...</p>
                             </div>
                             <div className="btn-group">
                                 <a href="###" className="btn-show">Xem chi tiết</a>
-                                {
-                                    auth.isAuth ? auth.user.id === value.userID && (
-                                        <div className="btn-handle">
+                                <div className="btn-handle">
                                             <span className="icon-update">
                                                 <Link to={`/add-recipe/${value.id}`} className="btn-show btn-update">
                                                     <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="edit" className="svg-inline--fa fa-edit fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" style={{ width: '15px' }}>
@@ -36,16 +35,13 @@ function Card(props) {
                                                 </svg></Link>
                                             </span>
                                             <span className="icon-delete">
-                                                <a href="###" className="btn-show btn-delete" onClick={e=>(props.handleDelete(value.id))}>
+                                                <button onClick= {e => {props.handleDelete(value.id)}} className="btn-show btn-delete" >
                                                     <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="trash-alt" className="svg-inline--fa fa-trash-alt fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style={{ width: '15px' }}>
                                                         <path fill="currentColor" d="M32 464a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128H32zm272-256a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zM432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z"></path>
                                                     </svg>
-                                                </a>
+                                                </button>
                                             </span>
                                         </div>
-                                    )
-                                        : ""
-                                }
                             </div>
                         </div>
                         <div className="detail-product__meta-data">
