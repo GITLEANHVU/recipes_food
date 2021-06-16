@@ -1,22 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // Components
 import DetailRecipe from "./Components/Detail/DetailRecipe";
 import Nav from "./Components/Header/Nav";
 import Home from "./Components/Home/Home";
 import MyRecipe from "./Components/MyRecipes/MyRecipe";
-import AddRecipe from "./Components/AddRecipe/AddRecipe";
+import AddRecipe from "./Components/AddRecipe/Addecipe";
 import Login from "./Components/Login/Login";
 import CreateAccount from "./Components/Login/CreateAccount";
 import NotFound from "./Components/Error/NotFound";
+import Header from './Components/Header/Header'
 
 function App() {
   return (
     <React.Fragment>
-
       <Router>
-       
-        <Nav />
+
+        <Header />
+        {/* header */}
         <Switch>
 
           {/* Home page */}
@@ -30,11 +31,11 @@ function App() {
           </Route>
 
           {/* Add recipe */}
-          <Route exact path="/add-recipe">
+          <Route exact path="/au-recipe">
             <AddRecipe />
           </Route>
           {/* Update recipe */}
-          <Route path="/add-recipe/:id">
+          <Route path="/au-recipe/:id">
             <AddRecipe />
           </Route>
 

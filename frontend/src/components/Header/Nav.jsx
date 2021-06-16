@@ -31,7 +31,7 @@ function Nav() {
             <li className="nav-item">
               {
                 auth.isAuth ?
-                  (<Link to="/add-recipe" className="nav-link px-lg-3" href="#" style={navStyle.navLink} onMouseLeave={e => navStyle.navLinkMouseLeave(e)} onMouseOver={(e) => navStyle.navLinkMouseOver(e)} >Add recipe</Link>)
+                  (<Link to="/au-recipe" className="nav-link px-lg-3" href="#" style={navStyle.navLink} onMouseLeave={e => navStyle.navLinkMouseLeave(e)} onMouseOver={(e) => navStyle.navLinkMouseOver(e)} >Add recipe</Link>)
                   : ""
               }
 
