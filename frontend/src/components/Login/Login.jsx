@@ -71,9 +71,18 @@ export default function Login() {
           </div>
           <div className="form__input-group">
           {spanEL.length >= 3 ? (
-              <input disabled onChange={(e) => setPassword(e.target.value)} type="password" className="form__input" autoFocus placeholder="Không thể nhập password" autoComplete="on" />
+              <input disabled
+                onChange={(e) => setPassword(e.target.value)}
+                type="password"
+                className="form__input"
+                placeholder="Không thể nhập password"
+                autoComplete="on" />
             ) : (
-              <input onChange={(e) => setPassword(e.target.value)} type="password" className="form__input" autoFocus placeholder="Password" autoComplete="on" />
+                <input
+                  onChange={(e) => setPassword(e.target.value)}
+                  type="password" className="form__input"
+                  placeholder="Password"
+                  autoComplete="on" />
             )}
             
 
