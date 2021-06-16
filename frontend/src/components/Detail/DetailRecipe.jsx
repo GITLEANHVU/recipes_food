@@ -10,7 +10,7 @@ export default function DetailRecipe() {
     const URL = `${process.env.REACT_APP_API_TTMT_READ}`;
     const URLIMAGE = `${process.env.REACT_APP_UPLOADS}`;
     const { id } = useParams();
-    var idRecipe = parseInt(id, 10)
+    var idRecipe = parseInt(id, 10);
     //console.log(id);
     useEffect(() => {
         // lay du lieu tu db
@@ -25,7 +25,7 @@ export default function DetailRecipe() {
     }, [])
 
     function splitRecipe(a) {
-        const temp = a.split('#');
+        a.split('#');
     }
     // mỗi thằng chứa 2 time riêng
     return (
