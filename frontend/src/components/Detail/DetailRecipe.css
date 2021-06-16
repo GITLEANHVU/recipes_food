@@ -5,13 +5,13 @@
 
 }
 @media all and (max-width: 767px){
-    
+    .img-detail{
+        width: 100% !important;
+        height: 100% !important;
+        position: none;
+    }
 }
 @media only screen and (max-width: 600px) {
-    img{
-        width: 100%;
-        height: 100%;
-    }
     
     .list-ingredients{
         width: 260px !important;
@@ -62,14 +62,6 @@
     margin-top: 0px;
     border: 1px solid gainsboro;
 }
-.imgRecipe{
-    padding-bottom: 10px;
-}
-.img-detail{
-    width: 100%;
-    height: 100%;
-}
-
 .form-floating{
     width: 500px;
     border: none;
@@ -190,3 +182,33 @@
     right: 0;
     font-size: 13px;
 }
+.imgRecipe{
+    overflow: hidden;
+      height: 100%;
+      opacity: 0.88;
+      backface-visibility: hidden;
+      transition: all 0.4s ease-out;
+}
+.img-detail{
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    /* transform: translate(50%, 50%); */
+    backface-visibility: hidden;
+   
+}
+.imgRecipeBox{
+    width: 100%;
+    margin-bottom: 10px;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    overflow: hidden;
+    outline-offset: -15px;
+
+}
+.imgRecipe:hover{
+    backface-visibility: hidden;
+    transform: scale(1.15, 1.15);
+    opacity: 1;        
+  }

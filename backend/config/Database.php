@@ -6,7 +6,6 @@ class Database
    * @ Properties config
    * @ Private properties
    */
-
   private $DB_HOST = 'localhost';
   private $DB_USER = 'root';
   private $DB_PASS = '';
