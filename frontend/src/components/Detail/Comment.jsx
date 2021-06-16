@@ -10,18 +10,18 @@ export default function CommentRecipe() {
     //     setComments([...comments, { content: comment, craeted_at: String(formatDate()), updated_at: "" }]);
     // }
 
-    function formatDate() {
-        var date = new Date();
-        var hours = date.getHours();
-        var minutes = date.getMinutes();
-        var day = date.getDay();
-        var ampm = hours >= 12 ? 'pm' : 'am';
-        hours = hours % 12;
-        hours = hours ? hours : 12;
-        minutes = minutes < 10 ? '0' + minutes : minutes;
-        var strTime = day + hours + ':' + minutes + ' ' + ampm;
-        return ('0' + (date.getMonth() + 1)).slice(-2) + "/" + ('0' + date.getDate()).slice(-2) + "/" + date.getFullYear() + "  " + strTime;
-    }
+    // function formatDate() {
+    //     var date = new Date();
+    //     var hours = date.getHours();
+    //     var minutes = date.getMinutes();
+    //     var day = date.getDay();
+    //     var ampm = hours >= 12 ? 'pm' : 'am';
+    //     hours = hours % 12;
+    //     hours = hours ? hours : 12;
+    //     minutes = minutes < 10 ? '0' + minutes : minutes;
+    //     var strTime = day + hours + ':' + minutes + ' ' + ampm;
+    //     return ('0' + (date.getMonth() + 1)).slice(-2) + "/" + ('0' + date.getDate()).slice(-2) + "/" + date.getFullYear() + "  " + strTime;
+    // }
     const [comments, setComments] = useState([]);
     const URL = `${process.env.REACT_APP_API_NNT_READ}`;
     useEffect(() => {
@@ -37,16 +37,6 @@ export default function CommentRecipe() {
         }
         fectlist();
     }, [])
-
-    // function SelectOption() {
-    //     return (
-    //         <select className="selectoption_from " >
-    //             {listname.map((post) => (
-    //                 <option key={post.id}>{post.name}</option>
-    //             ))}
-    //         </select>
-    //     );
-    // }
     return (
         <div className="commentRecipe">
             <div className="container">

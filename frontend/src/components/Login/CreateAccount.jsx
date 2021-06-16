@@ -7,11 +7,10 @@ const CreateAccount = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [password2, setPassword2] = useState('');
-  const [role, setRole] = useState('user');
-  const [status, setStatus] = useState(1);
+  const [role] = useState('user');
+  const [status] = useState(1);
 
-  const apiURL = `${process.env.REACT_APP_API_LAV_CREATE}`;
-  const nameAPI = "Account";
+  const apiURL = `${process.env.REACT_APP_API_TTHT_READ}`;
   const history = useHistory();
   const handleSubmitForm = (e) => {
     e.preventDefault();
@@ -25,11 +24,11 @@ const CreateAccount = () => {
     console.log("status: ", status);
     if (name.trim().length !== 0 && email.trim().length !== 0 && password.trim().length !== 0 && password2.trim().length !== 0) {
       if (password2.trim().toLowerCase() === password.trim().toLowerCase()) {
-
         // luu database
-        const url = `${apiURL}/${nameAPI}/create.php`;
         const createAccount = async (inputURL, inputData) => {
-          const data = { ...inputData }
+          const data = {
+            ...inputData
+          }
           const response = await fetch(inputURL, {
             method: "POST",
             body: JSON.stringify(data),
@@ -45,7 +44,7 @@ const CreateAccount = () => {
           role: role,
           status: status
         }
-        createAccount(url, {...data})
+        createAccount(apiURL, {...data})
           .then(result => {
             setTimeout(() => {
               history.push('/login')
@@ -80,7 +79,9 @@ const CreateAccount = () => {
             <input onChange={(e) => setPassword2(e.target.value)} defaultValue={password2} type="password" className="form__input" placeholder="Confirm password" autoComplete="off" required />
           </div>
 
-          <button className="form__button" type="submit">Continue</button>
+          <div className="form__input-group">
+            <button className="form__button" type="submit">Continue</button>
+          </div>
           <p className="form__text">
             <Link className="form__link" to="/login" id="linkLogin">Already have an account? Sign in</Link>
           </p>
