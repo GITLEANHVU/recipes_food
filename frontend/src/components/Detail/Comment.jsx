@@ -54,24 +54,27 @@ export default function CommentRecipe() {
                 </div>
                 <div className="row g-2">
                     <div className="col-12 col-md-5 dateRight">
-                        {comments.map((comment_content, index) => {
-                            if (comment_content.content !== "") {
-                                return (
-                                    <div className="form-comment" key={index}>
-                                        <div className="avatar">
-                                            <img src="https://image.cooky.vn/posproduct/g0/5075/s400x400/93644f58-2233-456c-b6f2-f670491e9f65.jpeg" width="50px" height="50px" alt="" />
-                                        </div>
-                                        <div className="contentAcc">
-                                            <div className="nameDate">
-                                                <p className="nameAcc">Name {console.log(index)}</p>
-                                                <p className="dateComment"><i className="far fa-clock"></i> {comment_content.craeted_at}</p>
+                        {
+                            comments.map((comment_content, index) => {
+                                if (comment_content.content !== "") {
+                                    return (
+                                        <div className="form-comment" key={index}>
+                                            <div className="avatar">
+                                                <img src="https://image.cooky.vn/posproduct/g0/5075/s400x400/93644f58-2233-456c-b6f2-f670491e9f65.jpeg" width="50px" height="50px" alt="" />
                                             </div>
-                                            <p className="content">{comment_content.content}</p>
+                                            <div className="contentAcc">
+                                                <div className="nameDate">
+                                                    <p className="nameAcc">Name {console.log(index)}</p>
+                                                    <p className="dateComment"><i className="far fa-clock"></i> {comment_content.craeted_at}</p>
+                                                </div>
+                                                <p className="content">{comment_content.content}</p>
+                                            </div>
                                         </div>
-                                    </div>
-                                )
-                            }
-                        })}
+                                    )
+                                }
+                                return '';
+                            })
+                        }
                     </div>
                 </div>
             </div>

@@ -25,3 +25,8 @@
 .error__dialog-content {
   font-size: 2.5vw;
 }
+
+img.img-fluid.img-thumbnail.plane:hover {
+  transform: scaleX(1.1) scaleY(1.3);
+  transition: 1s;
+}

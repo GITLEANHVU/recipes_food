@@ -1,0 +1,19 @@
+.clock {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 3px solid rgb(231, 109, 109);
+  position: relative;
+}
+.hand {
+  width: 45%;
+  height: 2px;
+  background-color: rgb(21, 108, 129);
+  position: absolute;
+  top: 48%;
+  left: 8%;
+  transform-origin: 100%;
+  transform: rotate(90deg);
+  transition: all 0.05s;
+  transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+}
