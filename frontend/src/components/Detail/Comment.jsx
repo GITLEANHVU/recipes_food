@@ -1,15 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 export default function CommentRecipe() {
 
-    const [comment, setComment] = useState('');
-    const [comments, setComments] = useState([
-        { content: "", craeted_at: "", updated_at: "" }
-    ]);
-    const clickAddNewComment = () => {
-        if (comment === '') return;
-        setComments([...comments, { content: comment, craeted_at: String(formatDate()), updated_at: "" }]);
-    }
+    // const [comments, setComments] = useState([
+    //     { content: "", craeted_at: "", updated_at: "" }
+    // ]);
+    // const clickAddNewComment = () => {
+    //     if (comment === '') return;
+    //     setComments([...comments, { content: comment, craeted_at: String(formatDate()), updated_at: "" }]);
+    // }
 
     function formatDate() {
         var date = new Date();
@@ -23,6 +22,31 @@ export default function CommentRecipe() {
         var strTime = day + hours + ':' + minutes + ' ' + ampm;
         return ('0' + (date.getMonth() + 1)).slice(-2) + "/" + ('0' + date.getDate()).slice(-2) + "/" + date.getFullYear() + "  " + strTime;
     }
+    const [comments, setComments] = useState([]);
+    const URL = `${process.env.REACT_APP_API_NNT_READ}`;
+    useEffect(() => {
+        async function fectlist() {
+            const requesURL = URL;
+            const response = await fetch(requesURL);
+            const reponseJSON = await response.json();
+            // console.log({ reponseJSON })
+
+            const data = reponseJSON;
+            setComments(data);
+            //console.log(data);      
+        }
+        fectlist();
+    }, [])
+
+    // function SelectOption() {
+    //     return (
+    //         <select className="selectoption_from " >
+    //             {listname.map((post) => (
+    //                 <option key={post.id}>{post.name}</option>
+    //             ))}
+    //         </select>
+    //     );
+    // }
     return (
         <div className="commentRecipe">
             <div className="container">
@@ -44,33 +68,34 @@ export default function CommentRecipe() {
                             </div>
                             <div className="cmt">
                                 <div className="form-floating">
-                                    <textarea className="form-control" onChange={(e) => setComment(e.target.value)} placeholder="Leave a comment here"></textarea>
+                                {/* onChange={(e) => setComment(e.target.value)} */}
+                                    <textarea className="form-control"  placeholder="Leave a comment here"></textarea>
                                     <label>Mời bạn để lại bình luận...</label>
                                 </div>
-                                <button type="button" className="btn btn-dang" onClick={clickAddNewComment}>Đăng</button>
+                                <button type="button" className="btn btn-dang">Đăng</button>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className="row g-2">
                     <div className="col-12 col-md-5 dateRight">
-                        {comments.map((comment_content, index) => {
-                            if (comment_content.content !== "") {
+                        {comments.map((post) => {
+                            // if (post.content !== "") {
                                 return (
-                                    <div className="form-comment" key={index}>
+                                    <div className="form-comment" key={post.id}>
                                         <div className="avatar">
                                             <img src="https://image.cooky.vn/posproduct/g0/5075/s400x400/93644f58-2233-456c-b6f2-f670491e9f65.jpeg" width="50px" height="50px" alt="" />
                                         </div>
                                         <div className="contentAcc">
                                             <div className="nameDate">
-                                                <p className="nameAcc">Name {console.log(index)}</p>
-                                                <p className="dateComment"><i className="far fa-clock"></i> {comment_content.craeted_at}</p>
+                                                <p className="nameAcc">Name</p>
+                                                <p className="dateComment"><i className="far fa-clock"></i> {post.created_at}</p>
                                             </div>
-                                            <p className="content">{comment_content.content}</p>
+                                            <p className="content">{post.content}</p>
                                         </div>
                                     </div>
                                 )
-                            }
+                            // }
                         })}
                     </div>
                 </div>

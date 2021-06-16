@@ -1,20 +1,26 @@
+
 import React, { useState, useEffect } from 'react';
 import './DetailRecipe.css';
 import CommentRecipe from './Comment.jsx'
 
 export default function DetailRecipe() {
 
-
-    const apiURL = `${process.env.REACT_APP_API_NNT}`;
-
     const [colorHeart, setColorHeart] = useState('black');
     const [recipe, setRecipe] = useState({});
-    useEffect(() => {
-        // lay du lieu tu db
 
-        // set du lieu cho state
+    // useEffect(() => {
+    //     // lay du lieu tu db
+    //     async function fetchRecipe(){
+    //         const dataURL = apiURL;
+    //         const response = await fetch(dataURL);
+    //         const responseJS = await response.json();
+    //         console.log(responseJS);
 
-    }, []);
+    //     }
+    //     // set du lieu cho state
+    //     fetchRecipe();
+    // }, [])
+
     // mỗi thằng chứa 2 time riêng
     const [ingredients, setIngredients] = useState(['Tỏi', 'Ớt', 'Măng Tây', 'Bột ngọt', 'Nước Mắm']);
     const [steps, setSteps] = useState([
@@ -28,8 +34,10 @@ export default function DetailRecipe() {
             <div className="container">
                 <div className="row g-2 contentTop">
                     <div className="col-4 sm-3">
-                        <div className="imgRecipe">
-                            <img className="img-detail" src="https://image.cooky.vn/posproduct/g0/5075/s400x400/93644f58-2233-456c-b6f2-f670491e9f65.jpeg" alt="" />
+                        <div className="imgRecipeBox">
+                            <div className="imgRecipe">
+                                <img className="img-detail" src="https://image.cooky.vn/posproduct/g0/5075/s400x400/93644f58-2233-456c-b6f2-f670491e9f65.jpeg" alt="" />
+                            </div>
                         </div>
                         <div className="status">
                             <button onClick={() => { setColorHeart("red") }} className="btn heart"><i className="fas fa-heart" style={{ color: colorHeart }}></i></button>
