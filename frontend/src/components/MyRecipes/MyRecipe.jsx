@@ -4,12 +4,10 @@ import RecipeList from './RecipeList'
 import { AuthContext } from '../../Contexts/AuthContext';
 
 export default function MyRecipe() {
-    const api_url = process.env.REACT_APP_API_TTMT_READ;
+    const URL_READ_BY_ACC = process.env.REACT_APP_API_TTMT_READ_BY_ACC;
     const [recipes, setRecipes] = useState([])
     const [auth] = useContext(AuthContext);
-    const [searchTerm, setSearchTerm] = useState("");
     const account_id = auth.user.id;
-
 
     useEffect(() => {
         const fetchRecipes = async (url) => {
@@ -19,23 +17,44 @@ export default function MyRecipe() {
             });
             return await response.json();
         }
-        fetchRecipes(api_url)
+        fetchRecipes(URL_READ_BY_ACC)
             .then(result => {
                 setRecipes(result)
             })
     }, [])
 
-    // lần nào hàm này cũng chạy khi các giá trị key hoặc type thay đổi
-    const handleChange = e => {
-        setSearchTerm(e.target.value);
-    };
-   
+    const [tempRecipes, setTempRecipe] = useState([]);
+    const [searchKey, setSearchKey] = useState("");
+    const URL_SEARCH = `${process.env.REACT_APP_API_TTMT_SEARCH_BY_NAME}`
+
+    const handleSubmit = () => {
+        if (searchKey.length <= 0) {
+            console.log("Khong co gia tri nao de tim kiem");
+            return;
+        }
+        console.log("searching...");
+        const fetchRecipesSearching = async (url, searchKey, account_id) => {
+            const response = await fetch(url, {
+                method: 'POST',
+                body: JSON.stringify({ searchKey: searchKey, account_id: account_id })
+            });
+            return await response.json();
+        }
+        fetchRecipesSearching(URL_SEARCH, searchKey, account_id)
+            .then(result => {
+                setTempRecipe(result);
+            })
+    }
+
+    const onSearchKeyChanged = (value) => {
+        setSearchKey(value);
+        value.length === 0 ? setTempRecipe([]) : setTempRecipe(tempRecipes)
+    }
     return (
         <div id="recipe">
             <div className="container">
-                <Search searchTerm={recipes} setSearchTerm={handleChange} />
-                {/* search={search} setSearch={setSearch} handleSearch={handleSearch} */}
-                <RecipeList recipes={recipes} setRecipes={setRecipes} />
+                <Search onSearchKeyChanged={onSearchKeyChanged} handleSubmit={handleSubmit} />
+                <RecipeList recipes={tempRecipes.length === 0 ? recipes : tempRecipes} setRecipes={setRecipes} />
             </div>
         </div>
     )
