@@ -52,10 +52,9 @@
     text-decoration: none;
     color: #3A3D49;
     font-weight: bold;
-    font-size: 1.2rem;
-}
-.pizza-bccf:hover{
-    color: #777A83;
+    font-family:sans-serif;
+    font-size: 18px;
+    
 }
 .la {
     margin-right: 14px;
@@ -135,6 +134,18 @@
     height: 100%;
 }
 
+.pizza-4:hover .trang{
+    transform: scale(0.8);
+    transition: all .3s ease;
+}
+.pizza-4:hover .pizza-bccf{
+    color: #333;
+    text-shadow: 0 -1px 0 #333,
+    0 6px 8px rgba(0,0,0,.4),
+    0 9px 10px rgba(0,0,0,.15),
+    0 30px 10px rgba(0,0,0,.18),
+    0 15px 10px rgba(0,0,0,.21);
+}
 
 .pizza-4:hover .delete{ transition: 0.7s;}
 

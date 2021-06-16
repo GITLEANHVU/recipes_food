@@ -6,7 +6,7 @@ function Card(props) {
     const item = props.recipe;
     return (
         <div className="col-12 col-md-3 col-sm-6 pizza-4" >
-            <a href="#"><img src={item.img} alt="" className="trang" /></a>
+            <a href="#"><img src={'/backend/uploads/images/{item.image}'} alt="" className="trang" /></a>
             {
                 auth.isAuth ? auth.user.id === item.userID &&
                     (<div className="from-btn"  >
@@ -28,7 +28,6 @@ function Card(props) {
             <div className="program">{item.description}</div>
             <div className="downloads">
                 <Link className="demobutton button" to={`detail-recipe/${item.id}`} rel="nofollow noopener"> Detail</Link>
-
             </div>
         </div>
     )

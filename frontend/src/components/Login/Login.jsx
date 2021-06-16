@@ -1,10 +1,10 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthContext';
-
+import './login.css'
 export default function Login() {
 
-  const apiURL = `${process.env.REACT_APP_API_URL}`;
+  const apiURL = `${process.env.REACT_APP_API_LAV_READ_SINGLE}`;
   const nameAPI = "Account";
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -29,7 +29,9 @@ export default function Login() {
         if (result.length > 0) {
           setAuth({ isAuth: true, user: result[0] })
           console.log(result[0])
-
+          // save to localStore
+          localStorage.setItem('isAuth', true);
+          localStorage.setItem('user', JSON.stringify(result[0]));
           setTimeout(() => {
             history.push('/')
           }, 1500)
@@ -37,8 +39,16 @@ export default function Login() {
       });
   }
 
+  useEffect(() => {
+    if (localStorage.getItem('isAuth')) {
+      history.push("/");
+    }
+  }, [auth])
+
   return (
+
     <div className="body-form">
+
       <div className="container_form">
         <div></div>
         <form onSubmit={handleSubmitForm} className="form" id="login">

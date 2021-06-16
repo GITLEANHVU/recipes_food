@@ -1,17 +1,13 @@
-import React, { useContext, useEffect, useState } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-
+import React, { useContext } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // Components
 import DetailRecipe from "./Components/Detail/DetailRecipe";
 import Nav from "./Components/Header/Nav";
 import Home from "./Components/Home/Home";
 import MyRecipes from "./Components/MyRecipes/RecipeList";
 import AddRecipe from "./Components/AddRecipe/AddRecipe";
-import Login from "./Components/Login";
+import Login from "./Components/Login/Login";
 import CreateAccount from "./Components/Login/CreateAccount";
-
-// contexts
-import { AuthContext } from './Contexts/AuthContext';
 
 function App() {
   // const [data, setData] = useState(null);
@@ -32,23 +28,40 @@ function App() {
         {console.log(data)} */}
         <Nav />
         <Switch>
+
+          {/* Home page */}
           <Route exact path="/">
             <Home />
           </Route>
+
+          {/* My recipe */}
           <Route path="/my-recipes">
-          <MyRecipes />
+            <MyRecipes />
           </Route>
-          <Route path="/add-recipe">
+
+          {/* Add recipe */}
+          <Route exact path="/add-recipe">
             <AddRecipe />
           </Route>
-          <Route path="/detail-recipe/:id"><DetailRecipe />
+          {/* Update recipe */}
+          <Route path="/add-recipe/:id">
+            <AddRecipe />
           </Route>
+
+          {/* Detail recipe */}
+          <Route path="/detail-recipe/:id">
+            <DetailRecipe />
+          </Route>
+
+          {/* Login */}
           <Route path="/login">
             <Login />
           </Route>
+          {/* register */}
           <Route path="/register">
-        <CreateAccount />
-        </Route>
+            <CreateAccount />
+          </Route>
+
         </Switch>
       </Router>
     </React.Fragment>

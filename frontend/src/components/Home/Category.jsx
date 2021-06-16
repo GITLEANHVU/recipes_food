@@ -1,4 +1,6 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useEffect } from 'react';
+import { Link, useHistory } from 'react-router-dom';
+// import Listcate from './Listcate';
 
 export default function Category() {
 
@@ -9,13 +11,37 @@ export default function Category() {
         marginLeft: "10px"
     }
 
+    //data
+
+    const [listname, getname] = useState([]);
+
+    const URL = `${process.env.REACT_APP_API_TTHT_READ}`;
+
+    useEffect(() => {
+        async function fectlist() {
+            const requesURL = URL;
+            const response = await fetch(requesURL);
+            const reponseJSON = await response.json();
+            // console.log({ reponseJSON })
+
+            const data = reponseJSON;
+            getname(data);
+            // console.log(getname(data));
+            
+        }
+        fectlist();
+    }, []);
+
+
+
     function SelectOption() {
         return (
-            <select className="selectoption_from " defaultValue={1} aria-label="Default select example" >
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-            </select>);
+            <select className="selectoption_from " >
+                {listname.map((post) => (
+                    <option key={post.id}>{post.name}</option>
+                ))}
+            </select>
+        );
     }
 
     const [radioName, setRadioName] = useState(true);
