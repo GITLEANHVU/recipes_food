@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // Components
-<<<<<<< HEAD
 import DetailRecipe from "./Components/Detail/DetailRecipe";
 // import Home from "./Components/Home/Home";
 import MyRecipe from "./Components/MyRecipes/MyRecipe";
@@ -11,17 +10,6 @@ import CreateAccount from "./Components/Login/CreateAccount";
 import NotFound from "./Components/Error/NotFound";
 import Header from './Components/Header/Header'
 import Footer from './Components/Footer/Footer'
-=======
-import DetailRecipe from "./components/Detail/DetailRecipe";
-import Home from "./components/Home/Home";
-import MyRecipe from "./components/MyRecipes/MyRecipe";
-import AddRecipe from "./components/AddRecipe/Addecipe";
-import Login from "./components/Login/Login";
-import CreateAccount from "./components/Login/CreateAccount";
-import NotFound from "./components/Error/NotFound";
-import Header from './components/Header/Header'
-import Footer from './components/Footer/Footer'
->>>>>>> 5be2fbbc63ac07e5b4dd2b152933ba10a357bc2f
 
 function App() {
   return (
