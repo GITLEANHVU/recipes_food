@@ -1,23 +1,21 @@
 import { AuthContext } from '../../Contexts/AuthContext';
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import {Link} from 'react-router-dom'
 function Card(props) {
     const [auth] = useContext(AuthContext);
     const url_uploads = process.env.REACT_APP_UPLOADS;
     const value = props.recipe
-    // let idRecipe = value.id;
-   
-
     return (
+        
         <div className="col-12 col-lg-4 col-md-6 col-sx-2">
             <div className="products">
                 <article className="detail-product">
                     <div className="detail-product detail-product_has--link">
-                        <a className="detail-product--link" href="#/">
-                            {/* style={{backgroundImage: `url('${value.imageLink}')`}}> </div> */}
-                            <div className="detail-product--link_img">
-                                <img width={100+"%"} height={230} src={`${url_uploads}/${value.image}`} alt="san pham 1" /></div>
-                        </a>
+                        <div className="detail-product--link_img">
+                                <Link to="/" className="link--img">
+                                <img width={100+"%"} height={230} src={`${url_uploads}/${value.image}`} alt="san pham 1" />
+                                </Link>
+                                </div>
                         <div className="detail-product__text">
                             <h3 className="detail-product__title">
                                 <a href="###">{value.name}</a>
@@ -45,8 +43,7 @@ function Card(props) {
                             </div>
                         </div>
                         <div className="detail-product__meta-data">
-                            <span className="detail-product-date">
-                                June 4, 2021		</span>
+                            <span className="detail-product-date">{value.created_at}</span>
                         </div>
                     </div>
                 </article>

@@ -6,13 +6,11 @@ import { AuthContext } from '../../Contexts/AuthContext';
 export default function MyRecipe() {
     const api_url = process.env.REACT_APP_API_TTMT_READ;
     const [recipes, setRecipes] = useState([])
-    const [tempRecipes, setTempRecipes] = useState(recipes)
     const [auth] = useContext(AuthContext);
-    const [search, setSearch] = useState({
-        type: "",
-        key: ""
-    });
+    const [searchTerm, setSearchTerm] = useState("");
     const account_id = auth.user.id;
+
+
     useEffect(() => {
         const fetchRecipes = async (url) => {
             const response = await fetch(url, {
@@ -23,31 +21,21 @@ export default function MyRecipe() {
         }
         fetchRecipes(api_url)
             .then(result => {
-                console.log(result)
                 setRecipes(result)
             })
     }, [])
 
     // lần nào hàm này cũng chạy khi các giá trị key hoặc type thay đổi
-    const handleSearch = () => {
-        
-        // thực hiện lấy giá trị từ backend
-
-        // load dữ liệu vào recipes
-
-        // nếu recipes.length < 1 thực hiện lấy toàn bộ
-
-
-       // hoặc, liên hệ trang :) 
-    }
-
+    const handleChange = e => {
+        setSearchTerm(e.target.value);
+    };
+   
     return (
         <div id="recipe">
             <div className="container">
-                {console.log(search)}
-                {console.log(recipes)}
-                <Search setSearch={setSearch} search={search} handleSearch={handleSearch} />
-                <RecipeList recipes={recipes} setRecipes={setRecipes} search={search} setSearch={setSearch} handleSearch={handleSearch} />
+                <Search searchTerm={recipes} setSearchTerm={handleChange} />
+                {/* search={search} setSearch={setSearch} handleSearch={handleSearch} */}
+                <RecipeList recipes={recipes} setRecipes={setRecipes} />
             </div>
         </div>
     )
