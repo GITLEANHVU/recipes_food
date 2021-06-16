@@ -9,15 +9,14 @@ export default function ListCard(props) {
     const URL = `${process.env.REACT_APP_API_TTHT_READ_RECIPE}`;
 
     useEffect(() => {
+        console.log(URL)
         async function fectlist() {
-            const requesURL = URL;
-            const response = await fetch(requesURL);
+            const response = await fetch(URL);
             const reponseJSON = await response.json();
-            console.log({ reponseJSON })
+            console.log(reponseJSON)
 
             const data = reponseJSON;
             setcard(data);
-            // console.log(getname(data));
 
         }
         fectlist();

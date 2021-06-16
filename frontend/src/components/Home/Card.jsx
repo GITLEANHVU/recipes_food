@@ -4,11 +4,12 @@ import { Link } from 'react-router-dom';
 function Card(props) {
     const [auth, setAuth] = useContext(AuthContext);
     const item = props.recipe;
+    const url_uploads = `${process.env.REACT_APP_UPLOADS_TTHT}`
     return (
         <div className="col-12 col-md-3 col-sm-6 pizza-4" >
-            <a href="#"><img src={'/backend/uploads/images/{item.image}'} alt="" className="trang" /></a>
+            <a href="#"><img src={`${url_uploads}/${item.image}`} alt="" className="trang" /></a>
             {
-                auth.isAuth ? auth.user.id === item.userID &&
+                auth.isAuth ? auth.user.id === item.user_id &&
                     (<div className="from-btn"  >
                         <button className="delete" type="submit" onClick={() => (props.handleDelete(item.id))} >
                             <svg viewBox="0 0 384 384" width="14" height="16" >

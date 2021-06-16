@@ -9,10 +9,9 @@ class RecipeModel extends Database
         return parent::select($sql);
     }
     // Get all recipes to show at home screen
-    public function getAllRecipes($account_id)
+    public function getAllRecipes()
     {
-        $sql = parent::$connection->prepare("SELECT * FROM `recipe` WHERE account_id = ?");
-        $sql->bind_param('i', $account_id);
+        $sql = parent::$connection->prepare("SELECT * FROM `recipe`");
         return parent::select($sql);
     }
     // Get all recipes by category_id to search recipes at home screen
