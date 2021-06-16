@@ -4,6 +4,8 @@ import { AuthContext } from '../../Contexts/AuthContext'
 function Nav() {
   const [auth, setAuth] = useContext(AuthContext);
   const logOut = () => {
+
+
     setAuth({ isAuth: false, user: {} });
     localStorage.removeItem('isAuth');
     localStorage.removeItem('user')
@@ -21,12 +23,12 @@ function Nav() {
               <Link to="/" className="nav-link" href="#" style={navStyle.navLink} onMouseLeave={e => navStyle.navLinkMouseLeave(e)} onMouseOver={(e) => navStyle.navLinkMouseOver(e)}>Home</Link>
             </li>
             <li className="nav-item">
-            {
+              {
                 auth.isAuth ?
                   (<Link to="/my-recipes" className="nav-link px-lg-3" href="#" style={navStyle.navLink} onMouseLeave={e => navStyle.navLinkMouseLeave(e)} onMouseOver={(e) => navStyle.navLinkMouseOver(e)}>My recipes</Link>)
                   : ""
               }
-              
+
             </li>
             <li className="nav-item">
               {
@@ -44,16 +46,28 @@ function Nav() {
                   <span className="nav-link px-lg-3" style={{ color: "#fff" }}>{auth.user.name}</span>
                 </li>
                 <li className="nav-item">
-                  <button onClick={() => logOut()} className="btn btn-danger">Logout</button>
+                  <button
+                    onClick={() => logOut()}
+                    className="btn btn-danger">Logout</button>
+
                 </li>
               </ul>
               :
-              <ul className="navbar-nav mb-2 mb-lg-0" style={{ ...navStyle.navbarSupportedContent_2, justifyContent: "flex-end" }}>
+              <ul className="navbar-nav mb-2 mb-lg-0"
+                style={{ ...navStyle.navbarSupportedContent_2, justifyContent: "flex-end" }}>
                 <li className="nav-item">
-                  <Link to="/login" className="nav-link px-lg-3" href="#" style={navStyle.navLink} onMouseLeave={e => navStyle.navLinkMouseLeave(e)} onMouseOver={(e) => navStyle.navLinkMouseOver(e)}>Login</Link>
+                  <Link to="/login"
+                    className="nav-link px-lg-3"
+                    style={navStyle.navLink}
+                    onMouseLeave={e => navStyle.navLinkMouseLeave(e)}
+                    onMouseOver={(e) => navStyle.navLinkMouseOver(e)}>Login</Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="/register" className="nav-link px-lg-3" href="#" style={navStyle.navLink} onMouseLeave={e => navStyle.navLinkMouseLeave(e)} onMouseOver={(e) => navStyle.navLinkMouseOver(e)}>register</Link>
+                  <Link to="/register"
+                    className="nav-link px-lg-3"
+                    style={navStyle.navLink}
+                    onMouseLeave={e => navStyle.navLinkMouseLeave(e)}
+                    onMouseOver={(e) => navStyle.navLinkMouseOver(e)}>register</Link>
                 </li>
               </ul>
           }

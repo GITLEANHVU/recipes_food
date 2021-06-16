@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // Components
 import DetailRecipe from "./Components/Detail/DetailRecipe";
-import Nav from "./Components/Header/Nav";
 import Home from "./Components/Home/Home";
 import MyRecipe from "./Components/MyRecipes/MyRecipe";
 import AddRecipe from "./Components/AddRecipe/Addecipe";
@@ -10,14 +9,15 @@ import Login from "./Components/Login/Login";
 import CreateAccount from "./Components/Login/CreateAccount";
 import NotFound from "./Components/Error/NotFound";
 import Header from './Components/Header/Header'
+import Footer from './Components/Footer/Footer'
 
 function App() {
   return (
     <React.Fragment>
       <Router>
 
-        <Header />
         {/* header */}
+        <Header />
         <Switch>
 
           {/* Home page */}
@@ -56,6 +56,7 @@ function App() {
           <Route path='*' exact={true} component={NotFound} />
 
         </Switch>
+        <Footer />
       </Router>
     </React.Fragment>
   );

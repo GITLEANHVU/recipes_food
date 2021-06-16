@@ -5,10 +5,11 @@ import './Header.css'
 import Typewriter from 'typewriter-effect'
 function Header() {
   return (
-    <header>
+    <React.Fragment>
+      <header style={headerStyle}>
       <div className="container" style={{padding: "20px"}}>
         <div className="d-flex justify-content-between">
-          <h1 className="text-center text-danger flex-first">
+          <h1 className="text-center text-light">
             <Typewriter
               onInit={(typewriter) => {
 
@@ -27,9 +28,12 @@ function Header() {
           <Timer />
         </div>
       </div>
+      </header>
       <Nav />
-    </header>
+    </React.Fragment>
+    
   )
 }
 
 export default Header
+const headerStyle = {"background":"linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 0%, rgba(36,188,218,1) 100%)"}
