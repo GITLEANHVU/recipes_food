@@ -1,6 +1,25 @@
 <?php
 class RecipeModel extends Database
 {
+     // Get recipe by id
+     public function searchRecipesByNameByAccount($name, $account_id)
+     {
+         $sql = parent::$connection->prepare("SELECT * FROM `recipe` WHERE `name` LIKE ? AND account_id = ?");
+         $search = "%{$name}%";
+         $sql->bind_param('si', $search, $account_id);
+         return parent::select($sql);
+     }
+
+     // Get recipe by name
+     public function searchRecipesByName($name)
+     {
+         $sql = parent::$connection->prepare("SELECT * FROM `recipe` WHERE `name` LIKE ?");
+         $search = "%{$name}%";
+         $sql->bind_param('s', $search);
+         return parent::select($sql);
+     }
+
+
     // Get recipe by id
     public function getRecipeByID($id)
     {

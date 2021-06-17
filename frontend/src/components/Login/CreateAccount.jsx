@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
+import { API_LINK_ACCOUNT_CREATE } from './../../api_link';
+
 import './login.css'
 const CreateAccount = () => {
+
   const [name, setName] = useState('');
   const [address, setAddress] = useState('');
   const [email, setEmail] = useState('');
@@ -10,11 +13,11 @@ const CreateAccount = () => {
   const [role] = useState('user');
   const [status] = useState(1);
 
-  const apiURL = `${process.env.REACT_APP_API_TTHT_READ}`;
+  const apiURL = API_LINK_ACCOUNT_CREATE
+
   const history = useHistory();
   const handleSubmitForm = (e) => {
     e.preventDefault();
-
     console.log("name: ", name);
     console.log("address: ", address);
     console.log("email: ", email);

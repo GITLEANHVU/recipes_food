@@ -2,14 +2,14 @@ import React, { useState, useEffect, useContext } from 'react';
 import './create-recipe.css';
 import { useHistory, useParams } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthContext';
+import { API_LINK_RECIPE_RECIPE_BY_ID, REACT_APP_UPLOADS } from '../../api_link';
 
 export default function AddRecipe() {
+  const [auth] = useContext(AuthContext);
+
   const { id } = useParams();
   const history = useHistory();
-  const [auth] = useContext(AuthContext);
-  const urlUpdate = process.env.REACT_APP_API_LAV_RECIPE_BY_ID;
-  const urlUploads = process.env.REACT_APP_UPLOADS;
-
+  
   useEffect(() => {
     // nếu chưa đăng nhập thì vào lại trang home
     if (auth.isAuth === false) {
@@ -31,7 +31,7 @@ export default function AddRecipe() {
       // do something
     } else {
       console.log("Update recipe");
-      getRecipe(urlUpdate, id)
+      getRecipe(API_LINK_RECIPE_RECIPE_BY_ID, id)
         .then(result => {
           if (result.length > 0) {
             const value = result[0];
@@ -41,7 +41,7 @@ export default function AddRecipe() {
             console.log("Step add: ", stps)
             setNewRecipe({
               name: value.name,
-              image: `${urlUploads}/${value.image}`,
+              image: `${REACT_APP_UPLOADS}/${value.image}`,
               description: value.description,
               category: value.category,
               ingredients: ings,

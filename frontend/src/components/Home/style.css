@@ -1,44 +1,60 @@
 .fromsearch{
-    width: 499px;
-    height: 50px;
     display: flex;
-    margin-left: 400px;
-    margin-top: 20px;
-    border-radius: 20px;
-    border: 1px solid paleturquoise;
+    width: 40%;
+    flex-direction: row;
 }
 .from-category{
     list-style: none;
-    margin-left: 500px;
-    /* padding-bottom: 40px; */
+}
+.from-cate-delete{
+    display: flex;
+   justify-content: center;
+   align-items: center;
+}
+#selectoption-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .selectoption_from{
-    width: 16%;
+    /* width: 16%;
     margin-left: 524px;
     margin-top: 7px;
     border-radius: 5px;
-    position: absolute;
-}
-.submit_buttom{
-    width: 166px;
-    height: 48px;
-    padding: 0;
-    color: #777A83;
-    border-radius: 20px;
-    font-size: 16px;
-    border: none;
-    background-color: #fff;
-}
-.search_input {
-    all: unset;
-    height: 46px;
-    padding-left: 10px;
-    padding: 0;
-    border-radius: 20px;
-    border: solid 1px #fff;
-    width: 100%;
+    position: absolute; */
 }
 
+#row-search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.submit_buttom{
+    height: 50px;
+    font-weight: 900;
+    border-radius: 0px 25px 25px 0;
+    border: solid 2px rgb(167, 167, 167);
+    box-shadow: 0 0 5px rgba(230, 137, 137, 0.178);
+    /* background: linear-gradient(to top, rgb(242, 113, 33), rgb(233, 64, 87), rgb(138, 35, 135)); */
+    width: 20%;
+}
+.search_input {
+    height: 50px;
+    border-radius: 25px 0 0 25px;
+    border: solid 2px rgb(167, 167, 167);
+    box-shadow: 0 0 5px rgb(115, 182, 226);
+    /* background: linear-gradient(to top, rgb(242, 113, 33), rgb(233, 64, 87), rgb(138, 35, 135)); */
+    width: 80%;
+}
+input[type="text" i] {
+    color: red;
+    /* margin-left: 10px; */
+    padding-left: 30px;
+}
+.search_input:focus {
+    outline: none;
+    border: 1px solid blue;
+}
 
 .pizza-name{
     margin-top: 30px;
@@ -144,14 +160,14 @@
     transform: scale(0.8);
     transition: all .3s ease;
 }
-.pizza-4:hover .pizza-bccf{
+/* .pizza-4:hover .pizza-bccf{
     color: #FF9999;
     text-shadow: 0 -1px 0 #FF9999,
     0 6px 8px rgba(0,0,0,.4),
     0 9px 10px rgba(0,0,0,.15),
     0 30px 10px rgba(0,0,0,.18),
     0 15px 10px rgba(0,0,0,.21);
-}
+} */
 
 .pizza-4:hover .delete{ transition: 0.7s;}
 
@@ -185,19 +201,18 @@
 @media all and (max-width: 992px) {
 
     .fromsearch{
-        margin-left: 50px;
+        /* margin-left: 50px; */
     }
-    #row-search{
-        padding-left: 0px;
-    }
+     
     .from-category{
-        margin-left: 100px;
-        padding-left: 0px;
+        /* margin-left: 100px;
+        padding-left: 0px; */
     }
+    
     .selectoption_from{
-        width: 25%;
+        /* width: 25%;
         margin: 0;
-        margin-left: 100px;
+        margin-left: 100px; */
     }
    
 
@@ -205,19 +220,17 @@
 @media all and (max-width: 576px) {
 
     .fromsearch{
-        margin-left: 30px !important;
+        /* margin-left: 30px !important; */
     }
-    #row-search{
-        padding-left: 0px;
-    }
+     
     .from-category{
-        margin-left: 100px;
-        padding-left: 0px;
+        /* margin-left: 100px;
+        padding-left: 0px; */
     }
     .selectoption_from{
-        width: 25%;
+        /* width: 25%;
         margin: 0;
-        margin-left: 160px;
+        margin-left: 160px; */
     }
     .col-sm-6{height: fit-content;}
     .program{display: none;}
@@ -238,19 +251,17 @@
 @media all and (max-width: 530px) {
 
     .fromsearch{
-        margin-left: 0px !important;
+        /* margin-left: 0px !important; */
     }
-    #row-search{
-        padding-left: 0px;
-    }
+     
     .from-category{
-        margin-left: 50px;
-        padding-left: 0px;
+        /* margin-left: 50px;
+        padding-left: 0px; */
     }
     .selectoption_from{
-        width: 16%;
+        /* width: 16%;
         margin: 0;
-        margin-left: 110px;
+        margin-left: 110px; */
     }
     /* .pizza-name{padding-left: 150px;} */
     /* .downloads{padding-left: 150px;width: 269px;} */
@@ -265,28 +276,26 @@
     .pizza-name{padding-left: 0px;}
     .downloads{padding-left: 0px;width: 69px;}
     .from-category{
-        margin-left: 0px;
+        /* margin-left: 0px; */
     }
-    .selectoption_from{margin-left: 0;}
+    /* .selectoption_from{margin-left: 0;} */
     .delete{margin-left: 0px;}
     .from-btn{width: 83px; margin-left: 50px;}
 }
 @media all and (min-width: 768px) {
 
     .fromsearch{
-        margin-left: 150px !important;
+        /* margin-left: 150px !important; */
     }
-    #row-search{
-        padding-left: 0px;
-    }
+     
     .from-category{
-        margin-left: 200px;
-        padding-left: 0px;
+        /* margin-left: 200px;
+        padding-left: 0px; */
     }
     .selectoption_from{
-        width: 16%;
+        /* width: 16%;
         margin: 0;
-        margin-left: 200px;
+        margin-left: 200px; */
     }
     .from-show-btn{
         margin-top: 40px;
@@ -301,19 +310,17 @@
 @media all and (min-width: 1200px) {
 
     .fromsearch{
-        margin-left: 300px !important;
+        /* margin-left: 300px !important; */
     }
-    #row-search{
-        padding-left: 0px;
-    }
+     
     .from-category{
-        margin-left: 400px;
-        padding-left: 0px;
+        /* margin-left: 400px;
+        padding-left: 0px; */
     }
     .selectoption_from{
-        width: 16%;
+        /* width: 16%;
         margin: 0;
-        margin-left: 400px;
+        margin-left: 400px; */
     }
     .from-show-btn{
         margin-top: 30px;
@@ -325,19 +332,17 @@
 @media all and (min-width: 1400px) {
 
     .fromsearch{
-        margin-left: 400px !important;
+        /* margin-left: 400px !important; */
     }
-    #row-search{
-        padding-left: 0px;
-    }
+     
     .from-category{
-        margin-left: 500px;
-        padding-left: 0px;
+        /* margin-left: 500px; */
+        /* padding-left: 0px; */
     }
     .selectoption_from{
-        width: 16%;
+        /* width: 16%;
         margin: 0;
-        margin-left: 500px;
+        margin-left: 500px; */
     }
 
 }

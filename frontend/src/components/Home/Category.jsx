@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useHistory } from 'react-router-dom';
-// import Listcate from './Listcate';
+import React, { useEffect, useState } from 'react';
+import { API_LINK_CATEGORY_READ_ALL } from '../../api_link';
 
-export default function Category() {
-
+export default function Category(props) {
     const label_category = {
         paddingRight: "50px",
     }
@@ -11,72 +9,61 @@ export default function Category() {
         marginLeft: "10px"
     }
 
-    //data
-
-    const [listname, getname] = useState([]);
-
-    const URL = `${process.env.REACT_APP_API_TTHT_READ}`;
-
-    useEffect(() => {
-        async function fectlist() {
-            const requesURL = URL;
-            const response = await fetch(requesURL);
-            const reponseJSON = await response.json();
-            // console.log({ reponseJSON })
-
-            const data = reponseJSON;
-            getname(data);
-            // console.log(getname(data));
-            
-        }
-        fectlist();
-    }, []);
-
-
-
-    function SelectOption() {
-        return (
-            <select className="selectoption_from " >
-                {listname.map((post) => (
-                    <option key={post.id}>{post.name}</option>
-                ))}
-            </select>
-        );
-    }
-
-    const [radioName, setRadioName] = useState(true);
+    const [radioName, setRadioName] = useState(false);
     const [radioCate, setRadioCate] = useState(false);
-
+    const [categories, setCategories] = useState([]);
+    
     // check name radiobutton
     const handleRadioChange = () => {
         if (radioName) {
+            props.setSearchType("name");
             return 'name'
         }
         if (radioCate) {
+            props.setSearchType("category");
             return 'category'
         }
     };
 
+    
+    useEffect(() => {
+        async function fetchListCategories() {
+            const response = await fetch(API_LINK_CATEGORY_READ_ALL);
+            const result = await response.json();
+            setCategories(result);
+        }
+        fetchListCategories();
+    }, []);
     return (
-        <div className="container">
-            <div className="row" style={{ marginTop: "0" }}>
-                <div className="from-cate-delete">
+        <React.Fragment>
+            <div className="row">
+                <div className="from-cate-delete mt-4">
                     <div className="from-category">
-
                         <label style={label_category}>
-                            categories
+                            Search by Category
                             <input style={input_category} name="radiodelete" type="radio" checked={radioCate} onChange={() => { setRadioCate(true); setRadioName(false); }} />
                         </label>
 
                         <label>
-                            product name
+                            Search by Recipe name
                             <input style={input_category} name="radiodelete" type="radio" checked={radioName} onChange={() => { setRadioCate(false); setRadioName(true); }} />
                         </label>
                     </div>
                 </div>
             </div>
-            {handleRadioChange() === 'category' && <SelectOption />}
-        </div>
-
+            <div id="selectoption-top" className="mt-4">
+            {handleRadioChange() === 'category' &&
+                (
+                    <select className="selectoption_from" onChange={e => props.setCategoryValue(e.target.value)} >
+                        {
+                            categories.map((category) =>
+                                <option value={category.id} key={category.id}>{category.name}</option>
+                            )
+                        }
+                    </select>
+                )
+            }
+            </div>
+        </React.Fragment>
     )
 }
