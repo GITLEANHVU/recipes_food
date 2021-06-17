@@ -18,12 +18,12 @@ export default function CommentRecipe() {
         <div className="commentRecipe">
             <div className="container">
                 <div className="bod">
-                    <div className="comment">Bình Luận</div>
+                    <div className="comment">(0) Bình Luận</div>
                     <div className="SortComment">
                         Sắp Xếp
                         <select className="selectSort">
-                            <option>Mới nhất</option>
-                            <option>Cũ nhất</option>
+                            <option className="commentLatest">Mới nhất</option>
+                            <option className="commentOldest">Cũ nhất</option>
                         </select>
                     </div>
                 </div>

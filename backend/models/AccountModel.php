@@ -9,6 +9,20 @@ class AccountModel extends Database
         return parent::select($sql);
     }
 
+ // Get account by id
+ public function getAccountByID($id)
+ {
+     $sql = parent::$connection->prepare("SELECT * FROM account WHERE `id` = ?");
+     $sql->bind_param('i', $id);
+     return parent::select($sql);
+ }
+
+    // Get all account
+    public function getAllAccount()
+    {
+        $sql = parent::$connection->prepare("SELECT * FROM account");
+        return parent::select($sql);
+    }
 
     // Get length of account table
     public function getTotalRowsUserTable()
