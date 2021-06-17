@@ -1,23 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router';
+import { API_LINK_COMMENT_READ } from '../../api_link';
 
 export default function CommentRecipe() {
     
     const [comments, setComments] = useState([]);
-    const URL = `${process.env.REACT_APP_API_NNT_READ}`;
+    const URL = API_LINK_COMMENT_READ;
     useEffect(() => {
-        async function fectlist() {
-            const requesURL = URL;
-            const response = await fetch(requesURL);
-            const reponseJSON = await response.json();
-            // console.log({ reponseJSON })
-
-            const data = reponseJSON;
+        async function fetchList() {
+            const response = await fetch(URL);
+            const data = await response.json();
             setComments(data);
-            //console.log(data);      
         }
-        fectlist();
-    }, [])
+        fetchList();
+    }, []);
+
     return (
         <div className="commentRecipe">
             <div className="container">
@@ -39,8 +35,8 @@ export default function CommentRecipe() {
                             </div>
                             <div className="cmt">
                                 <div className="form-floating">
-                                {/* onChange={(e) => setComment(e.target.value)} */}
-                                    <textarea className="form-control"  placeholder="Leave a comment here"></textarea>
+                                    {/* onChange={(e) => setComment(e.target.value)} */}
+                                    <textarea className="form-control" placeholder="Leave a comment here"></textarea>
                                     <label>Mời bạn để lại bình luận...</label>
                                 </div>
                                 <button type="button" className="btn btn-dang">Đăng</button>
@@ -52,20 +48,20 @@ export default function CommentRecipe() {
                     <div className="col-12 col-md-5 dateRight">
                         {comments.map((post) => {
                             // if (post.content !== "") {
-                                return (
-                                    <div className="form-comment" key={post.id}>
-                                        <div className="avatar">
-                                            <img src="https://image.cooky.vn/posproduct/g0/5075/s400x400/93644f58-2233-456c-b6f2-f670491e9f65.jpeg" width="50px" height="50px" alt="" />
-                                        </div>
-                                        <div className="contentAcc">
-                                            <div className="nameDate">
-                                                <p className="nameAcc">Name</p>
-                                                <p className="dateComment"><i className="far fa-clock"></i> {post.created_at}</p>
-                                            </div>
-                                            <p className="content">{post.content}</p>
-                                        </div>
+                            return (
+                                <div className="form-comment" key={post.id}>
+                                    <div className="avatar">
+                                        <img src="https://image.cooky.vn/posproduct/g0/5075/s400x400/93644f58-2233-456c-b6f2-f670491e9f65.jpeg" width="50px" height="50px" alt="" />
                                     </div>
-                                )
+                                    <div className="contentAcc">
+                                        <div className="nameDate">
+                                            <p className="nameAcc">Name</p>
+                                            <p className="dateComment"><i className="far fa-clock"></i> {post.created_at}</p>
+                                        </div>
+                                        <p className="content">{post.content}</p>
+                                    </div>
+                                </div>
+                            )
                             // }
                         })}
                     </div>

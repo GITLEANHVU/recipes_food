@@ -1,10 +1,12 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
+import { API_LINK_ACCOUNT_READ_SINGLE } from '../../api_link';
 import { AuthContext } from '../../Contexts/AuthContext';
 import './login.css'
+
 export default function Login() {
 
-  const apiURL = `${process.env.REACT_APP_API_LAV_READ_SINGLE}`;
+  const apiURL = API_LINK_ACCOUNT_READ_SINGLE
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [auth, setAuth] = useContext(AuthContext);

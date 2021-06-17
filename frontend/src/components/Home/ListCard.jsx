@@ -1,28 +1,22 @@
 import React, { useState, useEffect } from 'react';
+import { API_LINK_RECIPE_READ_ALL } from '../../api_link';
 import Card from './Card';
-
 
 export default function ListCard(props) {
 
-    const [cardname, setcard] = useState([]);
-
-    const URL = `${process.env.REACT_APP_API_TTHT_READ_RECIPE}`;
+    const [cardName, setCardName] = useState([]);
+    const URL = API_LINK_RECIPE_READ_ALL
 
     useEffect(() => {
-        console.log(URL)
-        async function fectlist() {
+        async function fetchAllRecipes() {
             const response = await fetch(URL);
-            const reponseJSON = await response.json();
-            console.log(reponseJSON)
-
-            const data = reponseJSON;
-            setcard(data);
-
+            const data = await response.json();
+            setCardName(data);
         }
-        fectlist();
+        fetchAllRecipes();
     }, []);
 
     const newData = props.setData;
-    const result = cardname.map((item) => <Card key={item.id} handleDelete={newData} recipe={item} />)
+    const result = cardName.map((item) => <Card key={item.id} handleDelete={newData} recipe={item} />)
     return result;
 }

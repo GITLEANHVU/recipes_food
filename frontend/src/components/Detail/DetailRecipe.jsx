@@ -3,22 +3,21 @@ import React, { useState, useEffect } from 'react';
 import './DetailRecipe.css';
 import CommentRecipe from './Comment.jsx'
 import { useParams } from 'react-router-dom';
+import { API_LINK_RECIPE_RECIPE_BY_ID, REACT_APP_UPLOADS } from '../../api_link';
 
 export default function DetailRecipe() {
     const [colorHeart, setColorHeart] = useState('black');
     const [recipe, setRecipe] = useState([]);
-    const URL = `${process.env.REACT_APP_API_TTMT_READ}`;
-    const URLIMAGE = `${process.env.REACT_APP_UPLOADS}`;
+    const URL = API_LINK_RECIPE_RECIPE_BY_ID;
+    const url_images = REACT_APP_UPLOADS;
     const { id } = useParams();
     var idRecipe = parseInt(id, 10);
-    //console.log(id);
     useEffect(() => {
         // lay du lieu tu db
         async function fetchRecipeById() {
             const response = await fetch(URL);
-            const responseJS = await response.json();
-            //console.log(responseJS);
-            setRecipe(responseJS);
+            const result = await response.json();
+            setRecipe(result);
         }
         // set du lieu cho state
         fetchRecipeById();
@@ -27,7 +26,7 @@ export default function DetailRecipe() {
     function splitRecipe(a) {
         a.split('#');
     }
-    // mỗi thằng chứa 2 time riêng
+
     return (
         <div className="detailRecipe">
             <div className="container">
@@ -38,7 +37,7 @@ export default function DetailRecipe() {
                                 <div className="col-4 sm-3">
                                     <div className="imgRecipeBox">
                                         <div className="imgRecipe">
-                                            <img className="img-detail" src={`${URLIMAGE}/${recipeId.image}`} alt="" />
+                                            <img className="img-detail" src={`${url_images}/${recipeId.image}`} alt="" />
                                         </div>
                                     </div>
                                     <div className="status">

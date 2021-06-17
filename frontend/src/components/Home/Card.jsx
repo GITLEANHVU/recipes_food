@@ -1,10 +1,11 @@
 import { AuthContext } from '../../Contexts/AuthContext';
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { REACT_APP_UPLOADS } from '../../api_link';
 function Card(props) {
-    const [auth, setAuth] = useContext(AuthContext);
+    const [auth] = useContext(AuthContext);
     const item = props.recipe;
-    const url_uploads = `${process.env.REACT_APP_UPLOADS_TTHT}`
+    const url_uploads = REACT_APP_UPLOADS
     return (
         <div className="col-12 col-md-3 col-sm-6 pizza-4" >
             <a href="#"><img src={`${url_uploads}/${item.image}`} alt="" className="trang" /></a>

@@ -1,35 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useHistory } from 'react-router-dom';
-// import Listcate from './Listcate';
+import { API_LINK_CATEGORY_READ } from '../../api_link';
 
 export default function Category() {
-
     const label_category = {
         paddingRight: "50px",
     }
     const input_category = {
         marginLeft: "10px"
     }
+    const [listName, getListName] = useState([]);
 
-    //data
-
-    const [listname, getname] = useState([]);
-
-    const URL = `${process.env.REACT_APP_API_TTHT_READ}`;
+    const URL = API_LINK_CATEGORY_READ
 
     useEffect(() => {
-        async function fectlist() {
-            const requesURL = URL;
-            const response = await fetch(requesURL);
-            const reponseJSON = await response.json();
-            // console.log({ reponseJSON })
-
-            const data = reponseJSON;
-            getname(data);
-            // console.log(getname(data));
+        async function fetchListCategories() {
+            const response = await fetch(URL);
+            const result = await response.json();
+            getListName(result);
             
         }
-        fectlist();
+        fetchListCategories();
     }, []);
 
 
@@ -37,7 +27,7 @@ export default function Category() {
     function SelectOption() {
         return (
             <select className="selectoption_from " >
-                {listname.map((post) => (
+                {listName.map((post) => (
                     <option key={post.id}>{post.name}</option>
                 ))}
             </select>
