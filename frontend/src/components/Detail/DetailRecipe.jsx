@@ -9,8 +9,9 @@ import { API_LINK_ACCOUNT_BY_ID, API_LINK_RECIPE_RECIPE_BY_ID, REACT_APP_UPLOADS
 export default function DetailRecipe() {
     const [colorHeart, setColorHeart] = useState('black');
     const [account, setAccount] = useState({
-        id: null,
         name: "",
+        email: "",
+        address: "",
     });
     const [recipe, setRecipe] = useState({
         name: "",
@@ -20,8 +21,8 @@ export default function DetailRecipe() {
         ingredients: [],
         steps: [],
         created_at: null,
+        account_id: null,
     });
-
     const { id } = useParams();
 
     useEffect(() => {
@@ -47,6 +48,7 @@ export default function DetailRecipe() {
             });
             return await response.json();
         }
+        
         getRecipe(API_LINK_RECIPE_RECIPE_BY_ID, id)
             .then(result => {
                 if (result.length > 0) {
@@ -63,15 +65,13 @@ export default function DetailRecipe() {
                         steps: stps,
                         account_id: value.account_id,
                         created_at: value.created_at,
-                    })
+                    });
 
                     // sau khi co san pham thi get accout bang accout_id
                     getAccountByID(API_LINK_ACCOUNT_BY_ID, value.account_id)
                         .then(account => {
-                            // console.log(account);
                             setAccount(account[0]);
-                        })
-
+                        });
                 }
             });
 
@@ -80,8 +80,8 @@ export default function DetailRecipe() {
 
     return (
         <div className="detailRecipe">
+            {console.log(account)}
             <div className="container">
-
                 <div className="row g-2 contentTop">
                     <div className="col-4 sm-3">
                         <div className="imgRecipeBox">
@@ -104,7 +104,7 @@ export default function DetailRecipe() {
                                     <i className="fas fa-user-edit"></i>
                                     {" "}{account.name}
                                 </button>
-                                <AccountInfo />
+                                <AccountInfo account={{ ...account }} />
                                 <p className="dateRecipe">
                                     <i className="fas fa-calendar-alt"></i>
                                     {"  "}{recipe.created_at}
@@ -121,7 +121,7 @@ export default function DetailRecipe() {
                     </div>
                     <span className="tutorial">Hướng dẫn chế biến</span>
                     <div className="row g-2 boderTutorial">
-                       
+
                         <div className="col-12 ">
                             <div className="description">
                                 <ol className="list-group list-group-numbered">

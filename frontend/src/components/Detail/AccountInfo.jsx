@@ -1,7 +1,5 @@
-import React, { useContext } from 'react';
-
-function AccountInfo() {
-
+function AccountInfo(props) {
+    const {name, email, address} = props.account
     return (
         <div className="modal fade" id="accounntInfo" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div className="modal-dialog">
@@ -11,9 +9,9 @@ function AccountInfo() {
                         <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div className="modal-body">
-                        <p>Name: {}</p>
-                        <p>Email: {}</p>
-                        <p>Address: {}</p>
+                        <p>Name: {name}</p>
+                        <p>Email: {email}</p>
+                        <p>Address: {address}</p>
                     </div>
                     <div className="modal-footer">
                         <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
