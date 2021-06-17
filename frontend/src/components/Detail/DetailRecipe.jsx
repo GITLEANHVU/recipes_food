@@ -1,16 +1,24 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import './DetailRecipe.css';
 import CommentRecipe from './Comment.jsx'
+import AccountInfo from './AccountInfo.jsx'
 import { useParams } from 'react-router-dom';
+import { AuthContext } from '../../Contexts/AuthContext'
 
 export default function DetailRecipe() {
+    const [auth, setAuth] = useContext(AuthContext);
     const [colorHeart, setColorHeart] = useState('black');
     const [recipe, setRecipe] = useState([]);
-    const URL = `${process.env.REACT_APP_API_TTMT_READ}`;
+    const [account, setAccout] = useState([]);
+    const [comment, setComment] = useState([]);
+    const URL = `${process.env.REACT_APP_API_NNT_READ}`;
     const URLIMAGE = `${process.env.REACT_APP_UPLOADS}`;
+    const URLACOUNT = `${process.env.REACT_APP_API_NNT_READ_ACCOUNT}`;
+    const URLCOMMENT = `${process.env.REACT_APP_API_NNT_READ_SINGLE}`;
     const { id } = useParams();
-    var idRecipe = parseInt(id, 10);
+    const idRecipe = parseInt(id, 10);
+
     //console.log(id);
     useEffect(() => {
         // lay du lieu tu db
@@ -22,10 +30,38 @@ export default function DetailRecipe() {
         }
         // set du lieu cho state
         fetchRecipeById();
+    }, []);
+
+    useEffect(() => {
+        // lay du lieu tu db
+        async function fetchAccountById() {
+            const response = await fetch(URLACOUNT);
+            const responseJS = await response.json();
+            //console.log(responseJS);
+            setAccout(responseJS);
+        }
+        // set du lieu cho state
+        fetchAccountById();
     }, [])
 
+    useEffect(() => {
+        const fetchCommentByRecipeID = async (url) => {
+            const response = await fetch(url, {
+                method: 'POST',
+                body: JSON.stringify({ recipe_id: idRecipe })
+            });
+            return await response.json();
+        }
+        fetchCommentByRecipeID(URLCOMMENT)
+            .then(result => {
+                setComment(result)
+            })
+    }, [])
+    console.log(comment);
+    //tach chuoi
     function splitRecipe(a) {
-        a.split('#');
+        const temp = a.split('#');
+        return temp;
     }
     // mỗi thằng chứa 2 time riêng
     return (
@@ -51,13 +87,28 @@ export default function DetailRecipe() {
                                     <div className="p-3 border bg-light2">
                                         <h3>{recipeId.name}</h3>
                                         <div className="chef">
-                                            <p className="nameChef"><i className="fas fa-user-edit"></i> Nguyên Văn An</p>
-                                            <p className="dateRecipe"><i className="fas fa-calendar-alt"></i> 06/06/2021</p>
+                                            {account.map((account_content) => {
+                                                if (recipeId.account_id === account_content.id) {
+                                                    return (
+                                                        <button className="nameChef" data-bs-toggle="modal" data-bs-target="#accounntInfo" key={account_content.id}><i className="fas fa-user-edit"></i> {account_content.name}</button>
+                                                    )
+                                                }
+                                            })}
+                                            <AccountInfo/>
+                                            <p className="dateRecipe"><i className="fas fa-calendar-alt"></i> {recipeId.created_at}</p>
                                         </div>
                                         <p className="descriptionRecipe">{recipeId.description}</p>
                                         <h3>Nguyên liệu</h3>
                                         <ol className="list-group list-group-numbered">
-                                            <li className="list-group-item">{recipeId.ingredients}</li>
+                                            {/* <li className="list-group-item">{recipeId.ingredients}</li> */}
+                                            {splitRecipe(recipeId.ingredients).map((item) => {
+                                                return (
+                                                    <li key={item} className="list-group-item">
+                                                        {item}
+                                                    </li>
+                                                )
+                                            })
+                                            }
                                         </ol>
                                     </div>
                                 </div>
@@ -68,16 +119,15 @@ export default function DetailRecipe() {
                                 </div> */}
                                     <div className="col-12 ">
                                         <div className="description">
-                                            <ol className="list-step">
-                                                <li>{splitRecipe(recipeId.steps)}</li>
-                                                {/* { splitRecipe(recipeId.steps).map((item)=>{
+                                            <ol className="list-group list-group-numbered">
+                                                {splitRecipe(recipeId.steps).map((item) => {
                                                     return (
-                                                        <li>
-                                                            {}
+                                                        <li key={item} className="list-group-item">
+                                                            {item}
                                                         </li>
                                                     )
                                                 })
-                                                } */}
+                                                }
                                             </ol>
                                         </div>
                                     </div>

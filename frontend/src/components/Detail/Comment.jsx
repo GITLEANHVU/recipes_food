@@ -1,33 +1,28 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router';
 
 export default function CommentRecipe() {
     
     const [comments, setComments] = useState([]);
-    const URL = `${process.env.REACT_APP_API_NNT_READ}`;
+    const URLCOMMENT = `${process.env.REACT_APP_API_NNT_READ_COMMENT}`;
     useEffect(() => {
         async function fectlist() {
-            const requesURL = URL;
-            const response = await fetch(requesURL);
-            const reponseJSON = await response.json();
-            // console.log({ reponseJSON })
-
-            const data = reponseJSON;
-            setComments(data);
-            //console.log(data);      
+            const response = await fetch(URLCOMMENT);
+            const commentJS = await response.json();
+            setComments(commentJS);      
         }
         fectlist();
     }, [])
+    //console.log(comments[[1]]);
     return (
         <div className="commentRecipe">
             <div className="container">
                 <div className="bod">
-                    <div className="comment">Bình Luận</div>
+                    <div className="comment">(0) Bình Luận</div>
                     <div className="SortComment">
                         Sắp Xếp
                         <select className="selectSort">
-                            <option>Mới nhất</option>
-                            <option>Cũ nhất</option>
+                            <option className="commentLatest">Mới nhất</option>
+                            <option className="commentOldest">Cũ nhất</option>
                         </select>
                     </div>
                 </div>

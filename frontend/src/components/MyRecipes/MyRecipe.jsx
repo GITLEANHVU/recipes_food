@@ -22,7 +22,7 @@ export default function MyRecipe() {
                 setRecipes(result)
             })
     }, [])
-
+    //console.log(recipes);
     const [tempRecipes, setTempRecipe] = useState([]);
     const [searchKey, setSearchKey] = useState("");
     const URL_SEARCH = `${process.env.REACT_APP_API_TTMT_SEARCH_BY_NAME}`

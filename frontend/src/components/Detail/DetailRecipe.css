@@ -42,7 +42,9 @@
         height: auto !important;
     }
   }
-
+.description > ol{
+    padding-bottom: 10px;
+}
 .tutorial{
     background: green;
     padding: 10px;    
@@ -126,12 +128,16 @@
     display: flex;
     font-size: 13px;
 }
-.nameChef{
+button.nameChef{
     font-style: italic;
+    border: none !important;
+    background: none;
+    width: fit-content;
+    height: fit-content;
 }
 .dateRecipe{
     font-style: italic;
-    padding-left: 15px;
+    padding-left: 5px;
 }
 
 .fa-user-edit{
