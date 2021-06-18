@@ -4,16 +4,23 @@ import './DetailRecipe.css';
 import CommentRecipe from './Comment.jsx'
 import AccountInfo from './AccountInfo.jsx'
 import { useParams } from 'react-router-dom';
-import { API_LINK_ACCOUNT_BY_ID, API_LINK_RECIPE_RECIPE_BY_ID, REACT_APP_UPLOADS } from '../../api_link';
+import { API_LINK_COMMENT_READ_SINGLE, API_LINK_ACCOUNT_BY_ID, API_LINK_RECIPE_RECIPE_BY_ID, REACT_APP_UPLOADS } from '../../api_link';
 
 export default function DetailRecipe() {
     const [colorHeart, setColorHeart] = useState('black');
+    const [comment, setComment] = useState([]);
     const [account, setAccount] = useState({
         name: "",
         email: "",
         address: "",
     });
+    // const [accountComment, setAccountCommet] = useState({
+    //     name: "",
+    //     email: "",
+    //     address: "",
+    // });
     const [recipe, setRecipe] = useState({
+        id: null,
         name: "",
         image: "https://img.taste.com.au/z09DD4Ls/taste/2018/07/zucchini-lasagne-roll-ups-139165-1.jpg",
         description: "",
@@ -37,7 +44,7 @@ export default function DetailRecipe() {
             });
             return await response.json();
         }
-
+        //cai này là get recipe tu id san pham
         const getRecipe = async (url, id) => {
             const response = await fetch(url, {
                 method: "POST",
@@ -48,7 +55,7 @@ export default function DetailRecipe() {
             });
             return await response.json();
         }
-        
+
         getRecipe(API_LINK_RECIPE_RECIPE_BY_ID, id)
             .then(result => {
                 if (result.length > 0) {
@@ -57,6 +64,7 @@ export default function DetailRecipe() {
                     const stps = value.steps.split("#")
 
                     setRecipe({
+                        id: value.id,
                         name: value.name,
                         image: `${REACT_APP_UPLOADS}/${value.image}`,
                         description: value.description,
@@ -74,13 +82,36 @@ export default function DetailRecipe() {
                         });
                 }
             });
-
-
+            // const getAccountByComment = async (url, account_id) => {
+            //     const response = await fetch(url, {
+            //         method: "POST",
+            //         headers: {
+            //             'Accept': 'application/json;charset=UTF-8'
+            //         },
+            //         body: JSON.stringify({ account_id: account_id }),
+            //     });
+            //     return await response.json();
+            // }
+        //cai này t ap dung như v chỉ khác là dùng nó để lấy ra các comment của cái id recipe ấy
+        const getCommentByRecipeID = async (url, recipe_id) => {
+            const response = await fetch(url, {
+                method: "POST",
+                headers: {
+                    'Accept': 'application/json;charset=UTF-8'
+                },
+                body: JSON.stringify({ recipe_id: recipe_id }),
+            });
+            return await response.json();
+        }
+        getCommentByRecipeID(API_LINK_COMMENT_READ_SINGLE, id)
+            .then(result => {
+                setComment(result)
+            })
     }, []);
-
+    //console.log(comment);
     return (
+
         <div className="detailRecipe">
-            {console.log(account)}
             <div className="container">
                 <div className="row g-2 contentTop">
                     <div className="col-4 sm-3">
@@ -90,9 +121,9 @@ export default function DetailRecipe() {
                             </div>
                         </div>
                         <div className="status">
-                            <button onClick={() => { setColorHeart("red") }} className="btn heart"><i className="fas fa-heart" style={{ color: colorHeart }}></i></button>
-                            <button className="btn editRecipe"><i className="far fa-edit"></i></button>
-                            <button className="btn deleteRecipe"><i className="fas fa-trash"></i></button>
+                            <button onClick={() => { setColorHeart("red") }} className="bt heart"><i className="fas fa-heart" style={{ color: colorHeart }}></i></button>
+                            <button className="bt editRecipe"><i className="far fa-edit"></i></button>
+                            <button className="bt deleteRecipe"><i className="fas fa-trash"></i></button>
                         </div>
                     </div>
                     <div className="col-8 sm-9">
@@ -134,7 +165,7 @@ export default function DetailRecipe() {
                     </div>
                 </div>
 
-                <CommentRecipe />
+                <CommentRecipe comment={comment}/>
             </div>
         </div>
     )

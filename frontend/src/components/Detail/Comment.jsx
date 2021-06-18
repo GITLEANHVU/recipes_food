@@ -1,24 +1,28 @@
-import React, { useState, useEffect } from 'react';
-import { API_LINK_COMMENT_READ } from '../../api_link';
+import React, { useState, useEffect, useContext } from 'react';
+// import { AuthContext } from '../../Contexts/AuthContext';
+// import { useHistory } from 'react-router-dom';
 
-export default function CommentRecipe() {
-    
-    const [comments, setComments] = useState([]);
-    const URL = API_LINK_COMMENT_READ;
-    useEffect(() => {
-        async function fetchList() {
-            const response = await fetch(URL);
-            const data = await response.json();
-            setComments(data);
-        }
-        fetchList();
-    }, []);
+export default function CommentRecipe(props) {
+    // const [auth] = useContext(AuthContext);
+    // const history = useHistory();
+
+    const comment = props.comment;
+    //const [commentByRecipe, setCommentByRecipe] = useState({});
+    // useEffect(() => {
+        
+    // }, []);
 
     return (
         <div className="commentRecipe">
             <div className="container">
                 <div className="bod">
-                    <div className="comment">(0) Bình Luận</div>
+                    <div className="comment">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        ({comment.length}) Bình Luận
+                    </div>
                     <div className="SortComment">
                         Sắp Xếp
                         <select className="selectSort">
@@ -39,14 +43,14 @@ export default function CommentRecipe() {
                                     <textarea className="form-control" placeholder="Leave a comment here"></textarea>
                                     <label>Mời bạn để lại bình luận...</label>
                                 </div>
-                                <button type="button" className="btn btn-dang">Đăng</button>
+                                <button type="button" className="btn-dang">Đăng</button>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className="row g-2">
                     <div className="col-12 col-md-5 dateRight">
-                        {comments.map((post) => {
+                        {comment.map((post) => {
                             // if (post.content !== "") {
                             return (
                                 <div className="form-comment" key={post.id}>

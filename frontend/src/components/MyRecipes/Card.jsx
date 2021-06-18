@@ -23,7 +23,7 @@ function Card(props) {
                                 <p>{`${value.description}`.substr(0, 120)}...</p>
                             </div>
                             <div className="btn-group">
-                                <a href="###" className="btn-show">Xem chi tiết</a>
+                                <Link to={`detail-recipe/${value.id}`} className="btn-show">Xem chi tiết</Link>
                                 <div className="btn-handle">
                                     <span className="icon-update">
                                         <Link to={`/au-recipe/${value.id}`} className="btn-show btn-update">
