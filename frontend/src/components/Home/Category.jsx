@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { API_LINK_CATEGORY_READ_ALL } from '../../api_link';
+import { API_LINK_CATEGORY_READ } from '../../api_link';
 
 export default function Category(props) {
     const label_category = {
@@ -12,7 +12,7 @@ export default function Category(props) {
     const [radioName, setRadioName] = useState(false);
     const [radioCate, setRadioCate] = useState(false);
     const [categories, setCategories] = useState([]);
-    
+
     // check name radiobutton
     const handleRadioChange = () => {
         if (radioName) {
@@ -25,15 +25,16 @@ export default function Category(props) {
         }
     };
 
-    
+
     useEffect(() => {
         async function fetchListCategories() {
-            const response = await fetch(API_LINK_CATEGORY_READ_ALL);
+            const response = await fetch(API_LINK_CATEGORY_READ);
             const result = await response.json();
             setCategories(result);
         }
         fetchListCategories();
     }, []);
+
     return (
         <React.Fragment>
             <div className="row">
@@ -41,28 +42,41 @@ export default function Category(props) {
                     <div className="from-category">
                         <label style={label_category}>
                             Search by Category
-                            <input style={input_category} name="radiodelete" type="radio" checked={radioCate} onChange={() => { setRadioCate(true); setRadioName(false); }} />
+                            <input style={input_category}
+                                name="radiodelete" type="radio"
+                                checked={radioCate}
+                                onChange={() => {
+                                    setRadioCate(true);
+                                    setRadioName(false);
+                                }} />
                         </label>
 
                         <label>
                             Search by Recipe name
-                            <input style={input_category} name="radiodelete" type="radio" checked={radioName} onChange={() => { setRadioCate(false); setRadioName(true); }} />
+                            <input style={input_category}
+                                name="radiodelete" type="radio"
+                                checked={radioName}
+                                onChange={() => {
+                                    setRadioCate(false);
+                                    setRadioName(true);
+                                }} />
                         </label>
                     </div>
                 </div>
             </div>
+
             <div id="selectoption-top" className="mt-4">
-            {handleRadioChange() === 'category' &&
-                (
-                    <select className="selectoption_from" onChange={e => props.setCategoryValue(e.target.value)} >
-                        {
-                            categories.map((category) =>
-                                <option value={category.id} key={category.id}>{category.name}</option>
-                            )
-                        }
-                    </select>
-                )
-            }
+                {handleRadioChange() === 'category' &&
+                    (
+                        <select className="selectoption_from" onChange={e => props.setCategoryValue(e.target.value)} >
+                            {
+                                categories.map((category) =>
+                                    <option value={category.id} key={category.id}>{category.name}</option>
+                                )
+                            }
+                        </select>
+                    )
+                }
             </div>
         </React.Fragment>
     )
