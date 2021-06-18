@@ -75,7 +75,7 @@
 .form-floating>.form-control, .form-floating>.form-select{
     height: 100px;
 }
-.comment{
+/* .comment{
     background:green;
     padding: 7px;
     width: auto;
@@ -83,7 +83,120 @@
     color: white;
     margin-top: 50px;
     float: right;
+} */
+.comment{
+    /* transform: translate(-50%, -50%); */
+    position: absolute;
+    top: -18px;
+    left: 65px;
+    transform: translate(-50%, -50%);
+    color: white;
+    padding: 7px;
+    font-size: 15px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    background:green;
 }
+comment:before{
+    content: '';
+    width:50%;
+    background: rgba(255,255,255,0.05);
+}
+.comment span:nth-child(1) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: white;
+}
+
+.comment span:nth-child(2) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background:white;
+}
+
+.comment span:nth-child(3) {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: white;
+}
+
+.comment span:nth-child(4) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: white;
+}
+
+.comment span:nth-child(1) {
+    animation: animated1 2s linear infinite;
+}
+@keyframes animated1{
+    0%{
+        transform: translateX(-100%);
+    }
+    100%{
+        transform: translateX(100%);
+    }
+}
+
+.comment span:nth-child(2) {
+    animation: animated2 2s linear infinite;
+    animation-delay: 1s;
+}
+
+@keyframes animated2{
+    0%{
+        transform: translateY(-100%);
+    }
+    100%{
+        transform: translateY(100%);
+    }
+}
+
+
+.comment span:nth-child(3) {
+    animation: animated3 2s linear infinite;
+}
+
+@keyframes animated3{
+    0%{
+        transform: translateX(100%);
+    }
+    100%{
+        transform: translateX(-100%);
+    }
+}
+
+.comment span:nth-child(4) {
+    animation: animated4 2s linear infinite;
+    animation-delay: 1s;
+}
+
+@keyframes animated4{
+    0%{
+        transform: translateY(100%);
+    }
+    100%{
+        transform: translateY(-100%);
+    }
+}
+
+.comment{
+    overflow: hidden;
+}
+
 .bod{
     border-bottom: 1px solid green;
     margin-bottom: 20px;
@@ -94,17 +207,32 @@
     display: flex;
     margin-top: 10px;
 }
-.btn-dang{
-    float: right;
+/* .btn-dang{
+    
     background: #0277bd;
     padding: 5px 10px;
     border:1px solid #dadada ;
     margin-top: 5px;
     color: white;
-}
-.btn-dang:hover{
+} */
+.btn-dang{
+    float: right;
+    background: #0277bd;
+    padding: 0.3em 0.3m;
+    font-size:17px;
+    margin:5px;
+    border:none;
+    border-radius:10px;
+    box-shadow:0 9px gray;
+    cursor:pointer;
+    outline:none;
     color: white;
-}
+  }
+  .btn-dang:active{
+    transform:translate(0,4px);
+    -webkit-transform:translate(0,4px);
+    box-shadow:0 4px gray;  
+  }
 .contentAcc{
     padding-left: 10px;
 }
@@ -113,7 +241,7 @@
     font-weight: bold;
 }
 .SortComment{
-    margin-top: 55px;
+    margin-top: -26px;
     float: right;
     position: absolute;
     right: 0;
@@ -147,7 +275,7 @@ button.nameChef{
     color: #d80650;
 }
 .editRecipe{
-    background: #ffc107;
+    background: #ffc107 !important;
     font-size: 20px;
 }
 .deleteRecipe{
@@ -156,9 +284,10 @@ button.nameChef{
     font-size: 20px;
 }
 .heart{
-    border: 1px solid;
+    border: 1px solid !important;
     margin-right: 5px;
     font-size: 20px;
+    background: none !important;
 }
 .status{
     padding-left: 10px;
@@ -218,3 +347,101 @@ button.nameChef{
     transform: scale(1.15, 1.15);
     opacity: 1;        
   }
+  /*  */
+#accounntInfo{
+    position: fixed;
+    fill: #d80650;
+}
+#close_info{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    opacity: 1;
+    font-size: 29px;
+    background: none;
+    border: none;
+    color: red;
+}
+.title_info{
+    margin-bottom: 0px;
+}
+.header_info{
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1rem;
+    border-bottom: 1px solid #dee2e6;
+    border-top-left-radius: calc(.3rem - 1px);
+    border-top-right-radius: calc(.3rem - 1px);
+    background: #27bce4;
+}
+#close{
+    color: white;
+}
+.bt{
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    border-radius: .25rem;
+    background: red;
+}
+.bt,
+.bt:link,
+.bt:visited{
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    position: relative;
+    transition: all .2s;
+}
+
+.bt::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    border-radius: 100px;
+    transition: all .4s;
+}
+
+.bt:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, .2);
+}
+
+.bt:active{
+    outline: none;
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+}
+.bt-white{
+    color: #777777;
+    background-color: #fff;
+}
+
+.bt-white::after{
+    background-color: #fff;
+}
+
+.bt:hover::after{
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
