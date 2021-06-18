@@ -1,8 +1,8 @@
 <?php
 header("Content-Type: application/json");
-header("Acess-Control-Allow-Origin: *");
-header("Acess-Control-Allow-Methods: POST");
-header("Acess-Control-Allow-Headers: Acess-Control-Allow-Headers,Content-Type,Acess-Control-Allow-Methods, Authorization");
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: POST");
+header("Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,Access-Control-Allow-Methods, Authorization");
 
 
 $data = json_decode(file_get_contents("php://input"), true); // collect input parameters and convert into readable format
