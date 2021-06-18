@@ -7,21 +7,27 @@ body{
 .recipe{
     background: transparent;
 }
-
+/* CAROUSEL */
+.img-carousel{
+    height: 500px !important;
+}
+.carousel-control-next-icon, .carousel-control-prev-icon {
+    display: inline-block;
+    width: 36px;
+    height: 50px;
+    border: 1px solid #999;
+}
 /* BIG TITILE */
 #big-title {
-    background: url(./smooth.jpg);
     color: #efa810;
     text-transform: uppercase;
     font-weight: bold;
-    position: relative;
+    position: absolute;
     text-align: center !important;
-    font-size: 3.5rem;
+    font-size: 3.2rem !important;
     font-family: 'Courgette', cursive;
-    height: 600px;
-    background-position: center;
-    padding-left: 402px;
-    padding-top: 200px;
+    top: 60%;
+    left: 40%;
 }
 #flip {
     height: 80px;
@@ -230,6 +236,9 @@ body{
     box-shadow: 3px 3px 8px #ada6a6;
     margin-top: 40px;
 }
+.products:hover{
+    background-image: radial-gradient(at center center, #FFFFFF 0%, #efd65f 100%);
+}
 .detail-product--link{
     position: relative;
     display: block;
@@ -265,8 +274,9 @@ body{
 }
 .detail-product--link_img .link--img img:hover{
     opacity: 1;
-    box-shadow: 0 0 15px 15px rgb(0 0 0 / 50%);
-    transform: rotateX(0) translateZ(-60px) scale(0.95);
+    box-shadow: 0 0 15px 10px rgb(0 0 0 / 50%);
+    transform: rotateX(0) translateZ(-50px) scale(0.95);
+    transition-duration: 0.5s;
 }
 .detail-product__text{
     padding: 0 15px;

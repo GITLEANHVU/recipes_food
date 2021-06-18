@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import './MyRecipe.css'
-
+import Carasel from './Carasel'
 export default function Search(props) {
     return (
         <div className="search-recipe">
+            <Carasel/>
             <div id="big-title">
                 Make
                 <div id="flip">

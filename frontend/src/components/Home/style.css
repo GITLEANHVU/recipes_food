@@ -47,8 +47,6 @@
     width: 80%;
 }
 input[type="text" i] {
-    color: red;
-    /* margin-left: 10px; */
     padding-left: 30px;
 }
 .search_input:focus {

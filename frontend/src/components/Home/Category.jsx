@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { API_LINK_CATEGORY_READ_ALL } from '../../api_link';
+import { API_LINK_CATEGORY_READ } from '../../api_link';
 
 export default function Category(props) {
     const label_category = {
@@ -28,7 +28,7 @@ export default function Category(props) {
     
     useEffect(() => {
         async function fetchListCategories() {
-            const response = await fetch(API_LINK_CATEGORY_READ_ALL);
+            const response = await fetch(API_LINK_CATEGORY_READ);
             const result = await response.json();
             setCategories(result);
         }
