@@ -47,6 +47,11 @@
     width: 80%;
 }
 input[type="text" i] {
+<<<<<<< HEAD
+=======
+    /* color: red; */
+    /* margin-left: 10px; */
+>>>>>>> 495a7f14f1ac9d57000ff0f71e6a51cb45ca1ae5
     padding-left: 30px;
 }
 .search_input:focus {

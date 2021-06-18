@@ -79,19 +79,16 @@ export default function Home() {
     return (
         <div className="container">
             <Search onSearchKeyChanged={onSearchKeyChanged} handleSubmit={handleSubmit} />
-            <Category setSearchType={setSearchType} setCategoryValue={setCategoryValue}></Category>
-            {/* <div className="row mt-4">
-                {
-                    tempRecipes.length > 0 ?
-                        tempRecipes.map(item => <Card key={item.id} handleDelete={deleteRecipe} recipe={item} />)
-                        :
-                        recipes.map(item => <Card key={item.id} handleDelete={deleteRecipe} recipe={item} />)
-                }
-            </div> */}
+            
+            <Category setSearchType={setSearchType} setCategoryValue={setCategoryValue} />
 
 
             <div className="container mt-4">
+<<<<<<< HEAD
                 {<TestCard recipes={tempRecipes.length > 0 ? tempRecipes:recipes} />}
+=======
+                {<TestCard recipes={tempRecipes.length > 0 ? tempRecipes : recipes} />}
+>>>>>>> 495a7f14f1ac9d57000ff0f71e6a51cb45ca1ae5
             </div>
         </div>
     )

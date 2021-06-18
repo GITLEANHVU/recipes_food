@@ -1,14 +1,14 @@
 
 import React, { useState, useEffect } from 'react';
 import './DetailRecipe.css';
-import CommentRecipe from './Comment.jsx'
+import CommentRecipe from './Comments.jsx'
 import AccountInfo from './AccountInfo.jsx'
 import { useParams } from 'react-router-dom';
 import { API_LINK_COMMENT_READ_SINGLE, API_LINK_ACCOUNT_BY_ID, API_LINK_RECIPE_RECIPE_BY_ID, REACT_APP_UPLOADS } from '../../api_link';
 
 export default function DetailRecipe() {
     const [colorHeart, setColorHeart] = useState('black');
-    const [comment, setComment] = useState([]);
+    const [comments, setComments] = useState([]);
     const [account, setAccount] = useState({
         name: "",
         email: "",
@@ -33,7 +33,6 @@ export default function DetailRecipe() {
     const { id } = useParams();
 
     useEffect(() => {
-
         const getAccountByID = async (url, account_id) => {
             const response = await fetch(url, {
                 method: "POST",
@@ -103,10 +102,12 @@ export default function DetailRecipe() {
             });
             return await response.json();
         }
+
         getCommentByRecipeID(API_LINK_COMMENT_READ_SINGLE, id)
             .then(result => {
-                setComment(result)
+                setComments(result)
             })
+
     }, []);
     //console.log(comment);
     return (
@@ -165,7 +166,7 @@ export default function DetailRecipe() {
                     </div>
                 </div>
 
-                <CommentRecipe comment={comment}/>
+                <CommentRecipe comments={comments}/>
             </div>
         </div>
     )

@@ -2,15 +2,15 @@ import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // Components
-import DetailRecipe from "./components/Detail/DetailRecipe";
-import Home from "./components/Home/Home";
-import MyRecipe from "./components/MyRecipes/MyRecipe";
-import AddRecipe from "./components/AddRecipe/AddRecipe";
-import Login from "./components/Login/Login";
-import CreateAccount from "./components/Login/CreateAccount";
-import NotFound from "./components/Error/NotFound";
-import Header from './components/Header/Header'
-import Footer from './components/Footer/Footer'
+import Home from "./Components/Home/Home";
+import MyRecipe from "./Components/MyRecipes/MyRecipe";
+import AddRecipe from "./Components/AddRecipe/AddRecipe";
+import Login from "./Components/Login/Login";
+import CreateAccount from "./Components/Login/CreateAccount";
+import NotFound from "./Components/Error/NotFound";
+import Header from './Components/Header/Header'
+import Footer from './Components/Footer/Footer'
+import DetailRecipe from "./Components/Detail/DetailRecipe";
 
 function App() {
   return (

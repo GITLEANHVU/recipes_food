@@ -1,75 +1,34 @@
-import React, { useState, useEffect, useContext } from 'react';
-// import { AuthContext } from '../../Contexts/AuthContext';
-// import { useHistory } from 'react-router-dom';
+import React, { useEffect, useState } from 'react'
+import { API_LINK_ACCOUNT_BY_ID } from '../../api_link';
 
-export default function CommentRecipe(props) {
-    // const [auth] = useContext(AuthContext);
-    // const history = useHistory();
-
-    const comment = props.comment;
-    //const [commentByRecipe, setCommentByRecipe] = useState({});
-    // useEffect(() => {
-        
-    // }, []);
-
+export default function Comment(props) {
+    const comment = props.comment
+    const [account, setAccount] = useState({});
+    useEffect(() => {
+        const fetchAccountComment = async (url, account_id) => {
+            const response = await fetch(url, {
+                method: "POST",
+                headers: {
+                    'Accept': 'application/json;charset=UTF-8'
+                },
+                body: JSON.stringify({ account_id: account_id }),
+            });
+            return response.json();
+        }
+        fetchAccountComment(API_LINK_ACCOUNT_BY_ID,comment.account_id )
+        .then(result => setAccount(result[0]))
+    }, [])
     return (
-        <div className="commentRecipe">
-            <div className="container">
-                <div className="bod">
-                    <div className="comment">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        ({comment.length}) Bình Luận
-                    </div>
-                    <div className="SortComment">
-                        Sắp Xếp
-                        <select className="selectSort">
-                            <option className="commentLatest">Mới nhất</option>
-                            <option className="commentOldest">Cũ nhất</option>
-                        </select>
-                    </div>
+        <div className="form-comment" key={comment.id}>
+            <div className="avatar">
+                <img src="https://image.cooky.vn/posproduct/g0/5075/s400x400/93644f58-2233-456c-b6f2-f670491e9f65.jpeg" width="50px" height="50px" alt="" />
+            </div>
+            <div className="contentAcc">
+                <div className="nameDate">
+                    <p className="nameAcc">{account.name}</p>
+                    <p className="dateComment"><i className="far fa-clock"></i> {comment.created_at}</p>
                 </div>
-                <div className="row g-2">
-                    <div className="col-4">
-                        <div className="form-comment">
-                            <div className="avatar">
-                                <img src="https://image.cooky.vn/posproduct/g0/5075/s400x400/93644f58-2233-456c-b6f2-f670491e9f65.jpeg" width="50px" height="50px" alt="" />
-                            </div>
-                            <div className="cmt">
-                                <div className="form-floating">
-                                    {/* onChange={(e) => setComment(e.target.value)} */}
-                                    <textarea className="form-control" placeholder="Leave a comment here"></textarea>
-                                    <label>Mời bạn để lại bình luận...</label>
-                                </div>
-                                <button type="button" className="btn-dang">Đăng</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="row g-2">
-                    <div className="col-12 col-md-5 dateRight">
-                        {comment.map((post) => {
-                            // if (post.content !== "") {
-                            return (
-                                <div className="form-comment" key={post.id}>
-                                    <div className="avatar">
-                                        <img src="https://image.cooky.vn/posproduct/g0/5075/s400x400/93644f58-2233-456c-b6f2-f670491e9f65.jpeg" width="50px" height="50px" alt="" />
-                                    </div>
-                                    <div className="contentAcc">
-                                        <div className="nameDate">
-                                            <p className="nameAcc">Name</p>
-                                            <p className="dateComment"><i className="far fa-clock"></i> {post.created_at}</p>
-                                        </div>
-                                        <p className="content">{post.content}</p>
-                                    </div>
-                                </div>
-                            )
-                            // }
-                        })}
-                    </div>
-                </div>
+                <p className="content">{comment.content}</p>
             </div>
         </div>
     )
