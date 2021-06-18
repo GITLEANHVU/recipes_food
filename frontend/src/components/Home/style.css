@@ -47,7 +47,7 @@
     width: 80%;
 }
 input[type="text" i] {
-    color: red;
+    /* color: red; */
     /* margin-left: 10px; */
     padding-left: 30px;
 }

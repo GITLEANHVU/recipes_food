@@ -18,6 +18,7 @@ export const API_LINK_RECIPE_RECIPE_BY_ID = "http://localhost/recipes_food/backe
 export const API_LINK_RECIPE_READ_BY_CATEGORY = "http://localhost/recipes_food/backend/api/Recipe/read_by_category.php"
 export const API_LINK_RECIPE_READ_BY_ACCOUNT = "http://localhost/recipes_food/backend/api/Recipe/read_by_account.php"
 export const API_LINK_RECIPE_RECIPE_BY_NAME_ACCOUNT = "http://localhost/recipes_food/backend/api/Recipe/read_by_NameAndAccount.php"
+export const API_LINK_RECIPE_RECIPE_BY_NAME = "http://localhost/recipes_food/backend/api/Recipe/read_by_Name.php"
 
 // Link Category
 export const API_LINK_CATEGORY_READ = "http://localhost/recipes_food/backend/api/Category/read.php"

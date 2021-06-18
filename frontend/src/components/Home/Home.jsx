@@ -91,7 +91,7 @@ export default function Home() {
 
 
             <div className="container mt-4">
-            {<TestCard recipes={recipes} />}
+                {<TestCard recipes={tempRecipes.length > 0 ? tempRecipes : recipes} />}
             </div>
         </div>
     )
