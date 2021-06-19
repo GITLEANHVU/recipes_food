@@ -1,6 +1,13 @@
 <?php
 class RecipeModel extends Database
 {
+     // Get account name 
+     public function getAccountNameByID($account_id)
+     {
+         $sql = parent::$connection->prepare("SELECT `account`.`name` FROM `recipe`,`account` WHERE recipe.account_id = account.id and recipe.account_id = ?");
+         $sql->bind_param('i', $account_id);
+         return parent::select($sql);
+     }
      // Get recipe by id
      public function searchRecipesByNameByAccount($name, $account_id)
      {

@@ -10,14 +10,21 @@ function Card(props) {
             <div className="products">
                 <article className="detail-product">
                     <div className="detail-product detail-product_has--link">
-                        <div className="detail-product--link_img">
-                            <Link to="/" className="link--img">
+                        <div className="box">
+                            <div to="/" className="link--img">
                                 <img width={100 + "%"} height={230} src={`${url_uploads}/${value.image}`} alt="san pham 1" />
-                            </Link>
+                                <div className="box-content">
+                                    <h3 className="title">Chào bạn</h3>
+                                    <span className="post">Thử nấu món này nhé</span>
+                                </div>
+                                <ul className="icon">
+                                    <li><Link to={`detail-recipe/${value.id}`}><i className="fa fa-link"></i></Link></li>
+                                </ul>
+                            </div>
                         </div>
                         <div className="detail-product__text">
                             <h3 className="detail-product__title">
-                                <a href="###">{value.name}</a>
+                                <Link to="###">{value.name}</Link>
                             </h3>
                             <div className="detail-product__description">
                                 <p>{`${value.description}`.substr(0, 120)}...</p>

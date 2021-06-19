@@ -1,26 +1,20 @@
 import React from 'react'
-export default function Pagination() {
+export default function Pagination(props) {
+  const pageNumbers = [];
+  for (let i = 1; i <= Math.ceil(props.totalPosts / props.postsPerPage); i++) {
+    pageNumbers.push(i);
+  }
     return (
-        <div className="pagination">
-            <nav aria-label="...">
-        <ul className="pagination-list">
-          <li className="page-item disabled">
-            <button className="page-link" aria-disabled="true">Previous</button>
+      <nav>
+      <ul className='pagination'>
+        {pageNumbers.map(number => (
+          <li key={number} className='page-item'>
+            <a onClick={() => props.paginate(number)} href='!#' className='page-link'>
+              {number}
+            </a>
           </li>
-            <li className="page-item">
-              <a className="page-link" href="/#">1</a>
-            </li>
-          <li className="page-item active" aria-current="page">
-            <a className="page-link" href="/#">2</a>
-          </li>
-            <li className="page-item">
-              <a className="page-link" href="/#">3</a>
-            </li>
-          <li className="page-item">
-            <button className="page-link">Next</button>
-          </li>
-        </ul>
-      </nav>
-        </div>
+        ))}
+      </ul>
+    </nav>
     )
 }
