@@ -10,7 +10,7 @@ class Database
   private $DB_USER = 'root';
   private $DB_PASS = '';
   private $DB_NAME = 'recipes_food';
-  private $DB_PORT  = '3308';
+  private $DB_PORT  = '3306';
 
     /**
    * @ Property connection
