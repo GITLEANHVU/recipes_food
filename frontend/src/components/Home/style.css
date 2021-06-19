@@ -17,11 +17,9 @@
     align-items: center;
 }
 .selectoption_from{
-    /* width: 16%;
-    margin-left: 524px;
-    margin-top: 7px;
+    position: absolute;
     border-radius: 5px;
-    position: absolute; */
+    width: 14%;
 }
 
 #row-search {
@@ -33,17 +31,18 @@
     height: 50px;
     font-weight: 900;
     border-radius: 0px 25px 25px 0;
-    border: solid 2px rgb(167, 167, 167);
-    box-shadow: 0 0 5px rgba(230, 137, 137, 0.178);
-    /* background: linear-gradient(to top, rgb(242, 113, 33), rgb(233, 64, 87), rgb(138, 35, 135)); */
+    border: solid 2px #ff4422;
+    border-left-width: 0px;
+    background: #ff4422;
+    box-shadow: 0 0 5px #ff4422;
     width: 20%;
 }
 .search_input {
     height: 50px;
     border-radius: 25px 0 0 25px;
-    border: solid 2px rgb(167, 167, 167);
-    box-shadow: 0 0 5px rgb(115, 182, 226);
-    /* background: linear-gradient(to top, rgb(242, 113, 33), rgb(233, 64, 87), rgb(138, 35, 135)); */
+    border: solid 2px #ff4422;
+    border-right-width: 0px;
+    box-shadow: 0 0 5px #ff4422;
     width: 80%;
 }
 input[type="text" i] {
@@ -51,297 +50,90 @@ input[type="text" i] {
 }
 .search_input:focus {
     outline: none;
-    border: 1px solid blue;
+    border: 1px solid #ff4422;
 }
 
-.pizza-name{
-    margin-top: 30px;
-    height: 106px;
-}
-.from-btn{
-    margin-top: 20px;
-    margin-left: 200px;
-    width: 83px;
-    height: 38px;
-}
-.pizza-bccf {
-    text-decoration: none;
-    color: #3A3D49;
-    font-weight: bold;
-    font-family:sans-serif;
-    font-size: 18px;
-    
-}
-.la {
-    margin-right: 14px;
-}
-#svg-info{
-    fill: #777A83;
-}
-.program{
-    margin-top: 15px;
-    color: #777A83;
-    font-family: "Roboto";
-    height: 240px;
+/*  */
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-column-gap: 1.2rem;
+    grid-row-gap: 1.7rem;
 }
 
-.downloads a, .downloads span {
-    text-decoration: none;
-    background: #ff4422;
-    font-size: 15px;
-    color: #000;
-}
-.downloads .button:hover {
-    box-shadow:none;
-    color: #ff4422;
-    background: none;
-}
-.downloads {
-    width: 190px;
-    height: 50px;
-    font-weight:bold;
+.recipe_card {
     display: flex;
-    align-items: center;
-    margin-top: 10px;
+    flex-direction: column;
+    box-shadow: 0 0 10px 2px rgb(167, 166, 166);
+    border-radius: 10px;
 }
-.button {
-    position: relative;
-    color: red;
-    width: 100px;
-    height: 50px;
-    line-height: 50px;
-    transition: all 0.3s;
-    text-align: center;
+
+.recipe_card .top {
+    flex-shrink: 0;
 }
-.demobutton::before, .demobutton::after {
-    content: '';
-    position: absolute;
+
+.recipe_card .top>img {
     width: 100%;
-    height: 100%;
-    bottom: 0;
-    left: 0;
-    z-index: 1;
-    transition: all 0.3s;
-    border: 2px solid red;
-}
-.button:hover::after {
-    animation-name: rotatecw;
-    animation-duration: 2s;
-}
-.button:hover::before {
-    animation-name: rotateccw;
-    animation-duration: 3s;
-}
-.button:hover::after, .button:hover::before {
-    left: 27px;
-    width: 50px;
-    background:none;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-}
-@keyframes rotatecw {
-    from {transform: rotate(0deg);}
-    to {transform: rotate(360deg);}
-}
-@keyframes rotateccw {
-    from {transform: rotate(0deg);}
-    to {transform: rotate(-360deg);}
-}
-.trang{
-    width: 100%;
-    height: 204px;
+    height: 250px;
+    transition: .6s;
 }
 
-.pizza-4{margin-top: 20px;}
-
-.pizza-4:hover .trang{
-    transform: scale(0.8);
-    transition: all .3s ease;
-}
-/* .pizza-4:hover .pizza-bccf{
-    color: #FF9999;
-    text-shadow: 0 -1px 0 #FF9999,
-    0 6px 8px rgba(0,0,0,.4),
-    0 9px 10px rgba(0,0,0,.15),
-    0 30px 10px rgba(0,0,0,.18),
-    0 15px 10px rgba(0,0,0,.21);
-} */
-
-.pizza-4:hover .delete{ transition: 0.7s;}
-
-.pizza-4:hover .update{transition: 0.7s;}
-
-.delete:hover{fill:#fff;}
-
-.update:hover{fill:#fff ;}
-
-
-
-.delete{
-    border: white;
+.recipe_card .top>img:hover {
+    transform: scale(1.1) translateY(-10px);
+    transition: .6s;
     border-radius: 5px;
-    width: 36px;
-    height:35px;
-    background: #00FA9A;
 }
-.update{
-    margin-bottom: 50px;
-    border: white;
-    border-radius: 5px;
-    width: 36px;
-    height:35px;
-    margin-left: 5px;
-    background: #00FFFF;
+
+.recipe_card .center {
+    flex: 1;
+    font-weight: 700;
+    margin: 0 5px;
+    font-size: 1.2rem;
+}
+
+.recipe_card .bottom {
+    margin-top: 1.2rem;
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-end;
+}
+
+.recipe_card .bottom button {
+    padding: .3rem 1.5rem;
+    font-weight: 600;
+    margin: 5px;
+}
+
+.recipe_card .bottom button>a {
+    text-decoration: none;
+    color: #fff;
 }
 
 /*  */
 
-@media all and (max-width: 992px) {
-
-    .fromsearch{
-        /* margin-left: 50px; */
-    }
-     
-    .from-category{
-        /* margin-left: 100px;
-        padding-left: 0px; */
-    }
-    
-    .selectoption_from{
-        /* width: 25%;
-        margin: 0;
-        margin-left: 100px; */
-    }
-   
-
-}
-@media all and (max-width: 576px) {
-
-    .fromsearch{
-        /* margin-left: 30px !important; */
-    }
-     
-    .from-category{
-        /* margin-left: 100px;
-        padding-left: 0px; */
-    }
-    .selectoption_from{
-        /* width: 25%;
-        margin: 0;
-        margin-left: 160px; */
-    }
-    .col-sm-6{height: fit-content;}
-    .program{display: none;}
-    .trang{width: 80%;}
-    /* .pizza-name{padding-left: 150px;} */
-    /* .downloads{padding-left: 150px;width: 269px;} */
-    .delete{
-        margin-left: 20px;
-    }
-    .from-btn{width: 243px;}
-}
-@media all and (min-width: 575px) {
-    .col-sm-6{height: fit-content;}
-    .from-show-btn{margin-top: 50px;}
-    .downloads{width: 170px;}
-    .from-btn{margin-left: 0px;}
-}
-@media all and (max-width: 530px) {
-
-    .fromsearch{
-        /* margin-left: 0px !important; */
-    }
-     
-    .from-category{
-        /* margin-left: 50px;
-        padding-left: 0px; */
-    }
-    .selectoption_from{
-        /* width: 16%;
-        margin: 0;
-        margin-left: 110px; */
-    }
-    /* .pizza-name{padding-left: 150px;} */
-    /* .downloads{padding-left: 150px;width: 269px;} */
-    .from-btn{margin-left: 13px;}
-    /* .delete{
-        margin-left: 150px;
-    } */
-    .from-btn{width: 243px;}
-
-}
-@media all and (max-width: 420px) {
-    .pizza-name{padding-left: 0px;}
-    .downloads{padding-left: 0px;width: 69px;}
-    .from-category{
-        /* margin-left: 0px; */
-    }
-    /* .selectoption_from{margin-left: 0;} */
-    .delete{margin-left: 0px;}
-    .from-btn{width: 83px; margin-left: 50px;}
-}
-@media all and (min-width: 768px) {
-
-    .fromsearch{
-        /* margin-left: 150px !important; */
-    }
-     
-    .from-category{
-        /* margin-left: 200px;
-        padding-left: 0px; */
-    }
-    .selectoption_from{
-        /* width: 16%;
-        margin: 0;
-        margin-left: 200px; */
-    }
-    .from-show-btn{
-        margin-top: 40px;
-    }
- 
-    .from-btn{
-        margin-top: 20px;
-        margin-left: 6px;
-    }
-    .downloads{width: 130px;}
-}
-@media all and (min-width: 1200px) {
-
-    .fromsearch{
-        /* margin-left: 300px !important; */
-    }
-     
-    .from-category{
-        /* margin-left: 400px;
-        padding-left: 0px; */
-    }
-    .selectoption_from{
-        /* width: 16%;
-        margin: 0;
-        margin-left: 400px; */
-    }
-    .from-show-btn{
-        margin-top: 30px;
-    }
-    .from-btn{margin-left: 150px;}
- 
-
-}
-@media all and (min-width: 1400px) {
-
-    .fromsearch{
-        /* margin-left: 400px !important; */
-    }
-     
-    .from-category{
-        /* margin-left: 500px; */
-        /* padding-left: 0px; */
-    }
-    .selectoption_from{
-        /* width: 16%;
-        margin: 0;
-        margin-left: 500px; */
-    }
-
+.btn-primary-detail {
+    border: none;
+    background: linear-gradient(0deg, #007bff 0%, #17a2b8);
+    color: #fff;
+    overflow: hidden;
 }
 
+.btn-primary-detail:hover {
+    text-decoration: none;
+    color: #fff;
+    opacity: .7;
+    animation: identifier  .4s linear;
+}
+@keyframes identifier {
+    0%{
+        opacity: 0.5;
+    }
+    50% {
+
+    }
+    100%{
+        opacity: 1;
+    }
+}

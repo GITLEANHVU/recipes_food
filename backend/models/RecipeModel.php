@@ -92,12 +92,12 @@ class RecipeModel extends Database
     }
 
     // Delete recipe
-    public function deleteRecipe($id, $category_id, $account_id)
+    public function deleteRecipe($id)
     {
         $sql = parent::$connection->prepare("DELETE FROM `recipe` 
-        WHERE `recipe`.`id` = ? AND `recipe`.`category_id`=? AND `recipe`.`account_id`=?");
+        WHERE `recipe`.`id` = ? ");
 
-        $sql->bind_param('iii', $id, $category_id, $account_id);
+        $sql->bind_param('i', $id);
         return $sql->execute();
     }
 }

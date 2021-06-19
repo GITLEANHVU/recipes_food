@@ -22,9 +22,10 @@ CREATE TABLE category (
   name VARCHAR(255) NOT NULL UNIQUE,
   description text,
   account_id INT NOT NULL,
-  FOREIGN KEY (account_id) REFERENCES account(id),
   created_at DATETIME DEFAULT current_timestamp(),
 	updated_at DATETIME DEFAULT now()
+  
+  -- FOREIGN KEY (account_id) REFERENCES account(id),
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
@@ -40,9 +41,10 @@ CREATE TABLE recipe (
 	updated_at DATETIME DEFAULT now(),
 
   category_id INT NOT NULL,
-  FOREIGN KEY (category_id) REFERENCES category(id),
-  account_id INT NOT NULL,
-  FOREIGN KEY (account_id) REFERENCES account(id)
+  account_id INT NOT NULL
+
+  -- FOREIGN KEY (category_id) REFERENCES category(id),
+  -- FOREIGN KEY (account_id) REFERENCES account(id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE comment(
@@ -52,10 +54,10 @@ CREATE TABLE comment(
 	updated_at DATETIME DEFAULT now(),
 
   account_id INT NOT NULL,
-  FOREIGN KEY (account_id) REFERENCES account(id),
+  recipe_id INT NOT NULL
 
-  recipe_id INT NOT NULL,
-  FOREIGN KEY (recipe_id) REFERENCES recipe(id)
+  -- FOREIGN KEY (account_id) REFERENCES account(id),
+  -- FOREIGN KEY (recipe_id) REFERENCES recipe(id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 

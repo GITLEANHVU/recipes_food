@@ -16,11 +16,9 @@ $data = json_decode(file_get_contents("php://input"), true);
 
 // Set values
 $id = $data['id'];
-$category_id = $data['category_id'];
-$account_id = $data['account_id'];
 
 // Delete Recipe
-if ($recipe_model->deleteRecipe($id, $category_id, $account_id)) {
+if ($recipe_model->deleteRecipe($id)) {
   echo json_encode(
     array('message' => 'Recipe deleted')
   );
