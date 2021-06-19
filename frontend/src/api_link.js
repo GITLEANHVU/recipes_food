@@ -1,4 +1,3 @@
-
 // Link Folder image
 export const REACT_APP_UPLOADS = "http://localhost/recipes_food/backend/uploads/images"
 export const REACT_APP_UPLOADS_CAROUSEL = "http://localhost/recipes_food/backend/uploads/carousel_img"

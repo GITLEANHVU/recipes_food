@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { API_LINK_RECIPE_READ_ALL, API_LINK_RECIPE_READ_BY_CATEGORY, API_LINK_RECIPE_RECIPE_BY_NAME } from '../../api_link';
 import Search from './Search';
 import Category from './Category';
-import Card from './Card';
 import TestCard from './TestCard';
 import './style.css';
 

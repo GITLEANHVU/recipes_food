@@ -3,14 +3,19 @@ import Search from './Search'
 import RecipeList from './RecipeList'
 import { AuthContext } from '../../Contexts/AuthContext';
 import { API_LINK_RECIPE_READ_BY_ACCOUNT, API_LINK_RECIPE_RECIPE_BY_NAME_ACCOUNT } from '../../api_link';
+import { useHistory } from 'react-router-dom';
 
 export default function MyRecipe() {
-    const URL_READ_BY_ACC = API_LINK_RECIPE_READ_BY_ACCOUNT
-    const [recipes, setRecipes] = useState([])
+    const history = useHistory();
     const [auth] = useContext(AuthContext);
-    const account_id = auth.user.id;
+    const [recipes, setRecipes] = useState([])
+    const account_id = auth.user.id ? auth.user.id : "";
 
     useEffect(() => {
+        if (auth.isAuth === false) {
+            history.push("/");
+        }
+
         const fetchRecipes = async (url) => {
             const response = await fetch(url, {
                 method: 'POST',
@@ -18,11 +23,11 @@ export default function MyRecipe() {
             });
             return await response.json();
         }
-        fetchRecipes(URL_READ_BY_ACC)
+        fetchRecipes(API_LINK_RECIPE_READ_BY_ACCOUNT)
             .then(result => {
                 setRecipes(result)
             })
-    }, [])
+    }, [auth])
     //console.log(recipes);
     const [tempRecipes, setTempRecipe] = useState([]);
     const [searchKey, setSearchKey] = useState("");

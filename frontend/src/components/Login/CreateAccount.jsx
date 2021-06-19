@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import { API_LINK_ACCOUNT_CREATE } from './../../api_link';
+import { API_LINK_ACCOUNT_CREATE } from '../../api_link';
 
 import './login.css'
 const CreateAccount = () => {

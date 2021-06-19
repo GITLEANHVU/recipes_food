@@ -6,7 +6,6 @@ import { API_LINK_RECIPE_RECIPE_BY_ID, REACT_APP_UPLOADS } from '../../api_link'
 
 export default function AddRecipe() {
   const [auth] = useContext(AuthContext);
-
   const { id } = useParams();
   const history = useHistory();
   
@@ -154,7 +153,7 @@ export default function AddRecipe() {
                 </label>
               </div>
             </div>
-            <div className="col-md-8 col-sm-6">
+            <div className="col-md-8 col-sm-6 pt-5">
               <textarea
                 value={newRecipe.description}
                 onChange={e => setNewRecipe({ ...newRecipe, description: e.target.value })}

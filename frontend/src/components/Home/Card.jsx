@@ -1,9 +1,7 @@
-import { AuthContext } from '../../Contexts/AuthContext';
-import React, { useContext } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { REACT_APP_UPLOADS } from '../../api_link';
 function Card(props) {
-    const [auth] = useContext(AuthContext);
     const item = props.recipe;
     const url_uploads = REACT_APP_UPLOADS
     return (

@@ -1,5 +1,4 @@
 import React from 'react'
-import Typewriter from 'typewriter-effect'
 
 export default class Timer extends React.Component {
   constructor(props) {

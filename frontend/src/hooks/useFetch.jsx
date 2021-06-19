@@ -23,8 +23,6 @@ const useFetch = (url) => {
         const data = await fetch(url, options)
           .then(response => response.json())
           .then(json =>  json);
-        
-        // .then(json => console.log(json));
         setResponse(data);
       } catch (err) {
         const data = err.response ? err.response.data : "Server error";
