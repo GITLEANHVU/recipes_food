@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { API_LINK_RECIPE_READ_ALL, API_LINK_RECIPE_READ_BY_CATEGORY, API_LINK_RECIPE_RECIPE_BY_NAME } from '../../api_link';
 import Search from './Search';
 import Category from './Category';
-import Card from './Card';
 import TestCard from './TestCard';
 import './style.css';
 
@@ -84,11 +83,7 @@ export default function Home() {
 
 
             <div className="container mt-4">
-<<<<<<< HEAD
                 {<TestCard recipes={tempRecipes.length > 0 ? tempRecipes:recipes} />}
-=======
-                {<TestCard recipes={tempRecipes.length > 0 ? tempRecipes : recipes} />}
->>>>>>> 495a7f14f1ac9d57000ff0f71e6a51cb45ca1ae5
             </div>
         </div>
     )
