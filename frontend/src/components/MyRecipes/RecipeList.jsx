@@ -4,6 +4,7 @@ import Card from './Card';
 
 export default function RecipeList(props) {
     const recipes = props.recipes;
+    
     // delete recipe
     const deleteRecipe = (id) => {
         const newData = recipes.filter(item => item.id !== id)

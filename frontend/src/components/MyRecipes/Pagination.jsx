@@ -4,17 +4,17 @@ export default function Pagination(props) {
   for (let i = 1; i <= Math.ceil(props.totalPosts / props.postsPerPage); i++) {
     pageNumbers.push(i);
   }
-    return (
-      <nav>
+  return (
+    <nav>
       <ul className='pagination'>
         {pageNumbers.map(number => (
           <li key={number} className='page-item'>
-            <a onClick={() => props.paginate(number)} href='!#' className='page-link'>
+            <button onClick={() => props.paginate(number)} className='page-link'>
               {number}
-            </a>
+            </button>
           </li>
         ))}
       </ul>
     </nav>
-    )
+  )
 }
