@@ -1,6 +1,13 @@
 <?php
 class RecipeModel extends Database
 {
+     // Get account name 
+     public function getAccountNameByID($account_id)
+     {
+         $sql = parent::$connection->prepare("SELECT `account`.`name` FROM `recipe`,`account` WHERE recipe.account_id = account.id and recipe.account_id = ?");
+         $sql->bind_param('i', $account_id);
+         return parent::select($sql);
+     }
      // Get recipe by id
      public function searchRecipesByNameByAccount($name, $account_id)
      {
@@ -92,12 +99,12 @@ class RecipeModel extends Database
     }
 
     // Delete recipe
-    public function deleteRecipe($id, $category_id, $account_id)
+    public function deleteRecipe($id)
     {
         $sql = parent::$connection->prepare("DELETE FROM `recipe` 
-        WHERE `recipe`.`id` = ? AND `recipe`.`category_id`=? AND `recipe`.`account_id`=?");
+        WHERE `recipe`.`id` = ? ");
 
-        $sql->bind_param('iii', $id, $category_id, $account_id);
+        $sql->bind_param('i', $id);
         return $sql->execute();
     }
 }

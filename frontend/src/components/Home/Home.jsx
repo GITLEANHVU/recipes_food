@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { API_LINK_RECIPE_READ_ALL, API_LINK_RECIPE_READ_BY_CATEGORY, API_LINK_RECIPE_RECIPE_BY_NAME } from '../../api_link';
+import { API_LINK_RECIPE_READ_ALL, API_LINK_RECIPE_READ_BY_CATEGORY, API_LINK_RECIPE_RECIPE_BY_NAME, API_LINK_RECIPE_DELETE } from '../../api_link';
 import Search from './Search';
 import Category from './Category';
 import TestCard from './TestCard';
+
 import './style.css';
 
 export default function Home() {
@@ -23,11 +24,27 @@ export default function Home() {
         fetchAllRecipes(API_LINK_RECIPE_READ_ALL);
     }, []);
 
-    const deleteRecipe = (id) => {
-        const newData = recipes.filter(item => item.id !== id)
-        setRecipes(newData);
+    //delete
 
+    const deleteRecipe = (id) => {
         // delete from database
+        async function fetchDeleteRecipe(url, id) {
+            const response = await fetch(url, {
+                method: "POST",
+                headers: {
+                    'Accept': 'application/json;charset=UTF-8'
+                },
+                body: JSON.stringify({ id: id })
+            });
+            return await response.json();
+        }
+        fetchDeleteRecipe(API_LINK_RECIPE_DELETE, id)
+            .then(result => {
+                // sai ngữ cảnh rồi, biết cái result trả về gì không mà gán giá trị. ?
+                console.log("Ket qua: ", result.message);
+                const filterData = recipes.filter(item => item.id !== id)
+                setRecipes(filterData)
+            })
 
     }
     const onSearchKeyChanged = (value) => {
@@ -76,15 +93,21 @@ export default function Home() {
     }
 
     return (
-        <div className="container">
-            <Search onSearchKeyChanged={onSearchKeyChanged} handleSubmit={handleSubmit} />
-            
-            <Category setSearchType={setSearchType} setCategoryValue={setCategoryValue} />
+        <div className="mt-2">
+            <div class="background-welcom">
+                    <p className="well-com">Well com to my recipe food</p>
+                </div>
+            <div className="container">
+                <div className="search-category">
+                    <Category setSearchType={setSearchType} setCategoryValue={setCategoryValue} />
+                    <Search onSearchKeyChanged={onSearchKeyChanged} handleSubmit={handleSubmit} />
+                </div>
 
-
-            <div className="container mt-4">
-                {<TestCard recipes={tempRecipes.length > 0 ? tempRecipes:recipes} />}
+                <div className="container mt-4">
+                    {<TestCard recipes={tempRecipes.length > 0 ? tempRecipes : recipes} deleteRecipe={deleteRecipe} />}
+                </div>
             </div>
         </div>
+
     )
 }
