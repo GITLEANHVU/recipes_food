@@ -52,7 +52,7 @@
     font-weight: bold;
     text-align: center;
     margin-bottom: 0px;
-    margin-left: -4px;
+    margin-left: -16px;
 }
 .bg-light2{
     background-color: #f8f9fa!important;
@@ -196,7 +196,23 @@ comment:before{
 .comment{
     overflow: hidden;
 }
+.bodyInfo{
+    display: flex;
+}
+.modal-body-content{
+    padding-left: 7px;
+    margin-top: -2px;
+    animation: animaInfo 1s ease-in-out;
+}
 
+@keyframes animaInfo{
+    0%{
+        transform: translateX(-100%);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
 .bod{
     border-bottom: 1px solid green;
     margin-bottom: 20px;
@@ -215,12 +231,15 @@ comment:before{
     margin-top: 5px;
     color: white;
 } */
-.btn-dang{
+.namRecipe-detail{
+    color: #400000;
+}
+.btn-post{
     float: right;
     background: #0277bd;
-    padding: 0.3em 0.3m;
+    padding: 0.3em 1em;
     font-size:17px;
-    margin:5px;
+    margin:5px 0px;
     border:none;
     border-radius:10px;
     box-shadow:0 9px gray;
@@ -228,7 +247,7 @@ comment:before{
     outline:none;
     color: white;
   }
-  .btn-dang:active{
+  .btn-post:active{
     transform:translate(0,4px);
     -webkit-transform:translate(0,4px);
     box-shadow:0 4px gray;  
@@ -274,6 +293,9 @@ button.nameChef{
 .fa-calendar-alt{
     color: #d80650;
 }
+ #edt{
+    color: black !important;
+}
 .editRecipe{
     background: #ffc107 !important;
     font-size: 20px;
@@ -282,6 +304,7 @@ button.nameChef{
     margin-left: 5px;
     background: #dc3545;
     font-size: 20px;
+    color: black;
 }
 .heart{
     border: 1px solid !important;
@@ -291,6 +314,7 @@ button.nameChef{
 }
 .status{
     padding-left: 10px;
+    display: flex;
     
 }
 /* .fa-heart:active{
