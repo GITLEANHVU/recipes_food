@@ -4,7 +4,7 @@ import './DetailRecipe.css';
 import CommentRecipe from './Comments.jsx'
 import AccountInfo from './AccountInfo.jsx'
 import { useParams } from 'react-router-dom';
-import { API_LINK_COMMENT_READ_SINGLE, API_LINK_ACCOUNT_BY_ID, API_LINK_RECIPE_RECIPE_BY_ID, REACT_APP_UPLOADS } from '../../api_link';
+import { API_LINK_COMMENT_READ_SINGLE, API_LINK_ACCOUNT_BY_ID, API_LINK_RECIPE_READ_BY_ID, REACT_APP_UPLOADS } from '../../api_link';
 
 export default function DetailRecipe() {
     const [colorHeart, setColorHeart] = useState('black');
@@ -55,7 +55,7 @@ export default function DetailRecipe() {
             return await response.json();
         }
 
-        getRecipe(API_LINK_RECIPE_RECIPE_BY_ID, id)
+        getRecipe(API_LINK_RECIPE_READ_BY_ID, id)
             .then(result => {
                 if (result.length > 0) {
                     const value = result[0];

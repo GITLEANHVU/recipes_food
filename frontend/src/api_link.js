@@ -1,5 +1,6 @@
 // Link Folder image
 export const REACT_APP_UPLOADS = "http://localhost/recipes_food/backend/uploads/images"
+export const REACT_APP_UPLOADS_RECIPE = "http://localhost/recipes_food/backend/uploads/recipes"
 export const REACT_APP_UPLOADS_CAROUSEL = "http://localhost/recipes_food/backend/uploads/carousel_img"
 
 // Link Account
@@ -14,7 +15,7 @@ export const API_LINK_RECIPE_CREATE = "http://localhost/recipes_food/backend/api
 export const API_LINK_RECIPE_DELETE = "http://localhost/recipes_food/backend/api/Recipe/delete.php"
 export const API_LINK_RECIPE_UPDATE = "http://localhost/recipes_food/backend/api/Recipe/update.php"
 export const API_LINK_RECIPE_READ_ALL = "http://localhost/recipes_food/backend/api/Recipe/read_all.php"
-export const API_LINK_RECIPE_RECIPE_BY_ID = "http://localhost/recipes_food/backend/api/Recipe/read_by_id.php"
+export const API_LINK_RECIPE_READ_BY_ID = "http://localhost/recipes_food/backend/api/Recipe/read_by_id.php"
 export const API_LINK_RECIPE_READ_BY_CATEGORY = "http://localhost/recipes_food/backend/api/Recipe/read_by_category.php"
 export const API_LINK_RECIPE_READ_BY_ACCOUNT = "http://localhost/recipes_food/backend/api/Recipe/read_by_account.php"
 export const API_LINK_RECIPE_RECIPE_BY_NAME_ACCOUNT = "http://localhost/recipes_food/backend/api/Recipe/read_by_NameAndAccount.php"

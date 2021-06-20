@@ -1,14 +1,24 @@
-import React, { useState, useEffect, useContext } from 'react';
 import './create-recipe.css';
+import React, { useState, useEffect, useContext } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthContext';
-import { API_LINK_RECIPE_RECIPE_BY_ID, REACT_APP_UPLOADS } from '../../api_link';
+import { API_LINK_RECIPE_READ_BY_ID, REACT_APP_UPLOADS } from '../../api_link';
 
 export default function AddRecipe() {
+
   const [auth] = useContext(AuthContext);
   const { id } = useParams();
   const history = useHistory();
-  
+
+  const [newCategory, setNewCategory] = useState('');
+  const [categoriesFromDB, setCategoriesFromDB] = useState(['one', 'two', 'three']);
+
+  const [newIngredient, setNewIngredient] = useState('');
+  const [tempIngredients, setTempIngredients] = useState([]);
+
+  const [newStep, setNewStep] = useState('');
+  const [tempSteps, setTempSteps] = useState([]);
+
   useEffect(() => {
     // nếu chưa đăng nhập thì vào lại trang home
     if (auth.isAuth === false) {
@@ -30,7 +40,7 @@ export default function AddRecipe() {
       // do something
     } else {
       console.log("Update recipe");
-      getRecipe(API_LINK_RECIPE_RECIPE_BY_ID, id)
+      getRecipe(API_LINK_RECIPE_READ_BY_ID, id)
         .then(result => {
           if (result.length > 0) {
             const value = result[0];
@@ -63,42 +73,19 @@ export default function AddRecipe() {
     steps: [],
   });
 
-  // DB values
-  const [newCategory, setNewCategory] = useState('');
-  const [categoriesFromDB, setCategoriesFromDB] = useState(['one', 'two', 'three']);
   const handleAddNewCategory = () => {
-    // update database
-
+    if (newCategory.length === 0) return;
     // update categories
     setCategoriesFromDB([...categoriesFromDB, newCategory]);
   }
-
-  const [newIngredient, setNewIngredient] = useState('');
-  const [tempIngredients, setTempIngredients] = useState([]);
   const handleAddNewIngredient = () => {
     if (newIngredient === "") return;
     setTempIngredients([...tempIngredients, newIngredient]);
   }
-
-  const [newStep, setNewStep] = useState('');
-  const [tempSteps, setTempSteps] = useState([]);
   const handleAddNewStep = () => {
     if (newStep === "") return;
     setTempSteps([...tempSteps, newStep]);
   }
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (id === undefined) {
-      // add new recipe
-    } else {
-      // update recipe
-    }
-    setNewRecipe({ ...newRecipe, ingredients: [...tempIngredients], steps: [...tempSteps] });
-
-    console.log(newRecipe);
-  }
-
   const handleDelTempIng = (index) => {
     setTempIngredients(tempIngredients.filter(
       (item, currentIndex) => currentIndex !== index)
@@ -109,8 +96,34 @@ export default function AddRecipe() {
       (item, currentIndex) => currentIndex !== index)
     )
   }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (id === undefined) {
+      console.log("Create new recipe: ", newRecipe);
+      // add new category
+
+      // add new recipe
+
+      // save image
+
+    } else {
+      console.log("Update new recipe: ", newRecipe);
+      // update recipe
+
+      // update new category
+
+      // update new recipe
+
+      // update image
+
+    }
+    setNewRecipe({ ...newRecipe, ingredients: [...tempIngredients], steps: [...tempSteps] });
+
+  }
   return (
     <div className="body-au-recipe">
+      {/* Head title */}
       <div className="container">
         <h2 className="text-center my-4">
           {
@@ -118,9 +131,10 @@ export default function AddRecipe() {
           }
         </h2>
       </div>
-
+      {/* Main section */}
       <div className="container">
         <form onSubmit={handleSubmit}>
+
           {/* name */}
           <div className="input-group mb-3">
             <span className="input-group-text">Recipe name</span>
@@ -143,13 +157,11 @@ export default function AddRecipe() {
                     onChange={e => setNewRecipe({ ...newRecipe, image: e.target.value })}
                     type="file"
                     className="form-control" />
-
                   <img
                     src={newRecipe.image}
                     style={{ cursor: 'pointer' }}
                     className="img-fluid img-thumbnail plane"
                     alt="" />
-
                 </label>
               </div>
             </div>
