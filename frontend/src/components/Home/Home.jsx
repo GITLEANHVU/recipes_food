@@ -94,7 +94,7 @@ export default function Home() {
 
     return (
         <div className="mt-2">
-            <div class="background-welcom">
+            <div className="background-welcom">
                     <p className="well-com">Well com to my recipe food</p>
                 </div>
             <div className="container">
