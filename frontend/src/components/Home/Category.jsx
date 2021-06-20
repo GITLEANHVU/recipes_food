@@ -3,7 +3,7 @@ import { API_LINK_CATEGORY_READ } from '../../api_link';
 
 export default function Category(props) {
     const label_category = {
-        paddingRight: "50px",
+        paddingRight: "20px",
     }
     const input_category = {
         marginLeft: "10px"
@@ -46,12 +46,12 @@ export default function Category(props) {
             // câu hỏi là: xóa cái if luôn được không? oki được, NHƯNG, tốn thời gian lấy dữ liệu.
             fetchListCategories();
         }
-        
-        
+
+
         // vì phần radioName, và radioCate là 2 tham số được truyền vào với tư cách là một mảng,
         // là một tham số thứ 2 của hàm useEffect, cho nên, hàm useEffect được chạy khi 1 trong 2 có sự thay đổi,
-        
-        if(radioName) {
+
+        if (radioName) {
             // nếu cái này check, thì thằng này được gán
             props.setSearchType("name");
         }
@@ -69,8 +69,21 @@ export default function Category(props) {
     return (
         <React.Fragment>
             <div className="row">
-                <div className="from-cate-delete mt-4">
+                <div className="from-cate-delete mt-4 mr-5">
                     <div className="from-category">
+                        <label>
+                            {handleRadioChange() === 'category' &&
+                                (
+                                    <select className="selectoption_from ml-4" onChange={e => props.setCategoryValue(e.target.value)} >
+                                        {
+                                            categories.map((category) =>
+                                                <option value={category.id} key={category.id}>{category.name}</option>
+                                            )
+                                        }
+                                    </select>
+                                )
+                            }
+                        </label>
                         <label style={label_category}>
                             Search by Category
                             <input style={input_category}
@@ -91,19 +104,6 @@ export default function Category(props) {
                                     setRadioCate(false);
                                     setRadioName(true);
                                 }} />
-                        </label>
-                        <label>
-                            {handleRadioChange() === 'category' &&
-                                (
-                                    <select className="selectoption_from ml-4" onChange={e => props.setCategoryValue(e.target.value)} >
-                                        {
-                                            categories.map((category) =>
-                                                <option value={category.id} key={category.id}>{category.name}</option>
-                                            )
-                                        }
-                                    </select>
-                                )
-                            }
                         </label>
                     </div>
                 </div>
