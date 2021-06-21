@@ -1,3 +1,4 @@
+import logo from './logo.svg';
 import React from 'react'
 
 export default class Timer extends React.Component {
@@ -16,6 +17,7 @@ export default class Timer extends React.Component {
     const hourDegrees = ((hour / 12) * 360) + 90;
     return (
       <div className="clock">
+        <span><img src={logo} className="App-logo" alt="logo" /></span>
         <div className="clock-face">
           <div className="hand hour-hand" style={{transform: `rotate(${hourDegrees}deg)`}}></div>
           <div className="hand min-hand" style={{transform: `rotate(${minDegrees}deg)`}}></div>
