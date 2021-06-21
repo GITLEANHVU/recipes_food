@@ -78,9 +78,7 @@
         transform: translateX(0);
     }
 }
-#lisIngredients{
-    /* box-shadow: 0 0 10px 2px rgb(167, 166, 166); */
-}
+
 .tutorial{
     font-weight: bold;
     position: relative;
@@ -548,4 +546,38 @@ button.nameChef{
   .hoverList ol li:hover span{
     color: #fff;
   }
-  
+.btnLatest {
+    position: relative;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    background: #f72359;
+    padding: 5px 10px;
+    border: none;
+    color: white;
+    font-size: 12px;
+    cursor: pointer;
+    outline: none;
+    overflow: hidden;
+    border-radius: 50px;
+    margin-bottom: 10px;
+  }
+  .btnLatest span {
+    position: relative;
+    pointer-events: none;
+  }
+  .btnLatest::before {
+    --size: 0;
+    content: "";
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    width: var(--size);
+    height: var(--size);
+    background: radial-gradient(circle closest-side, #4405f7, transparent);
+    transform: translate(-50%, -50%);
+    transition: width 0.2s ease, height 0.2s ease;
+  }
+  .btnLatest:hover::before {
+    --size: 200px;
+  }

@@ -11,12 +11,14 @@ export default function CommentRecipe(props) {
     const comments = props.comments
     const apiComment = API_LINK_COMMENT_CREATE;
 
-    //console.log(auth.user.id);
+    // điều kiện để bình luận
     const loginStatus = () => {
         if (auth.isAuth === false) {
             alert("Bạn cần đăng nhập!")
         }
     }
+
+    //get date
     function getDate() {
         var currentdate = new Date();
         var datetime = currentdate.getFullYear() + "-" + ('0' + (currentdate.getMonth() + 1)).slice(-2)
@@ -25,7 +27,8 @@ export default function CommentRecipe(props) {
             + ('0' + currentdate.getMinutes()).slice(-2) + ":" + ('0' + currentdate.getSeconds()).slice(-2);
         return datetime;
     }
-    //console.log();
+
+    //add comment
     const handleSubmitForm = (e) => {
         e.preventDefault();
         if (content.trim().length !== 0) {
@@ -49,7 +52,6 @@ export default function CommentRecipe(props) {
                 created_at: getDate(),
 
             }
-
             createComment(apiComment, { ...newComment })
                 .then(message => {
                     props.setComments([...comments, newComment])
@@ -58,28 +60,52 @@ export default function CommentRecipe(props) {
 
         }
     }
-    
-    // //sắp xếp bình luận theo thứ tự mới -> cũ
-    // function sortLatest() {
-    //     const fetchListCommentByCreatedAt = async (url, recipe_id) => {
-    //         const response = await fetch(url, {
-    //             method: "POST",
-    //             headers: {
-    //                 'Accept': 'application/json;charset=UTF-8'
-    //             },
-    //             body: JSON.stringify({ recipe_id: recipe_id }),
-    //         });
-    //         return response.json();
-    //     }
-    //     fetchListCommentByCreatedAt(API_LINK_SORT_COMMENT, recipe_id)
-    //         .then(result => {
-    //             setSortComment(result)
-    //         })
-    //     // console.log("Sort:", comments);
-    //     //props.setComments(sortComment)
-    // }
-    // const [sortComment, setSortComment] = useState({comments});
-    // //console.log(sortComment);
+    const [sortComment, setSortComment] = useState([]);
+    //sắp xếp bình luận theo thứ tự mới -> cũ
+    const sortLatest = () => {
+        const fetchListCommentByCreatedAt = async (url, recipe_id) => {
+            const response = await fetch(url, {
+                method: "POST",
+                headers: {
+                    'Accept': 'application/json;charset=UTF-8'
+                },
+                body: JSON.stringify({ recipe_id: recipe_id }),
+            });
+            return response.json();
+        }
+
+        fetchListCommentByCreatedAt(API_LINK_SORT_COMMENT, recipe_id)
+            .then(result => {
+                setSortComment(result)
+                console.log("A", sortComment);
+                props.setComments(sortComment);
+
+            })
+
+    }
+
+    //check lenght comment > or = 0
+    function checkComment() {
+        if (comments.length > 0) {
+            return (
+                comments.length
+            )
+        }
+        else {
+            return 0;
+        }
+    }
+
+    //
+    const mouseHover = (e) => {
+
+        const x = e.pageX - e.target.offsetLeft;
+        const y = e.pageY - e.target.offsetTop;
+
+        e.target.style.setProperty('--x', `${x}px`);
+        e.target.style.setProperty('--y', `${y}px`);
+
+    };
     return (
         <div className="commentRecipe">
             <div className="container">
@@ -89,9 +115,8 @@ export default function CommentRecipe(props) {
                         <span></span>
                         <span></span>
                         <span></span>
-                        ({comments.length}) Bình Luận
+                        ({checkComment()}) Bình Luận
                     </div>
-                    
                 </div>
                 <div className="row g-2">
                     <div className="col-8">
@@ -101,7 +126,7 @@ export default function CommentRecipe(props) {
                             </div>
                             <div className="cmt">
                                 <div className="form-floating">
-                                    
+
                                     <textarea className="form-control" onChange={(e) => setContent(e.target.value)} defaultValue={content} placeholder="Leave a comment here" onClick={loginStatus}></textarea>
                                     <label>Mời bạn để lại bình luận...</label>
                                 </div>
@@ -110,9 +135,11 @@ export default function CommentRecipe(props) {
                         </form>
                     </div>
                 </div>
+                <button className="btnLatest" onClick={sortLatest} onMouseOver={mouseHover} onMouseOut={mouseHover}><span>Mới Nhất</span></button>
                 <div className="row g-2">
                     <div className="col-12 col-md-5 dateRight">
                         {
+                            comments.length > 0 &&
                             comments.map((comment, index) => <Comment key={index} comment={comment} />)
                         }
                     </div>

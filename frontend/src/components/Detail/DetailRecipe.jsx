@@ -3,15 +3,10 @@ import React, { useState, useEffect, useContext } from 'react';
 import './DetailRecipe.css';
 import CommentRecipe from './Comments.jsx'
 import AccountInfo from './AccountInfo.jsx'
-<<<<<<< HEAD
 import { useHistory, useParams } from 'react-router-dom';
-import { API_LINK_COMMENT_READ_SINGLE, API_LINK_ACCOUNT_BY_ID, API_LINK_RECIPE_RECIPE_BY_ID, REACT_APP_UPLOADS, API_LINK_RECIPE_DELETE, API_LINK_RECIPE_READ_ALL } from '../../api_link';
+import { API_LINK_COMMENT_READ_SINGLE, API_LINK_ACCOUNT_BY_ID, API_LINK_RECIPE_READ_BY_ID, REACT_APP_UPLOADS, API_LINK_RECIPE_DELETE, API_LINK_RECIPE_READ_ALL } from '../../api_link';
 import { AuthContext } from '../../Contexts/AuthContext';
 import { Link } from 'react-router-dom';
-=======
-import { useParams } from 'react-router-dom';
-import { API_LINK_COMMENT_READ_SINGLE, API_LINK_ACCOUNT_BY_ID, API_LINK_RECIPE_READ_BY_ID, REACT_APP_UPLOADS } from '../../api_link';
->>>>>>> aef61dd7956a5e7ac84550548e2522489e4b511f
 
 export default function DetailRecipe() {
     const history = useHistory();
@@ -107,7 +102,10 @@ export default function DetailRecipe() {
             .then(result => {
                 setComments(result)
             })
+        
+        
     }, []);
+    //console.log("Comments detail: ",comments);
     const mouseHover = (e) => {
 
         const x = e.pageX - e.target.offsetLeft;
