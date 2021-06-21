@@ -25,7 +25,7 @@ function Header() {
               }}
             />
           </h1>
-          <Timer />
+            <Timer />
         </div>
       </div>
       </header>

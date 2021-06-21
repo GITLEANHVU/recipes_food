@@ -18,3 +18,20 @@
   transition: all 0.05s;
   transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
 }
+
+/* logo */
+.App-logo {
+  height: 100%;
+  width: 100%;
+  pointer-events: none;
+  animation: App-logo-spin infinite 20s linear;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
