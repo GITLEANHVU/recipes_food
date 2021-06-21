@@ -40,7 +40,6 @@ export default function Home() {
         }
         fetchDeleteRecipe(API_LINK_RECIPE_DELETE, id)
             .then(result => {
-                // sai ngữ cảnh rồi, biết cái result trả về gì không mà gán giá trị. ?
                 console.log("Ket qua: ", result.message);
                 const filterData = recipes.filter(item => item.id !== id)
                 setRecipes(filterData)
