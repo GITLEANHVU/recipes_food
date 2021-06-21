@@ -3,7 +3,7 @@ import Search from './Search'
 import RecipeList from './RecipeList'
 import Pagination from './Pagination';
 import { AuthContext } from '../../Contexts/AuthContext';
-import { API_LINK_RECIPE_READ_BY_ACCOUNT, API_LINK_RECIPE_RECIPE_BY_NAME_ACCOUNT } from '../../api_link';
+import { API_LINK_RECIPE_DELETE, API_LINK_RECIPE_READ_BY_ACCOUNT, API_LINK_RECIPE_RECIPE_BY_NAME_ACCOUNT } from '../../api_link';
 import { useHistory } from 'react-router-dom';
 
 export default function MyRecipe() {
@@ -86,12 +86,32 @@ export default function MyRecipe() {
         value.length === 0 ? setTempRecipe([]) : setTempRecipe(tempRecipes)
     }
 
+    const deleteRecipe = (id) => {
+        // delete from database
+        async function fetchDeleteRecipe(url, id) {
+            const response = await fetch(url, {
+                method: "POST",
+                headers: {
+                    'Accept': 'application/json;charset=UTF-8'
+                },
+                body: JSON.stringify({ id: id })
+            });
+            return await response.json();
+        }
+        fetchDeleteRecipe(API_LINK_RECIPE_DELETE, id)
+            .then(result => {
+                console.log("Ket qua: ", result.message);
+                const filterData  = recipes.filter(item => item.id !== id)
+                setRecipes(filterData)
+            })
+        
+    }
     return (
         <div id="recipe">
             <div className="container">
                 <Search onSearchKeyChanged={onSearchKeyChanged} handleSubmit={handleSubmit} />
                 {/* <RecipeList recipes={tempRecipes.length === 0 ? currentPosts : tempRecipes} setRecipes={setRecipes} /> */}
-                <RecipeList recipes={currentPosts } setRecipes={setRecipes} />
+                <RecipeList recipes={currentPosts } setRecipes={setRecipes} deleteRecipe={deleteRecipe}/>
                 <Pagination
                     postsPerPage={postsPerPage}
                     totalPosts={tempRecipes.length > 0 ? tempRecipes.length : recipes.length}
