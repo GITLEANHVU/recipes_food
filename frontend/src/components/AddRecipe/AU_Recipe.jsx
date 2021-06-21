@@ -2,7 +2,13 @@ import './create-recipe.css';
 import React, { useState, useEffect, useContext } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthContext';
-import { API_LINK_CATEGORY_READ_ALL, API_LINK_RECIPE_CREATE, API_LINK_RECIPE_READ_BY_ID, REACT_APP_UPLOADS } from '../../api_link';
+import {
+  REACT_APP_UPLOADS,
+  API_LINK_CATEGORY_READ_ALL,
+  API_LINK_RECIPE_CREATE,
+  API_LINK_RECIPE_READ_BY_ID,
+  API_LINK_RECIPE_UPDATE
+} from '../../api_link';
 
 export default function AU_Recipe() {
 
@@ -91,9 +97,10 @@ export default function AU_Recipe() {
     setSteps(newSteps);
     console.log("Deleted step at: ", indexDel);
   }
-  const handleAddRecipe = (event) => {
+
+  const handleSubmitForm = (event) => {
     event.preventDefault();
-    console.log('submited ');
+    console.log('submitted ');
 
     if (id === undefined) {
       // TẠO MỚI MỘT RECIPE
@@ -119,13 +126,36 @@ export default function AU_Recipe() {
       }
       createNewRecipe(API_LINK_RECIPE_CREATE, data)
         .then(result => {
-        console.log(result);
-      })
+          console.log(result);
+        })
       console.log("Created new recipe");
     } else {
       // UPDATE RECIPES THEO ID
       console.log(id, name, image, description, category, ingredients, steps);
-
+      const updateNewRecipe = async (url, inputData) => {
+        const response = await fetch(url, {
+          method: "POST",
+          headers: {
+            'Accept': 'application/json;charset=UTF-8'
+          },
+          body: JSON.stringify({ ...inputData }),
+        })
+        return await response.json();
+      }
+      const data = {
+        name: name,
+        image: image,
+        description: description,
+        steps: steps.join("#"),
+        ingredients: ingredients.join("#"),
+        id: id,
+        category_id: category,
+        account_id: auth.user.id,
+      }
+      updateNewRecipe(API_LINK_RECIPE_UPDATE, data)
+        .then(result => {
+          console.log(result);
+        })
       console.log("Updated recipe id = ", id);
     }
   }
@@ -231,8 +261,9 @@ export default function AU_Recipe() {
 
               <ol className="list-group list-group-numbered">
                 {
-                  ingredients.map((content, index) =>
-                    <li
+                  ingredients.map((content, index) => {
+                    if (content.trim().length === 0) return;
+                    return (<li
                       key={index}
                       className="list-group-item d-flex">
                       <span className="me-auto">{content}</span>
@@ -241,6 +272,8 @@ export default function AU_Recipe() {
                         className="btn btn-danger button-small"
                         type="button">Delete</button>
                     </li>)
+                  }
+                  )
                 }
               </ol>
 
@@ -260,8 +293,9 @@ export default function AU_Recipe() {
 
               <ol className="list-group list-group-numbered">
                 {
-                  steps.map((content, index) =>
-                    <li
+                  steps.map((content, index) => {
+                    if (content.trim().length === 0) return;
+                    return (<li
                       key={index}
                       className="list-group-item d-flex">
                       <span className="me-auto">{content}</span>
@@ -270,6 +304,8 @@ export default function AU_Recipe() {
                         className="btn btn-danger button-small"
                         type="button">Delete</button>
                     </li>)
+                  }
+                  )
                 }
               </ol>
 
@@ -277,7 +313,7 @@ export default function AU_Recipe() {
           </div>
 
           <div className="d-grid">
-            <button onClick={handleAddRecipe} className="btn mx-1 btn-primary" type="submit">Gửi</button>
+            <button onClick={handleSubmitForm} className="btn mx-1 btn-primary" type="submit">Gửi</button>
           </div>
 
         </form>
