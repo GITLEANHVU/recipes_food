@@ -6,7 +6,16 @@ export default function Pagination(props) {
   }
   return (
     <nav>
-      <ul className='pagination'>
+       <ul className="pagination">
+       {pageNumbers.map(number => (
+          <li key={number}>
+            <button onClick={() => props.paginate(number)}>
+              {number}
+            </button>
+          </li>
+        ))}
+      </ul>
+      {/* <ul className='pagination'>
         {pageNumbers.map(number => (
           <li key={number} className='page-item'>
             <button onClick={() => props.paginate(number)} className='page-link'>
@@ -14,7 +23,7 @@ export default function Pagination(props) {
             </button>
           </li>
         ))}
-      </ul>
+      </ul> */}
     </nav>
   )
 }
