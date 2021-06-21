@@ -22,7 +22,7 @@ const Footer = () => {
         </nav>
 
         <ul className="social-nav">
-          <li className="twitter"><a target="_blank" href="#"></a></li>
+          <li className="twitter"><a href="#"></a></li>
           <li className="facebook"><a target="_blank" href="#"></a></li>
           <li className="pinterest"><a target="_blank" href="#"></a></li>
           <li className="vk"><a target="_blank" href="#"></a></li>
