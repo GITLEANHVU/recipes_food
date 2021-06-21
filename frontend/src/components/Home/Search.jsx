@@ -8,7 +8,7 @@ export default function Search(props) {
                 <input
                     className="search_input"
                     type="text"
-                    placeholder="Search"
+                    placeholder="Tìm Kiếm"
                     onChange={e => props.onSearchKeyChanged(e.target.value)} />
                 <button
                     className="submit_buttom"

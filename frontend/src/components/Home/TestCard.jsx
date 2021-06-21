@@ -21,7 +21,7 @@ const TestCard = (props) => {
                             </div>
                             <div className="bottom">
                                 <button className="btn btn-small btn-primary-detail">
-                                    <Link to={`detail-recipe/${item.id}`} rel="nofollow noopener"> Detail</Link>
+                                    <Link to={`detail-recipe/${item.id}`} rel="nofollow noopener"> Chi Tiết</Link>
                                 </button>
 
                                 {
