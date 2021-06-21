@@ -18,7 +18,7 @@ if(empty($fileName))
 }
 else
 {
-	$upload_path = '../uploads/recipes/'; // set upload folder path 
+	$upload_path = '../uploads/images/'; // set upload folder path 
 	
 	$fileExt = strtolower(pathinfo($fileName,PATHINFO_EXTENSION)); // get image extension
 		
@@ -42,7 +42,7 @@ else
 		}
 		else
 		{		
-			$errorMSG = json_encode(array("message" => "Sorry, file already exists check upload folder", "status" => false));	
+			$errorMSG = json_encode(array("message" => "Sorry, file already exists check upload folder", "status" => false, "filename" => $fileName));	
 			echo $errorMSG;
 		}
 	}
@@ -57,8 +57,8 @@ else
 if(!isset($errorMSG))
 {
 	// $query = mysqli_query($conn,'INSERT into tbl_image (name) VALUES("'.$fileName.'")');
-	echo json_encode(array("message" => "Image Uploaded Successfully", "status" => true));	
+	echo json_encode(array("message" => "Image Uploaded Successfully", "status" => true, "filename" => $fileName));	
 }
 
-echo json_encode(array("message" => "Image Uploaded Successfully", "status" => true));	
+// echo json_encode(array("message" => "Image Uploaded Successfully", "status" => true, "filename" => $fileName));	
 ?>
