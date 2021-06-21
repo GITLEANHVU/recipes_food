@@ -77,9 +77,7 @@ export default function CommentRecipe(props) {
         fetchListCommentByCreatedAt(API_LINK_SORT_COMMENT, recipe_id)
             .then(result => {
                 setSortComment(result)
-                console.log("A", sortComment);
                 props.setComments(sortComment);
-
             })
 
     }
