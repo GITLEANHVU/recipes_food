@@ -23,7 +23,6 @@ export default function Category(props) {
         }
     };
 
-
     useEffect(() => {
 
         async function fetchListCategories() {
@@ -35,7 +34,6 @@ export default function Category(props) {
         if (categories.length <= 0) {
             fetchListCategories();
         }
-
 
         if (radioName) {
             props.setSearchType("name");

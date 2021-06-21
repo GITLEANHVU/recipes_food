@@ -8,6 +8,14 @@ class CommentModel extends Database
         return parent::select($sql);
     }
 
+    // Sắp xếp  binh luan mới nhất theo Created_at có recipe_id =?
+    public function sortDescendingByCreatedAt($recipe_id)
+    {
+        $sql = parent::$connection->prepare("SELECT * FROM `comment` WHERE comment.recipe_id =? ORDER BY comment.created_at DESC");
+        $sql->bind_param('i', $recipe_id);
+        return parent::select($sql);
+    }
+
     // Get all comments by recipe id.
     public function getCommentsByRecipeID($recipe_id)
     {
