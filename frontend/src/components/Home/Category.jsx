@@ -35,12 +35,14 @@ export default function Category(props) {
             fetchListCategories();
         }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> b49b4220f2aefd9a9b9dcf16e42818c5e87e0755
         if (radioName) {
-            // nếu cái này check, thì thằng này được gán
             props.setSearchType("name");
         }
         if (radioCate) {
-            // nếu cái này check, thì thằng này được gán
             props.setSearchType("category");
         }
 
@@ -65,7 +67,7 @@ export default function Category(props) {
                             }
                         </label>
                         <label style={label_category}>
-                            Search by Category
+                            Tìm kiếm theo loại
                             <input style={input_category}
                                 name="radiodelete" type="radio"
                                 checked={radioCate}
@@ -76,7 +78,7 @@ export default function Category(props) {
                         </label>
 
                         <label>
-                            Search by Recipe name
+                            Tìm kiếm theo tên
                             <input style={input_category}
                                 name="radiodelete" type="radio"
                                 checked={radioName}
