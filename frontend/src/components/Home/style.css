@@ -1,25 +1,29 @@
-.fromsearch{
+.fromsearch {
     display: flex;
-    width: 40%;
+    width: 100%;
     flex-direction: row;
 }
-.from-category{
+
+.from-category {
     list-style: none;
 }
-.from-cate-delete{
+
+.from-cate-delete {
     display: flex;
-   justify-content: center;
-   align-items: center;
+    justify-content: center;
+    align-items: center;
 }
+
 #selectoption-top {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.selectoption_from{
-    position: absolute;
+
+.selectoption_from {
+    /* position: absolute; */
     border-radius: 5px;
-    width: 14%;
+    width: 80%;
 }
 
 #row-search {
@@ -27,8 +31,9 @@
     justify-content: center;
     align-items: center;
 }
-.submit_buttom{
-    height: 50px;
+
+.submit_buttom {
+    height: 40px;
     font-weight: 900;
     border-radius: 0px 25px 25px 0;
     border: solid 2px #ff4422;
@@ -37,23 +42,32 @@
     box-shadow: 0 0 5px #ff4422;
     width: 20%;
 }
+
 .search_input {
-    height: 50px;
+    height: 40px;
     border-radius: 25px 0 0 25px;
     border: solid 2px #ff4422;
     border-right-width: 0px;
     box-shadow: 0 0 5px #ff4422;
     width: 80%;
 }
+
 input[type="text" i] {
     padding-left: 30px;
 }
+
 .search_input:focus {
     outline: none;
     border: 1px solid #ff4422;
 }
 
+.search-category {
+    display: flex;
+    justify-content: center;
+}
+
 /*  */
+
 .grid-layout {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -79,16 +93,36 @@ input[type="text" i] {
 }
 
 .recipe_card .top>img:hover {
-    transform: scale(1.1) translateY(-10px);
+    transform: scale(1.1);
     transition: .6s;
     border-radius: 5px;
 }
 
 .recipe_card .center {
     flex: 1;
-    font-weight: 700;
+    font-weight: 500;
     margin: 0 5px;
     font-size: 1.2rem;
+    color: #F4A460;
+}
+.center:hover {
+    color: #FF6347;
+    animation: inderfi2 0.8s ease-in-out infinite;
+}
+@keyframes inderfi2 {
+    0%{
+        transform: translateX(0px);
+    }
+    25%{
+        transform: translateX(5px);
+    }
+    75%{
+        transform: translateX(-5px);
+
+    }
+    100%{
+        transform: translateX(0px);
+    }
 }
 
 .recipe_card .bottom {
@@ -115,25 +149,90 @@ input[type="text" i] {
 
 .btn-primary-detail {
     border: none;
+    border-radius: 1.25rem;
     background: linear-gradient(0deg, #007bff 0%, #17a2b8);
     color: #fff;
     overflow: hidden;
+    cursor: pointer;
+    outline: none;
 }
 
 .btn-primary-detail:hover {
-    text-decoration: none;
-    color: #fff;
-    opacity: .7;
-    animation: identifier  .4s linear;
+    animation-name: circleAnimation;
+    animation-duration: 0.8s;
+    animation-timing-function: ease-out;
+    animation-iteration-count: infinite;
 }
-@keyframes identifier {
-    0%{
-        opacity: 0.5;
+
+@keyframes circleAnimation {
+    0% {
+        box-shadow: inset 0 0 0 0px rgba(85, 167, 123, 0.3);
+    }
+    45% {
+        box-shadow: inset 0 0 0 3px rgba(85, 167, 123, .9);
     }
     50% {
-
+        box-shadow: inset 0 0 0 3px rgba(85, 167, 123, .9);
     }
-    100%{
-        opacity: 1;
+    55% {
+        box-shadow: 0 0 0 1px rgba(85, 167, 123, 0.5);
+    }
+    75% {
+        box-shadow: 0 0 0 10px rgba(85, 167, 123, 0.5);
+    }
+    90% {
+        box-shadow: 0 0 0 20px rgba(85, 167, 123, 0.2);
+    }
+    100% {}
+}
+
+.btn-submit-two {
+    box-shadow: 0 4px gray;
+    border-radius: 1.25rem;
+}
+
+.btn-submit-two:active {
+    transform: translate(0, 5px);
+    -webkit-transform: translate(0, 5px);
+    box-shadow: 0 4px gray;
+}
+
+.btn-submit-two:hover {
+    opacity: 0.7;
+}
+
+/* header */
+
+.background-welcom {
+    background-image: url('https://thumbs.dreamstime.com/z/culinary-background-recipes-frame-fresh-vegetables-ingredients-cooking-food-background-copy-space-table-background-169521464.jpg');
+    height: 250px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.well-com {
+    position: relative;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    font-size: 4em;
+    letter-spacing: 4px;
+    overflow: hidden;
+    background: linear-gradient(90deg, #000, #FF0000, #8B0000);
+    background-repeat: no-repeat;
+    background-size: 80%;
+    animation: animate 3s linear infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0);
+}
+
+@keyframes animate {
+    0% {
+        background-position: -500%;
+    }
+    100% {
+        background-position: 500%;
     }
 }

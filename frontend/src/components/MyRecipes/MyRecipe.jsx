@@ -52,7 +52,7 @@ export default function MyRecipe() {
             }
         } else {
             setCurrentPosts(recipes.slice(indexOfFirstPost, indexOfLastPost))
-            setCurrentPage(1)
+            // setCurrentPage(1)
         }
 
     }, [currentPage, searchKey, tempRecipes])

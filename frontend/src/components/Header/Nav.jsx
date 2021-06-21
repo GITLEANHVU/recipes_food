@@ -79,7 +79,7 @@ function Nav() {
 
 export default Nav
 const navStyle = {
-  navNavbar: { "fontSize": "110%", "textTransform": "uppercase", "fontWeight": "600", "letterSpacing": "1.1px", "background": "linear-gradient(to top, #F27121, #E94057, #8A2387)", "borderRadius": "7px" },
+  navNavbar: { "fontSize": "110%", "textTransform": "uppercase", "fontWeight": "600", "letterSpacing": "1.1px", "background": "linear-gradient(to top, #F27121, #E94057, #8A2387)", "borderBottomRightRadius": "7px", "borderBottomLeftRadius": "7px" },
   navbar_collapseCollapseShow: { transition: ".4s" },
   navbarSupportedContent_1: { flex: "3" },
   navbarSupportedContent_2: { flex: "1" },

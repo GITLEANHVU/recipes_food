@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { API_LINK_ACCOUNT_BY_ID } from '../../api_link';
+import { API_LINK_ACCOUNT_BY_ID, REACT_APP_UPLOADS_USER } from '../../api_link';
 
 export default function Comment(props) {
     const comment = props.comment
@@ -21,7 +21,7 @@ export default function Comment(props) {
     return (
         <div className="form-comment" key={comment.id}>
             <div className="avatar">
-                <img src="https://image.cooky.vn/posproduct/g0/5075/s400x400/93644f58-2233-456c-b6f2-f670491e9f65.jpeg" width="50px" height="50px" alt="" />
+                <img src={`${REACT_APP_UPLOADS_USER}/avatar.png`} width="50px" height="50px" alt="" />
             </div>
             <div className="contentAcc">
                 <div className="nameDate">

@@ -20,7 +20,9 @@ $image = $data['image'];
 $description = $data['description'];
 $steps = $data['steps'];
 $ingredients = $data['ingredients'];
+
 $id = $data['id'];
+
 $category_id = $data['category_id'];
 $account_id = $data['account_id'];
 

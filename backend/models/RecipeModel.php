@@ -107,4 +107,11 @@ class RecipeModel extends Database
         $sql->bind_param('i', $id);
         return $sql->execute();
     }
+    // Yeu thich
+    // public function updateLike($id)
+    // {
+    //     $sql = parent::$connection->prepare("UPDATE `recipe` SET `recipe_heart` = `recipe_heart` + 1 WHERE `products`.`id` = ?;");
+    //     $sql->bind_param('i', $id);
+    //     return $sql->execute();
+    // }
 }

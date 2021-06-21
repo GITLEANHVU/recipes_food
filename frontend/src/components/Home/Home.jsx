@@ -42,10 +42,10 @@ export default function Home() {
             .then(result => {
                 // sai ngữ cảnh rồi, biết cái result trả về gì không mà gán giá trị. ?
                 console.log("Ket qua: ", result.message);
-                const filterData  = recipes.filter(item => item.id !== id)
+                const filterData = recipes.filter(item => item.id !== id)
                 setRecipes(filterData)
             })
-        
+
     }
     const onSearchKeyChanged = (value) => {
         setSearchKey(value);
@@ -93,15 +93,21 @@ export default function Home() {
     }
 
     return (
-        <div className="container">
-            <Search onSearchKeyChanged={onSearchKeyChanged} handleSubmit={handleSubmit} />
-            
-            <Category setSearchType={setSearchType} setCategoryValue={setCategoryValue} />
+        <div className="mt-2">
+            <div className="background-welcom">
+                    <p className="well-com">Well com to my recipe food</p>
+                </div>
+            <div className="container">
+                <div className="search-category">
+                    <Category setSearchType={setSearchType} setCategoryValue={setCategoryValue} />
+                    <Search onSearchKeyChanged={onSearchKeyChanged} handleSubmit={handleSubmit} />
+                </div>
 
-
-            <div className="container mt-4">
-                {<TestCard recipes={tempRecipes.length > 0 ? tempRecipes:recipes} deleteRecipe={deleteRecipe} />}
+                <div className="container mt-4">
+                    {<TestCard recipes={tempRecipes.length > 0 ? tempRecipes : recipes} deleteRecipe={deleteRecipe} />}
+                </div>
             </div>
         </div>
+
     )
 }
