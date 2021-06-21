@@ -11,7 +11,6 @@ import { Link } from 'react-router-dom';
 export default function DetailRecipe() {
     const history = useHistory();
     const [auth] = useContext(AuthContext);
-
     const [colorHeart, setColorHeart] = useState('black');
     const [comments, setComments] = useState([]);
     const [recipes, setRecipes] = useState([])
@@ -20,11 +19,6 @@ export default function DetailRecipe() {
         email: "",
         address: "",
     });
-    // const [accountComment, setAccountCommet] = useState({
-    //     name: "",
-    //     email: "",
-    //     address: "",
-    // });
     const [recipe, setRecipe] = useState({
         id: null,
         name: "",
@@ -109,7 +103,15 @@ export default function DetailRecipe() {
                 setComments(result)
             })
     }, []);
+    const mouseHover = (e) => {
 
+        const x = e.pageX - e.target.offsetLeft;
+        const y = e.pageY - e.target.offsetTop;
+
+        e.target.style.setProperty('--x', `${x}px`);
+        e.target.style.setProperty('--y', `${y}px`);
+
+    };
     //hàm xóa
     const deleteRecipe = (id) => {
         // delete from database
@@ -125,16 +127,16 @@ export default function DetailRecipe() {
         }
         fetchDeleteRecipe(API_LINK_RECIPE_DELETE, id)
             .then(result => {
-                console.log("Ket qua: ", result.message);
+                //console.log("Ket qua: ", result.message);
                 const filterData = recipes.filter(item => item.id !== id)
                 setRecipe(filterData)
             })
-        // history.push('/login')
+        history.push('/login')
     }
     return (
 
         <div className="detailRecipe">
-            <div className="container">
+            <div className="container" id="contain">
                 <div className="row g-2 contentTop">
                     <div className="col-4 sm-3">
                         <div className="imgRecipeBox">
@@ -158,7 +160,6 @@ export default function DetailRecipe() {
                                     )
                                     : ""
                             }
-
                         </div>
                     </div>
                     <div className="col-8 sm-9">
@@ -178,17 +179,19 @@ export default function DetailRecipe() {
                             </div>
                             <p className="descriptionRecipe">{recipe.description}</p>
                             <h3 className="namRecipe-detail">Nguyên liệu</h3>
-                            <ol className="list-group list-group-numbered">
-                                {
-                                    recipe.ingredients.map((item) => <li key={item} className="list-group-item">{item}</li>)
-                                }
-                            </ol>
+                            <div className="hoverList">
+                                <ol className="list-group" id="lisIngredients">
+                                    {
+                                        recipe.ingredients.map((item) => <li key={item}><span>{item} </span></li>)//
+                                        
+                                    }
+                                </ol>
+                            </div>
                         </div>
                     </div>
-                    <span className="tutorial">Hướng dẫn chế biến</span>
+                    <button className="tutorial" onMouseOver={mouseHover} onMouseOut={mouseHover}><span>Hướng dẫn chế biến</span></button>
                     <div className="row g-2 boderTutorial">
-
-                        <div className="col-12 ">
+                        <div className="col-12" id="stepsDes">
                             <div className="description">
                                 <ol className="list-group list-group-numbered">
                                     {

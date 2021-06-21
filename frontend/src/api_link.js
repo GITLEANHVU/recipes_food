@@ -1,6 +1,7 @@
 // Link Folder image
 export const REACT_APP_UPLOADS = "http://localhost:82/recipes_food/backend/uploads/images"
 export const REACT_APP_UPLOADS_CAROUSEL = "http://localhost:82/recipes_food/backend/uploads/carousel_img"
+export const REACT_APP_UPLOADS_USER = "http://localhost:82/recipes_food/backend/uploads/user_img"
 
 // Link Account
 export const API_LINK_ACCOUNT_DELETE = "http://localhost:82/recipes_food/backend/api/Account/delete.php"

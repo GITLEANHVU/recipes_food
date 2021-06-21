@@ -42,27 +42,95 @@
         height: auto !important;
     }
   }
+#stepsDes{
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+}
 .description > ol{
-    padding-bottom: 10px;
+    padding-bottom: 0px;
+}
+.nameDetailRecipe{
+    animation: ani 1s ease-in-out;
+    font-weight: bold;
+    color: green;
+}
+@keyframes ani{
+    from{transform: translateY(-100%);}
+    to{transform: translateY(0);}
+}
+.ingredientsDetail{
+    font-weight: bold;
+    color: green;
+}
+.bodyInfo{
+    display: flex;
+}
+.modal-body-content{
+    padding-left: 7px;
+    margin-top: -2px;
+    animation: animaInfo 1s ease-in-out;
+}
+@keyframes animaInfo{
+    0%{
+        transform: translateX(100%);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+#lisIngredients{
+    /* box-shadow: 0 0 10px 2px rgb(167, 166, 166); */
 }
 .tutorial{
-    background: green;
-    padding: 10px;    
-    color: white;
     font-weight: bold;
-    text-align: center;
-    margin-bottom: 0px;
-    margin-left: -16px;
+    position: relative;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: green;
+    padding: 0.4em 2em;
+    border: none;
+    color: white;
+    font-size: 1.2em;
+    overflow: hidden;
+    margin-top: 30px;
+    box-shadow: 0 0 10px 2px rgb(167, 166, 166);
 }
+.tutorial span {
+    position: relative;
+    pointer-events: none;
+  }
+.tutorial::before {
+    --size: 0;
+    content: "";
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    width: var(--size);
+    height: var(--size);
+    background: radial-gradient(circle closest-side, greenyellow, transparent);
+    transform: translate(-50%, -50%);
+    transition: width 0.2s ease, height 0.2s ease;
+  }
+.tutorial:hover::before {
+    --size: 1000px;
+  }
 .bg-light2{
     background-color: #f8f9fa!important;
+    box-shadow: 0 0 10px 2px rgb(167, 166, 166);
 }
 .contentTop{
     padding-bottom: 20px;
 }
 .boderTutorial{
-    margin-top: 0px;
+    margin-top: 0px !important;
+    --bs-gutter-y: 0px !important;
     border: 1px solid gainsboro;
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+    padding: 0px !important;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px 2px rgb(167, 166, 166);
 }
 .form-floating{
     width: 500px;
@@ -75,17 +143,8 @@
 .form-floating>.form-control, .form-floating>.form-select{
     height: 100px;
 }
-/* .comment{
-    background:green;
-    padding: 7px;
-    width: auto;
-    text-align: center;
-    color: white;
-    margin-top: 50px;
-    float: right;
-} */
+
 .comment{
-    /* transform: translate(-50%, -50%); */
     position: absolute;
     top: -18px;
     left: 65px;
@@ -96,12 +155,11 @@
     letter-spacing: 2px;
     text-transform: uppercase;
     text-decoration: none;
-    background:green;
+    background: green;
 }
-comment:before{
+.comment:before{
     content: '';
     width:50%;
-    background: rgba(255,255,255,0.05);
 }
 .comment span:nth-child(1) {
     position: absolute;
@@ -196,43 +254,17 @@ comment:before{
 .comment{
     overflow: hidden;
 }
-.bodyInfo{
-    display: flex;
-}
-.modal-body-content{
-    padding-left: 7px;
-    margin-top: -2px;
-    animation: animaInfo 1s ease-in-out;
-}
 
-@keyframes animaInfo{
-    0%{
-        transform: translateX(-100%);
-    }
-    100%{
-        transform: translateX(0);
-    }
-}
 .bod{
     border-bottom: 1px solid green;
     margin-bottom: 20px;
     display: flex;
     position: relative;
+
 }
 .form-comment{
     display: flex;
     margin-top: 10px;
-}
-/* .btn-dang{
-    
-    background: #0277bd;
-    padding: 5px 10px;
-    border:1px solid #dadada ;
-    margin-top: 5px;
-    color: white;
-} */
-.namRecipe-detail{
-    color: #400000;
 }
 .btn-post{
     float: right;
@@ -293,7 +325,7 @@ button.nameChef{
 .fa-calendar-alt{
     color: #d80650;
 }
- #edt{
+#edt{
     color: black !important;
 }
 .editRecipe{
@@ -304,7 +336,6 @@ button.nameChef{
     margin-left: 5px;
     background: #dc3545;
     font-size: 20px;
-    color: black;
 }
 .heart{
     border: 1px solid !important;
@@ -315,7 +346,6 @@ button.nameChef{
 .status{
     padding-left: 10px;
     display: flex;
-    
 }
 /* .fa-heart:active{
     color: red !important;
@@ -346,7 +376,8 @@ button.nameChef{
       height: 100%;
       opacity: 0.88;
       backface-visibility: hidden;
-      transition: all 0.4s ease-out;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: all 0.4s ease-out;
 }
 .img-detail{
     z-index: 1;
@@ -354,7 +385,6 @@ button.nameChef{
     width: 100%;
     /* transform: translate(50%, 50%); */
     backface-visibility: hidden;
-   
 }
 .imgRecipeBox{
     width: 100%;
@@ -469,3 +499,53 @@ button.nameChef{
     transform: scaleX(1.4) scaleY(1.6);
     opacity: 0;
 }
+
+
+.hoverList{
+    background: white !important;
+    position: relative;
+    z-index: 2;
+    padding: 10px;
+}
+.hoverList ol{
+    position: relative;
+    padding-left: 30px;
+  }
+  
+  .hoverList ol li{
+    position: relative;
+    left: 0;
+    color: black;
+    margin: 4px 0;
+    border-left: 2px solid green;
+    transition: 0.5s;
+    cursor: pointer;
+  }
+  
+  .hoverList ol li span{
+    position: relative;
+    padding: 8px;
+    display: inline-block;
+    transition: 0.5s;
+  }
+  .hoverList ol li::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: green;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: 0.5s;
+  }
+  .hoverList ol li:hover::before{
+    transform: scaleX(1);
+  }
+  .hoverList ol li:hover{
+    left:10px;
+  }
+  
+  .hoverList ol li:hover span{
+    color: #fff;
+  }
+  
