@@ -35,10 +35,6 @@ export default function Category(props) {
             fetchListCategories();
         }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> b49b4220f2aefd9a9b9dcf16e42818c5e87e0755
         if (radioName) {
             props.setSearchType("name");
         }

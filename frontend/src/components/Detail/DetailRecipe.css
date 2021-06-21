@@ -498,7 +498,9 @@ button.nameChef{
     opacity: 0;
 }
 
-
+.commentRecipe{
+    padding-bottom: 50px;
+}
 .hoverList{
     background: white !important;
     position: relative;
