@@ -6,7 +6,6 @@ function Nav() {
   const [auth, setAuth] = useContext(AuthContext);
   const logOut = () => {
 
-
     setAuth({ isAuth: false, user: {} });
     localStorage.removeItem('isAuth');
     localStorage.removeItem('user')
@@ -14,19 +13,19 @@ function Nav() {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark sticky-top" style={navStyle.navNavbar}>
       <div className="container-fluid">
-        <Link to="/" className="navbar-brand me-lg-5" href="#">Recipe food</Link>
+        <Link to="/" className="navbar-brand me-lg-5" href="#">Công thức món ăn</Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon" />
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent" style={navStyle.navbar_collapseCollapseShow}>
           <ul className="navbar-nav me-auto mb-2 mb-lg-0" style={navStyle.navbarSupportedContent_1}>
             <li className="nav-item" >
-              <Link to="/" className="nav-link" href="#" style={navStyle.navLink} onMouseLeave={e => navStyle.navLinkMouseLeave(e)} onMouseOver={(e) => navStyle.navLinkMouseOver(e)}>Home</Link>
+              <Link to="/" className="nav-link" href="#" style={navStyle.navLink} onMouseLeave={e => navStyle.navLinkMouseLeave(e)} onMouseOver={(e) => navStyle.navLinkMouseOver(e)}>Trang chủ</Link>
             </li>
             <li className="nav-item">
               {
                 auth.isAuth ?
-                  (<Link to="/my-recipes" className="nav-link px-lg-3" href="#" style={navStyle.navLink} onMouseLeave={e => navStyle.navLinkMouseLeave(e)} onMouseOver={(e) => navStyle.navLinkMouseOver(e)}>My recipes</Link>)
+                  (<Link to="/my-recipes" className="nav-link px-lg-3"  style={navStyle.navLink} onMouseLeave={e => navStyle.navLinkMouseLeave(e)} onMouseOver={(e) => navStyle.navLinkMouseOver(e)}>Danh sách của tôi</Link>)
                   : ""
               }
 
@@ -34,7 +33,7 @@ function Nav() {
             <li className="nav-item">
               {
                 auth.isAuth ?
-                  (<Link to="/au-recipe" className="nav-link px-lg-3" href="#" style={navStyle.navLink} onMouseLeave={e => navStyle.navLinkMouseLeave(e)} onMouseOver={(e) => navStyle.navLinkMouseOver(e)} >Add recipe</Link>)
+                  (<Link to="/au-recipe" className="nav-link px-lg-3"  style={navStyle.navLink} onMouseLeave={e => navStyle.navLinkMouseLeave(e)} onMouseOver={(e) => navStyle.navLinkMouseOver(e)} >Thêm công thức mới</Link>)
                   : ""
               }
 
@@ -61,14 +60,14 @@ function Nav() {
                     className="nav-link px-lg-3"
                     style={navStyle.navLink}
                     onMouseLeave={e => navStyle.navLinkMouseLeave(e)}
-                    onMouseOver={(e) => navStyle.navLinkMouseOver(e)}>Login</Link>
+                    onMouseOver={(e) => navStyle.navLinkMouseOver(e)}>Đăng nhập</Link>
                 </li>
                 <li className="nav-item">
                   <Link to="/register"
                     className="nav-link px-lg-3"
                     style={navStyle.navLink}
                     onMouseLeave={e => navStyle.navLinkMouseLeave(e)}
-                    onMouseOver={(e) => navStyle.navLinkMouseOver(e)}>register</Link>
+                    onMouseOver={(e) => navStyle.navLinkMouseOver(e)}>Đăng ký</Link>
                 </li>
               </ul>
           }

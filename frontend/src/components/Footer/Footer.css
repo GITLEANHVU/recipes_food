@@ -92,27 +92,76 @@ footer.main-footer {
   font-weight: bold;
   text-align: center;
 }
-.z100000 ul{
+.z100000 .ul{
+  list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
-.z100000 ul li {
+.z100000 .ul .li {
   font-size: 1.6rem;
   font-weight: bold;
   transition: 1.5s;
+  position: relative;
 }
-.z100000 ul li:hover {
+.z100000 .ul .li:hover {
+  cursor: pointer;
   transition: 1.5s;
   background: #093d3b;
   font-size: 1.6rem;
   font-weight: bold;
+  position: relative;
+}
+.z100000 .ul .li div.member  {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  right: -50px;
+  top: 0px;
+}
+.z100000 .ul .li div.member.hover-icon {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  right: -50px;
+  top: 30px;
+  animation: member 0.5s ease-in infinite alternate;
+}
+@keyframes member {
+  0% {
+    transform: translateY(-60px);
+  }
+  90% {
+    transform: translateY(-30px);
+  }
+  100% {
+    transform: translateY(-20px);
+  }
+}
+
+.footer-title::after {
+  width: 100%;
+  content: "TEAM MEMBERS";
+  position: relative;
+  animation: footer_title_after 5s ease-in infinite alternate;
+}
+
+@keyframes footer_title_after {
+  0% {
+    content: "PROJECT FRONT END 2";
+  }
+  50% {
+    content: "USING REACT JS";
+  }
+  100% {
+    content: "TEAM MEMBERS BELOW";
+  }
 }
 
 @media (max-width: 960px) {
-  .z100000 ul {
+  .z100000 .ul {
     flex-direction: column;
   }
 }
