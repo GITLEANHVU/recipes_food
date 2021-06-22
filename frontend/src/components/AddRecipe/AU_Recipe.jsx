@@ -25,7 +25,7 @@ export default function AU_Recipe() {
   const [ingredients, setIngredients] = useState([]);
   const [steps, setSteps] = useState([]);
 
-  const [category, setCategory] = useState();
+  const [category, setCategory] = useState(1);
   const [ingredient, setIngredient] = useState("");
   const [step, setStep] = useState("");
 

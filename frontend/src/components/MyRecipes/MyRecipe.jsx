@@ -55,7 +55,7 @@ export default function MyRecipe() {
             // setCurrentPage(1)
         }
 
-    }, [currentPage, searchKey, tempRecipes])
+    }, [currentPage, searchKey, tempRecipes, recipes])
 
     // Change page
     const paginate = pageNumber => {
@@ -101,17 +101,18 @@ export default function MyRecipe() {
         fetchDeleteRecipe(API_LINK_RECIPE_DELETE, id)
             .then(result => {
                 console.log("Ket qua: ", result.message);
-                const filterData  = recipes.filter(item => item.id !== id)
+                const filterData = recipes.filter(item => item.id !== id)
+                console.log("FilterData: ", filterData);
                 setRecipes(filterData)
             })
-        
+
     }
     return (
         <div id="recipe">
-            <div className="container">
+            <div className="container pt-0">
                 <Search onSearchKeyChanged={onSearchKeyChanged} handleSubmit={handleSubmit} />
                 {/* <RecipeList recipes={tempRecipes.length === 0 ? currentPosts : tempRecipes} setRecipes={setRecipes} /> */}
-                <RecipeList recipes={currentPosts } setRecipes={setRecipes} deleteRecipe={deleteRecipe}/>
+                <RecipeList recipes={currentPosts} allRecipes={tempRecipes.length > 0 ? tempRecipes : recipes} setRecipes={setRecipes} deleteRecipe={deleteRecipe} />
                 <Pagination
                     postsPerPage={postsPerPage}
                     totalPosts={tempRecipes.length > 0 ? tempRecipes.length : recipes.length}
