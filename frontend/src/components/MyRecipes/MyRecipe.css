@@ -17,6 +17,9 @@ body{
     height: 50px;
     border: 1px solid #999;
 }
+.carouselItem{
+    transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 0.9s;
+}
 /* BIG TITILE */
 #big-title {
     color: #efa810;
@@ -104,13 +107,41 @@ body{
     border-bottom-right-radius: 10px;
     box-shadow: inset 0 0 15px rgb(0 0 0 / 10%);
 }
+.search-input .btnSearch:active{
+    background-color: #000;
+}
 
-/*111111111111111111111111 */
 .search-by{
     display: flex;
     margin: 40px 0;
     justify-content: space-between;
 }
+/* NEW CHANGE */
+
+#threeD {
+    color: darkgrey;
+    white-space: nowrap;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3em;
+    font-family: sans-serif;
+    letter-spacing: 0.1em;
+    transition: 0.3s;
+    text-shadow: 1px 1px 0 grey, 1px 2px 0 grey, 1px 3px 0 grey, 1px 4px 0 grey,
+      1px 5px 0 grey, 1px 6px 0 grey, 1px 7px 0 grey, 1px 8px 0 grey,
+      5px 13px 15px black;
+  }
+  
+  #threeD:hover {
+    transition: 0.3s;
+    transform: scale(1.1)translate(-50%, -50%);
+    text-shadow: 1px -1px 0 grey, 1px -2px 0 grey, 1px -3px 0 grey,
+      1px -4px 0 grey, 1px -5px 0 grey, 1px -6px 0 grey, 1px -7px 0 grey,
+      1px -8px 0 grey, 5px -13px 15px black, 5px -13px 25px #808080;
+  }
+  
 .searchBtn{
     width: 28px;
 }
@@ -351,9 +382,11 @@ body{
     display: block;
     transition: all 0.3s ease 0s;
 }
-.box .icon li a:hover{
+
+.box .icon li a:hover {
     color: #000;
-    background: #4cd137;
+    box-shadow: 0 0px 3px 3px #4cd137;
+    transform: translateY(-2px);
 }
 @media only screen and (max-width:990px){
     .box{ margin: 0 0 30px; }
@@ -368,7 +401,7 @@ body{
     letter-spacing: 0.4px;
     line-height: 1.6rem;
 }
-.detail-product__title a{
+.detail-product__title p{
     color: var(--pink-color);
     text-decoration: none;
     font-size: 1.3rem;
@@ -390,16 +423,84 @@ body{
 }
 .btn-group{
     margin-bottom: 20px;
-    display: inline-block;
     font-size: 12px;
     font-weight: 700;
     width: 100%;
     display: inline-flex;
     justify-content: space-between;
+    align-items: center;
 }
+
+/* NEW CHANGE */
+
+
+  
+  .cta {
+    position: relative;
+    padding: 19px 22px;
+    transition: all 0.2s ease;
+    border: none;
+    color: white;
+    padding: 10px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    opacity: 0.8;
+  }
+  .cta:before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: 9px;
+    display: block;
+    border-radius: 28px;
+    background: #4CAF50;
+    width: 49px;
+    height: 48px;
+    transition: all 0.3s ease;
+}
+.cta span {
+    position: relative;
+    font-size: 16px;
+    color: #000;
+    padding: 0 10px;
+}
+
+  .cta svg {
+    position: relative;
+    top: 0;
+    margin-left: 10px;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke: #111;
+    stroke-width: 2;
+    transition: all 0.3s ease;
+  }
+  .cta:hover{
+      text-decoration: none !important;
+  }
+  .cta:hover:before {
+    width: 100%;
+    background:#4cd137;
+    text-decoration: none;
+  }
+  .cta:hover svg {
+    transform: translateX(0);
+    text-decoration: none;
+  }
+  .cta:active {
+    transform: scale(0.96);
+  }
+
+
 .btn-show{
+
+}
+.btn-show--link{
     border-radius: 5px;
-    background-color: #4CAF50; /* Green */
+    background-color: #4CAF50; 
     border: none;
     color: white;
     padding: 10px 12px;
@@ -409,7 +510,7 @@ body{
     font-size: 16px;
     opacity: 0.8;
 }
-.btn-show:hover{
+.btn-show--link:hover{
     opacity: 1;
     transition: ease-in 0.2s;
     color: #fff;
@@ -471,16 +572,54 @@ body{
 }
 
 @media all and (min-width: 1200px) {
-    .btn-show{
+    .btn-show--link{
         padding: 10px;
     }
 }
 /* PAGINATION */
-.pagination{
+/* #selfPagination{
     display: flex;
     padding-left: 0;
     list-style: none;
     border-radius: .25rem;
     justify-content: center;
     margin-top: 57px;
+} */
+.pagination {
+    margin: 25px 0 15px 0;
+  }
+  .pagination,
+  .pagination li button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .pagination li {
+    margin: 0 3px;
+    transform: all 0.5s;
+  }
+  .pagination li button {
+    text-decoration: none;
+    color: #fdfdfd;
+    height: 50px;
+    width: 50px;
+    background: #f23b26;
+    font-size: 18px;
+    padding-top: 1px;
+    border-right-width: 0px;
+    box-shadow: inset 0px 1px 0px 0px rgb(255 255 255 / 35%);
+    border-radius: 5px;
+    border: none;
+    opacity: 0.9;
 }
+  
+  .pagination li button:hover,.pagination li button:focus,.pagination li button:active{
+    opacity: 1;
+    background: #f52e18;
+  }
+  .pagination li.icon a {
+    min-width: 120px;
+  }
+  
+  

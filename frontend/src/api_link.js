@@ -1,5 +1,6 @@
 // Link Folder image
 export const REACT_APP_UPLOADS = "http://localhost:83/recipes_food/backend/uploads/images"
+export const REACT_APP_UPLOADS_RECIPE = "http://localhost:83/recipes_food/backend/uploads/recipes"
 export const REACT_APP_UPLOADS_CAROUSEL = "http://localhost:83/recipes_food/backend/uploads/carousel_img"
 export const REACT_APP_UPLOADS_USER = "http://localhost:83/recipes_food/backend/uploads/user_img"
 
@@ -27,7 +28,7 @@ export const API_LINK_CATEGORY_READ = "http://localhost:83/recipes_food/backend/
 export const API_LINK_CATEGORY_CREATE = "http://localhost:83/recipes_food/backend/api/Category/create.php"
 export const API_LINK_CATEGORY_DELETE = "http://localhost:83/recipes_food/backend/api/Category/delete.php"
 export const API_LINK_CATEGORY_UPDATE = "http://localhost:83/recipes_food/backend/api/Category/update.php"
-export const API_LINK_CATEGORY_READ_SINGLE = "http://localho83:83/recipes_food/backend/api/Category/read_single.php"
+export const API_LINK_CATEGORY_READ_SINGLE = "http://localhost:83/recipes_food/backend/api/Category/read_single.php"
 export const API_LINK_CATEGORY_READ_ALL = "http://localhost:83/recipes_food/backend/api/Category/read.php"
 
 // Link Comment
@@ -37,4 +38,3 @@ export const API_LINK_COMMENT_DELETE = "http://localhost:83/recipes_food/backend
 export const API_LINK_COMMENT_UPDATE = "http://localhost:83/recipes_food/backend/api/Comment/update.php"
 export const API_LINK_COMMENT_READ_SINGLE = "http://localhost:83/recipes_food/backend/api/Comment/read_single.php"
 export const API_LINK_SORT_COMMENT = "http://localhost:83/recipes_food/backend/api/Comment/sort_by_created_at.php"
-

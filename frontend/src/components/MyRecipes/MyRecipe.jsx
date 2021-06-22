@@ -18,7 +18,7 @@ export default function MyRecipe() {
 
     // Pagination
     const [currentPage, setCurrentPage] = useState(1);
-    const [postsPerPage] = useState(3);
+    const [postsPerPage] = useState(6);
     // Get current posts # 
     const indexOfLastPost = currentPage * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage;

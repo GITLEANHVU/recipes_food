@@ -75,7 +75,7 @@ export default function AU_Recipe() {
           setSteps(splitSteps);
         })
     }
-  }, [])
+  }, [auth])
 
   // ham chuc nang
 
