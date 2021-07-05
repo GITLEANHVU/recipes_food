@@ -40,7 +40,6 @@ export default function Home() {
         }
         fetchDeleteRecipe(API_LINK_RECIPE_DELETE, id)
             .then(result => {
-                console.log("Ket qua: ", result.message);
                 const filterData = recipes.filter(item => item.id !== id)
                 setRecipes(filterData)
             })
@@ -53,7 +52,6 @@ export default function Home() {
     const handleSubmit = () => {
         // submit to search recipes
         if (searchType === "name") {
-            console.log("searching by name ...");
             if (searchKey.length === 0) return;
             async function fetchAllRecipesByName(url, name) {
                 const response = await fetch(url, {
@@ -68,11 +66,8 @@ export default function Home() {
             fetchAllRecipesByName(API_LINK_RECIPE_RECIPE_BY_NAME, searchKey)
                 .then(result => {
                     setTempRecipes(result);
-                    console.log(result);
                 })
         } else {
-            console.log("searching by category ...");
-            console.log(categoryValue)
             async function fetchAllRecipesByCategory(url, category_id) {
                 const response = await fetch(url, {
                     method: "POST",
@@ -86,7 +81,6 @@ export default function Home() {
             fetchAllRecipesByCategory(API_LINK_RECIPE_READ_BY_CATEGORY, categoryValue)
                 .then(result => {
                     setTempRecipes(result);
-                    console.log(result);
                 })
         }
     }

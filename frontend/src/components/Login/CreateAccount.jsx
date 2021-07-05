@@ -18,13 +18,6 @@ const CreateAccount = () => {
   const history = useHistory();
   const handleSubmitForm = (e) => {
     e.preventDefault();
-    console.log("name: ", name);
-    console.log("address: ", address);
-    console.log("email: ", email);
-    console.log("password: ", password);
-    console.log("password2: ", password2);
-    console.log("role: ", role);
-    console.log("status: ", status);
     if (name.trim().length !== 0 && email.trim().length !== 0 && password.trim().length !== 0 && password2.trim().length !== 0) {
       if (password2.trim().toLowerCase() === password.trim().toLowerCase()) {
         // luu database
@@ -52,7 +45,6 @@ const CreateAccount = () => {
             setTimeout(() => {
               history.push('/login')
             }, 600)
-            console.log(result);
           })
       }
     }

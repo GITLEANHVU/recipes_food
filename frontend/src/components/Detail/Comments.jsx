@@ -55,7 +55,6 @@ export default function CommentRecipe(props) {
             createComment(apiComment, { ...newComment })
                 .then(message => {
                     props.setComments([...comments, newComment])
-                    //console.log("message: ", message);
                 })
 
         }

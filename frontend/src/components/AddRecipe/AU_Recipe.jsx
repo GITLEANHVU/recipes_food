@@ -16,11 +16,9 @@ export default function AU_Recipe() {
   const [auth] = useContext(AuthContext);
   const { id } = useParams();
   const history = useHistory();
-
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
   const [description, setDescription] = useState("");
-
   const [categories, setCategories] = useState([{ id: 0, name: "" }]);
   const [ingredients, setIngredients] = useState([]);
   const [steps, setSteps] = useState([]);
@@ -60,13 +58,12 @@ export default function AU_Recipe() {
         })
         return await response.json();
       }
+
       getRecipeToUpdate(id)
         .then(result => {
           const recipe = result[0]
-
           const splitIngredients = String(recipe.ingredients).split("#");
           const splitSteps = String(recipe.steps).split("#");
-
           setName(recipe.name);
           setImage(recipe.image);
           setCategory(recipe.category_id);
@@ -81,30 +78,24 @@ export default function AU_Recipe() {
 
   const handleAddCStep = () => {
     setSteps([...steps, step]);
-    console.log('add new step');
   }
   const handleAddCIngredient = () => {
     setIngredients([...ingredients, ingredient]);
-    console.log('add new ingredient');
   }
   const handleDeleteIngredient = (indexDel) => {
     const newIngredients = ingredients.filter((item, index) => index !== indexDel);
     setIngredients(newIngredients);
-    console.log("Deleted ingre at: ", indexDel);
   }
   const handleDeleteStep = (indexDel) => {
     const newSteps = steps.filter((item, index) => index !== indexDel);
     setSteps(newSteps);
-    console.log("Deleted step at: ", indexDel);
   }
 
   const handleSubmitForm = (event) => {
     event.preventDefault();
-    console.log('submitted ');
 
     if (id === undefined) {
       // TẠO MỚI MỘT RECIPE
-      console.log(name, image, description, category, ingredients, steps);
       const createNewRecipe = async (url, inputData) => {
         const response = await fetch(url, {
           method: "POST",
@@ -126,12 +117,9 @@ export default function AU_Recipe() {
       }
       createNewRecipe(API_LINK_RECIPE_CREATE, data)
         .then(result => {
-          console.log(result);
         })
-      console.log("Created new recipe");
     } else {
       // UPDATE RECIPES THEO ID
-      console.log(id, name, image, description, category, ingredients, steps);
       const updateNewRecipe = async (url, inputData) => {
         const response = await fetch(url, {
           method: "POST",
@@ -154,9 +142,7 @@ export default function AU_Recipe() {
       }
       updateNewRecipe(API_LINK_RECIPE_UPDATE, data)
         .then(result => {
-          console.log(result);
         })
-      console.log("Updated recipe id = ", id);
     }
   }
   const handleUploadFile = e => {

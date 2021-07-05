@@ -1,6 +1,5 @@
 function AccountInfo(props) {
     const {name, email, address} = props.account
-    //console.log(props.account)
     return (
         <div className="modal fade" id="accounntInfo" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div className="modal-dialog">

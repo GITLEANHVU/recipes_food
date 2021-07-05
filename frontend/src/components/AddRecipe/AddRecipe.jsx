@@ -39,7 +39,6 @@ export default function AddRecipe() {
     if (id === undefined) {
       // do something
     } else {
-      console.log("Update recipe");
       getRecipe(API_LINK_RECIPE_READ_BY_ID, id)
         .then(result => {
           if (result.length > 0) {
@@ -47,7 +46,6 @@ export default function AddRecipe() {
             const ings = value.ingredients.split("#")
             const stps = value.steps.split("#")
 
-            console.log("Step add: ", stps)
             setNewRecipe({
               name: value.name,
               image: `${REACT_APP_UPLOADS}/${value.image}`,
@@ -100,7 +98,6 @@ export default function AddRecipe() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (id === undefined) {
-      console.log("Create new recipe: ", newRecipe);
       // add new category
 
       // add new recipe
@@ -108,7 +105,6 @@ export default function AddRecipe() {
       // save image
 
     } else {
-      console.log("Update new recipe: ", newRecipe);
       // update recipe
 
       // update new category

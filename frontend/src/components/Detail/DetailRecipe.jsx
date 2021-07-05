@@ -105,7 +105,6 @@ export default function DetailRecipe() {
         
         
     }, []);
-    //console.log("Comments detail: ",comments);
     const mouseHover = (e) => {
 
         const x = e.pageX - e.target.offsetLeft;
@@ -130,7 +129,6 @@ export default function DetailRecipe() {
         }
         fetchDeleteRecipe(API_LINK_RECIPE_DELETE, id)
             .then(result => {
-                //console.log("Ket qua: ", result.message);
                 const filterData = recipes.filter(item => item.id !== id)
                 setRecipe(filterData)
             })

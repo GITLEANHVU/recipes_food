@@ -64,10 +64,8 @@ export default function MyRecipe() {
 
     const handleSubmit = () => {
         if (searchKey.length <= 0) {
-            console.log("Khong co gia tri nao de tim kiem");
             return;
         }
-        console.log("searching...");
         const fetchRecipesSearching = async (url, searchKey, account_id) => {
             const response = await fetch(url, {
                 method: 'POST',
@@ -100,9 +98,7 @@ export default function MyRecipe() {
         }
         fetchDeleteRecipe(API_LINK_RECIPE_DELETE, id)
             .then(result => {
-                console.log("Ket qua: ", result.message);
                 const filterData = recipes.filter(item => item.id !== id)
-                console.log("FilterData: ", filterData);
                 setRecipes(filterData)
             })
 
