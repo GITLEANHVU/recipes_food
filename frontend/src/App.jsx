@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // Components
 import Home from "./components/Home/Home";
 import MyRecipe from "./components/MyRecipes/MyRecipe";
-import AddRecipe from "./components/AddRecipe/AddRecipe";
 import AU_Recipe from "./components/AddRecipe/AU_Recipe";
 import Login from "./components/Login/Login";
 import CreateAccount from "./components/Login/CreateAccount";
@@ -39,7 +38,6 @@ function App() {
           </Route>
           {/* Update recipe */}
           <Route path="/au-recipe/:id">
-            {/* <AddRecipe /> */}
             <AU_Recipe />
           </Route>
 
