@@ -1,30 +1,39 @@
 <?php
 class RecipeModel extends Database
 {
-     // Get account name 
-     public function getAccountNameByID($account_id)
-     {
-         $sql = parent::$connection->prepare("SELECT `account`.`name` FROM `recipe`,`account` WHERE recipe.account_id = account.id and recipe.account_id = ?");
-         $sql->bind_param('i', $account_id);
-         return parent::select($sql);
-     }
-     // Get recipe by id
-     public function searchRecipesByNameByAccount($name, $account_id)
-     {
-         $sql = parent::$connection->prepare("SELECT * FROM `recipe` WHERE `name` LIKE ? AND account_id = ?");
-         $search = "%{$name}%";
-         $sql->bind_param('si', $search, $account_id);
-         return parent::select($sql);
-     }
 
-     // Get recipe by name
-     public function searchRecipesByName($name)
-     {
-         $sql = parent::$connection->prepare("SELECT * FROM `recipe` WHERE `name` LIKE ?");
-         $search = "%{$name}%";
-         $sql->bind_param('s', $search);
-         return parent::select($sql);
-     }
+    public function getRecipesByPage($perPage, $page)
+    {
+        $start = $perPage * ($page - 1);
+        if ($page > 1) $start -= ($page - 1);
+        $sql = parent::$connection->prepare("SELECT * FROM `recipe` ORDER BY `id` DESC LIMIT ?, ?");
+        $sql->bind_param('ii', $start, $perPage);
+        return parent::select($sql);
+    }
+    // Get account name 
+    public function getAccountNameByID($account_id)
+    {
+        $sql = parent::$connection->prepare("SELECT `account`.`name` FROM `recipe`,`account` WHERE recipe.account_id = account.id and recipe.account_id = ?");
+        $sql->bind_param('i', $account_id);
+        return parent::select($sql);
+    }
+    // Get recipe by id
+    public function searchRecipesByNameByAccount($name, $account_id)
+    {
+        $sql = parent::$connection->prepare("SELECT * FROM `recipe` WHERE `name` LIKE ? AND account_id = ?");
+        $search = "%{$name}%";
+        $sql->bind_param('si', $search, $account_id);
+        return parent::select($sql);
+    }
+
+    // Get recipe by name
+    public function searchRecipesByName($name)
+    {
+        $sql = parent::$connection->prepare("SELECT * FROM `recipe` WHERE `name` LIKE ?");
+        $search = "%{$name}%";
+        $sql->bind_param('s', $search);
+        return parent::select($sql);
+    }
 
 
     // Get recipe by id

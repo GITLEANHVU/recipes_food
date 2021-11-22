@@ -21,6 +21,7 @@ export const API_LINK_RECIPE_READ_BY_ACCOUNT = "http://localhost/doan-reactjs-ph
 export const API_LINK_RECIPE_RECIPE_BY_NAME_ACCOUNT = "http://localhost/doan-reactjs-php-recipes-app/backend/api/Recipe/read_by_NameAndAccount.php"
 export const API_LINK_RECIPE_RECIPE_BY_NAME = "http://localhost/doan-reactjs-php-recipes-app/backend/api/Recipe/read_by_Name.php"
 export const API_LINK_RECIPE_READ_ACCOUNT_NAME_BY_NAME = "http://localhost/doan-reactjs-php-recipes-app/backend/api/Recipe/read_by_Name.php"
+export const API_LINK_RECIPE_READ_BY_PAGE = "http://localhost/doan-reactjs-php-recipes-app/backend/api/Recipe/loadmore.php"
 
 // Link Category
 export const API_LINK_CATEGORY_READ = "http://localhost/doan-reactjs-php-recipes-app/backend/api/Category/read.php"
