@@ -13,7 +13,7 @@ $comment_model = new CommentModel();
 $data = json_decode(file_get_contents("php://input"), true);
 
 // set values
-$recipe_id = $data['recipe_id'];
+$recipe_id = $data['id'];
 
 // Get values from Database
 

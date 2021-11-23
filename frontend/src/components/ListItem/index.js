@@ -6,9 +6,10 @@ export default function ListItem(props) {
       {
         props.listItems.map((item, index) =>
           <Card
-            imageLink={item.image}
-            title={item.name}
-            description={item.description}
+            id={item?.id}
+            imageLink={item?.image}
+            title={item?.name}
+            description={item?.description}
             key={index}
             classes={{ mt: "mt-3" }}
           />)

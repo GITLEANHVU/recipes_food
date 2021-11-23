@@ -15,7 +15,7 @@ export default function RecipePage() {
   }, []);
 
   return (
-    <div id="recipe">
+    <div id="recipe-page">
       <div className="container">
         <ListItem
           listItems={listItems} />

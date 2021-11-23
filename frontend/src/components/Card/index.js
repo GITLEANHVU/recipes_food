@@ -4,6 +4,7 @@ import useWindowSize from '../../hooks/useWindowSize';
 import A from '../A';
 
 export default function Card(props) {
+  const id = props?.id;
   const imageLink = (props?.imageLink || "#!");
   const title = (props?.title || "").length > 0 ? (props?.title || "").slice(0, 20) : "";
   const description = (props?.description || "").length > 0 ? (props?.description || "").slice(0, 90) : "";
@@ -30,7 +31,7 @@ export default function Card(props) {
           <A
             content={'Show'}
             btnTheme={`btn btn-primary`}
-            linkTo={``}
+            linkTo={`/recipe/${id}`}
           />
         </div>
       </div>

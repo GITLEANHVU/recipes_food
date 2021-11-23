@@ -12,7 +12,7 @@ include_once('./../../models/AccountModel.php');
 $data = json_decode(file_get_contents("php://input"), true);
 
 // Set values
-$account_id = $data['account_id'];
+$account_id = $data['id'];
 
 // Instantiate Account Object
 $account_model = new AccountModel();
