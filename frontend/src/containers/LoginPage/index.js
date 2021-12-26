@@ -9,8 +9,7 @@ export default function LoginPage() {
   const { auth } = useContext(HeaderContext);
   async function getAccount() {
     const res = await axios.post(`${API_LINK_ACCOUNT_READ_SINGLE}`, JSON.stringify({ email: email, password: password }));
-    console.log(res.data);
-    if (Array(res.data).length > 0) {
+    if (res.data.length > 0) {
       const user = res.data[0];
 
       delete user.role;
@@ -28,7 +27,6 @@ export default function LoginPage() {
 
   function handleSubmitForm(event) {
     event.preventDefault();
-    console.log("email, password = ", email, password);
     getAccount();
   }
 
@@ -38,7 +36,7 @@ export default function LoginPage() {
       window.location.href = '/';
     }
   }, [auth]);
-  
+
   return (
     <div className="text-center"
       style={{

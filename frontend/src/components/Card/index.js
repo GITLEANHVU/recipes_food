@@ -31,7 +31,7 @@ export default function Card(props) {
           <A
             content={'Show'}
             btnTheme={`btn btn-primary`}
-            linkTo={`/recipe/${id}`}
+            linkTo={`/recipe-detail/${id}`}
           />
         </div>
       </div>

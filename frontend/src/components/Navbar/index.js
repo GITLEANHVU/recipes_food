@@ -40,6 +40,15 @@ export default function Navbar() {
             <li className="nav-item">
               <NavLink to="/recipe" className="nav-link">Recipe</NavLink>
             </li>
+
+            {
+              user !== null ?
+                <li className="nav-item">
+                  <NavLink to="/my-recipe" className="nav-link">My Recipe</NavLink>
+                </li>
+                : ""
+            }
+
           </ul>
           <form className="d-flex mb-2">
             <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />

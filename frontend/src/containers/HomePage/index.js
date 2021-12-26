@@ -39,7 +39,7 @@ export default function HomePage() {
                         marginBottom: "0.8rem",
                       }}
                       className="featurette-heading mt-0"
-                      to={`/recipe/${recipe?.id}`}>
+                      to={`/recipe-detail/${recipe?.id}`}>
                       {recipe.name}
                     </Link>
                     <p className="lead"
