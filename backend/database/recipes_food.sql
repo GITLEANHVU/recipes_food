@@ -3,6 +3,8 @@
 -- DB recipes food
 
 -- set up: Create database name is `recipes_food`
+CREATE DATABASE IF NOT EXISTS recipes_food;  
+USE recipes_food;
 
 CREATE TABLE account (
   id INT PRIMARY KEY AUTO_INCREMENT,
