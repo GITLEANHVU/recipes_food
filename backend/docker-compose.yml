@@ -2,14 +2,12 @@ version: "3.9"
 name: api-recipes-app
 services:
   php-env:
-    container_name: php_env
     build: .
     volumes:
       - .:/var/www/html
     ports:
       - 9090:80
   mysql_db:
-    container_name: mysql_db
     image: mysql:latest
     cap_add:
       - SYS_NICE
@@ -24,7 +22,6 @@ services:
       - mysql_db:/var/lib/mysql
       - ./database/recipes_food.sql:/docker-entrypoint-initdb.d/init.sql
   phpmyadmin:
-    container_name: phpmyadmin
     image: phpmyadmin:latest
     restart: always
     ports:
