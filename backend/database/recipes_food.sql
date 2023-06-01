@@ -3,7 +3,7 @@
 -- DB recipes food
 
 -- set up: Create database name is `recipes_food`
-CREATE DATABASE IF NOT EXISTS recipes_food;  
+CREATE DATABASE IF NOT EXISTS recipes_food CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE recipes_food;
 
 CREATE TABLE account (

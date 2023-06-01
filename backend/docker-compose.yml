@@ -1,5 +1,5 @@
 version: "3.9"
-
+name: api-recipes-app
 services:
   php-env:
     container_name: php_env
