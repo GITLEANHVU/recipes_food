@@ -1,6 +1,6 @@
 # Recipes Food
 
-## Requirements
+## Required
 
 - Docker
 - NodeJS (version 16)
