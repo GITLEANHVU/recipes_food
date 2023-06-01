@@ -1,17 +1,16 @@
-import './create-recipe.css';
-import React, { useState, useEffect, useContext } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
-import { AuthContext } from '../../Contexts/AuthContext';
+import React, { useContext, useEffect, useState } from "react";
+import { useHistory, useParams } from "react-router-dom";
+import { AuthContext } from "../../Contexts/AuthContext";
 import {
-  REACT_APP_UPLOADS,
   API_LINK_CATEGORY_READ_ALL,
   API_LINK_RECIPE_CREATE,
   API_LINK_RECIPE_READ_BY_ID,
-  API_LINK_RECIPE_UPDATE
-} from '../../api_link';
+  API_LINK_RECIPE_UPDATE,
+  REACT_APP_UPLOADS,
+} from "../../api_link";
+import "./create-recipe.css";
 
 export default function AU_Recipe() {
-
   // khai bao bien
   const [auth] = useContext(AuthContext);
   const { id } = useParams();
@@ -36,15 +35,14 @@ export default function AU_Recipe() {
       const response = await fetch(API_LINK_CATEGORY_READ_ALL, {
         method: "GET",
         headers: {
-          'Accept': 'application/json;charset=UTF-8'
+          Accept: "application/json;charset=UTF-8",
         },
-      })
+      });
       return await response.json();
-    }
-    getCategories()
-      .then(result => {
-        setCategories(result);
-      })
+    };
+    getCategories().then((result) => {
+      setCategories(result);
+    });
     if (id !== undefined) {
       // get categories
       // UPDATE RECIPES THEO ID
@@ -52,44 +50,45 @@ export default function AU_Recipe() {
         const response = await fetch(API_LINK_RECIPE_READ_BY_ID, {
           method: "POST",
           headers: {
-            'Accept': 'application/json;charset=UTF-8'
+            Accept: "application/json;charset=UTF-8",
           },
           body: JSON.stringify({ id: id }),
-        })
+        });
         return await response.json();
-      }
+      };
 
-      getRecipeToUpdate(id)
-        .then(result => {
-          const recipe = result[0]
-          const splitIngredients = String(recipe.ingredients).split("#");
-          const splitSteps = String(recipe.steps).split("#");
-          setName(recipe.name);
-          setImage(recipe.image);
-          setCategory(recipe.category_id);
-          setDescription(recipe.description);
-          setIngredients(splitIngredients);
-          setSteps(splitSteps);
-        })
+      getRecipeToUpdate(id).then((result) => {
+        const recipe = result[0];
+        const splitIngredients = String(recipe.ingredients).split("#");
+        const splitSteps = String(recipe.steps).split("#");
+        setName(recipe.name);
+        setImage(recipe.image);
+        setCategory(recipe.category_id);
+        setDescription(recipe.description);
+        setIngredients(splitIngredients);
+        setSteps(splitSteps);
+      });
     }
-  }, [auth])
+  }, [auth]);
 
   // ham chuc nang
 
   const handleAddCStep = () => {
     setSteps([...steps, step]);
-  }
+  };
   const handleAddCIngredient = () => {
     setIngredients([...ingredients, ingredient]);
-  }
+  };
   const handleDeleteIngredient = (indexDel) => {
-    const newIngredients = ingredients.filter((item, index) => index !== indexDel);
+    const newIngredients = ingredients.filter(
+      (item, index) => index !== indexDel
+    );
     setIngredients(newIngredients);
-  }
+  };
   const handleDeleteStep = (indexDel) => {
     const newSteps = steps.filter((item, index) => index !== indexDel);
     setSteps(newSteps);
-  }
+  };
 
   const handleSubmitForm = (event) => {
     event.preventDefault();
@@ -100,12 +99,12 @@ export default function AU_Recipe() {
         const response = await fetch(url, {
           method: "POST",
           headers: {
-            'Accept': 'application/json;charset=UTF-8'
+            Accept: "application/json;charset=UTF-8",
           },
           body: JSON.stringify({ ...inputData }),
-        })
+        });
         return await response.json();
-      }
+      };
       const data = {
         name: name,
         image: image,
@@ -114,22 +113,20 @@ export default function AU_Recipe() {
         ingredients: ingredients.join("#"),
         category_id: category,
         account_id: auth.user.id,
-      }
-      createNewRecipe(API_LINK_RECIPE_CREATE, data)
-        .then(result => {
-        })
+      };
+      createNewRecipe(API_LINK_RECIPE_CREATE, data).then((result) => {});
     } else {
       // UPDATE RECIPES THEO ID
       const updateNewRecipe = async (url, inputData) => {
         const response = await fetch(url, {
           method: "POST",
           headers: {
-            'Accept': 'application/json;charset=UTF-8'
+            Accept: "application/json;charset=UTF-8",
           },
           body: JSON.stringify({ ...inputData }),
-        })
+        });
         return await response.json();
-      }
+      };
       const data = {
         name: name,
         image: image,
@@ -139,34 +136,32 @@ export default function AU_Recipe() {
         id: id,
         category_id: category,
         account_id: auth.user.id,
-      }
-      updateNewRecipe(API_LINK_RECIPE_UPDATE, data)
-        .then(result => {
-        })
+      };
+      updateNewRecipe(API_LINK_RECIPE_UPDATE, data).then((result) => {});
     }
-  }
-  const handleUploadFile = e => {
+  };
+  const handleUploadFile = (e) => {
     const files = e.target.files;
     const formData = new FormData();
-    formData.append('sendimage', files[0]);
-    fetch(`http://localhost/recipes_food/backend/api/upload.php`, {
+    formData.append("sendimage", files[0]);
+    fetch(`http://localhost:9090/api/upload.php`, {
       // mode: "no-cors",
       method: "POST",
-      body: formData
+      body: formData,
     })
-      .then(res => res.json())
-      .then(result => {
+      .then((res) => res.json())
+      .then((result) => {
         setImage(result.filename);
       });
-  }
+  };
   return (
     <div className="body-au-recipe">
       {/* Head title */}
       <div className="container">
         <h2 className="text-center my-4">
-          {
-            id === undefined ? "Thêm mới công thức nấu ăn" : "Cập nhật công thức nấu ăn"
-          }
+          {id === undefined
+            ? "Thêm mới công thức nấu ăn"
+            : "Cập nhật công thức nấu ăn"}
         </h2>
       </div>
       {/* Main section */}
@@ -177,10 +172,12 @@ export default function AU_Recipe() {
             <span className="input-group-text">Tên công thức</span>
             <input
               defaultValue={name}
-              onChange={e => setName(e.target.value)}
-              autoFocus type="text"
+              onChange={(e) => setName(e.target.value)}
+              autoFocus
+              type="text"
               className="form-control"
-              placeholder="Tên công thức ..." />
+              placeholder="Tên công thức ..."
+            />
           </div>
           {/* image | description */}
           <div className="row mb-3">
@@ -189,25 +186,27 @@ export default function AU_Recipe() {
                 <label>
                   <input
                     defaultValue={image}
-                    onChange={e => {
+                    onChange={(e) => {
                       handleUploadFile(e);
                     }}
                     type="file"
                     name="sendimage"
-                    className="form-control" />
+                    className="form-control"
+                  />
                   <img
                     src={`${REACT_APP_UPLOADS}/${image}`}
-                    style={{ cursor: 'pointer' }}
+                    style={{ cursor: "pointer" }}
                     className="img-fluid img-thumbnail plane"
-                    alt="" />
+                    alt=""
+                  />
                 </label>
               </div>
             </div>
             <div className="col-md-8 col-sm-6 pt-5">
               <textarea
                 value={description}
-                onChange={e => setDescription(e.target.value)}
-                style={{ height: '100%' }}
+                onChange={(e) => setDescription(e.target.value)}
+                style={{ height: "100%" }}
                 className="form-control"
                 placeholder="Mô tả"
                 rows="10"
@@ -222,11 +221,13 @@ export default function AU_Recipe() {
                 <select
                   className="form-select"
                   value={category}
-                  onChange={e => setCategory(e.target.value)}
+                  onChange={(e) => setCategory(e.target.value)}
                 >
-                  {
-                    categories.map((item) => <option key={item.id} value={item.id}>{item.name}</option>)
-                  }
+                  {categories.map((item) => (
+                    <option key={item.id} value={item.id}>
+                      {item.name}
+                    </option>
+                  ))}
                 </select>
               </div>
             </div>
@@ -238,31 +239,35 @@ export default function AU_Recipe() {
               <div className="input-group mb-3">
                 <textarea
                   value={ingredient}
-                  onChange={e => setIngredient(e.target.value)}
-                  className="form-control" />
-                <button onClick={() => handleAddCIngredient()}
+                  onChange={(e) => setIngredient(e.target.value)}
+                  className="form-control"
+                />
+                <button
+                  onClick={() => handleAddCIngredient()}
                   className="btn mx-1 btn-success"
-                  type="button" >Thêm</button>
+                  type="button"
+                >
+                  Thêm
+                </button>
               </div>
 
               <ol className="list-group list-group-numbered">
-                {
-                  ingredients.map((content, index) => {
-                    if (content.trim().length === 0) return;
-                    return (<li
-                      key={index}
-                      className="list-group-item d-flex">
+                {ingredients.map((content, index) => {
+                  if (content.trim().length === 0) return;
+                  return (
+                    <li key={index} className="list-group-item d-flex">
                       <span className="me-auto">{content}</span>
                       <button
                         onClick={() => handleDeleteIngredient(index)}
                         className="btn btn-danger button-small"
-                        type="button">Delete</button>
-                    </li>)
-                  }
-                  )
-                }
+                        type="button"
+                      >
+                        Delete
+                      </button>
+                    </li>
+                  );
+                })}
               </ol>
-
             </div>
 
             <div className="col-lg-6 col-md-6 col-sm-12">
@@ -270,41 +275,49 @@ export default function AU_Recipe() {
               <div className="input-group mb-3">
                 <textarea
                   value={step}
-                  onChange={e => setStep(e.target.value)}
-                  className="form-control" />
-                <button onClick={() => handleAddCStep()}
+                  onChange={(e) => setStep(e.target.value)}
+                  className="form-control"
+                />
+                <button
+                  onClick={() => handleAddCStep()}
                   className="btn mx-1 btn-success"
-                  type="button">Thêm</button>
+                  type="button"
+                >
+                  Thêm
+                </button>
               </div>
 
               <ol className="list-group list-group-numbered">
-                {
-                  steps.map((content, index) => {
-                    if (content.trim().length === 0) return;
-                    return (<li
-                      key={index}
-                      className="list-group-item d-flex">
+                {steps.map((content, index) => {
+                  if (content.trim().length === 0) return;
+                  return (
+                    <li key={index} className="list-group-item d-flex">
                       <span className="me-auto">{content}</span>
                       <button
                         onClick={() => handleDeleteStep(index)}
                         className="btn btn-danger button-small"
-                        type="button">Delete</button>
-                    </li>)
-                  }
-                  )
-                }
+                        type="button"
+                      >
+                        Delete
+                      </button>
+                    </li>
+                  );
+                })}
               </ol>
-
             </div>
           </div>
 
           <div className="d-grid">
-            <button onClick={handleSubmitForm} className="btn mx-1 btn-primary" type="submit">Gửi</button>
+            <button
+              onClick={handleSubmitForm}
+              className="btn mx-1 btn-primary"
+              type="submit"
+            >
+              Gửi
+            </button>
           </div>
-
         </form>
       </div>
-
     </div>
   );
 }
