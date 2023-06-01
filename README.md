@@ -6,12 +6,6 @@
 - NodeJS (version 16)
 - Install yarn
 
-## Setup
-
-```bash
-bash setup.sh
-```
-
 ## Run
 
 - **Start docker**
